@@ -1,0 +1,108 @@
+@import 'base.less';
+
+html,
+body {
+    height: 100%;
+}
+
+// 主体区域样式
+.main {
+    width: 100%;
+    height: 100%;
+    padding-top: 1.07rem;
+    box-sizing: border-box;
+    background-image: url('../images/login-bg.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .login {
+        width: 3.3rem;
+        height: 3.2rem;
+        background-image: url('../images/login-border.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        .logo {
+            width: 1.265rem;
+            height: .255rem;
+            margin: 0 auto;
+            background-image: url('../images/login-logo.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .title {
+            width: 1.8rem;
+            height: .225rem;
+            margin: 0 auto;
+            margin-top: .23rem;
+            background-image: url('../images/login-title.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .input-box {
+            width: 2.965rem;
+            margin: 0 auto;
+            padding-top: .205rem;
+            box-sizing: border-box;
+            div {
+                width: 2.965rem;
+                height: .37rem;
+                margin-top: .255rem;
+                padding-left: .115rem;
+                box-sizing: border-box;
+                background-image: url('../images/login-line.png');
+                background-position: center bottom;
+                background-repeat: no-repeat;
+                background-size: contain;
+                i {
+                    width: .19rem;
+                    height: .22rem;
+                    display: inline-block;
+                    background-position: center top;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    vertical-align: top;
+                }
+                .user-icon {
+                    background-image: url('../images/login-user.png');
+                }
+                .password-icon {
+                    background-image: url('../images/login-password.png');
+                }
+                input {
+                    border: none;
+                    outline: none;
+                    color: #fff;
+                    background-color: rgba(255, 255, 255, 0);
+                    width: 2.285rem;
+                    height: .24rem;
+                    font-size: .18rem;
+                    padding-left: .095rem;
+                    box-sizing: border-box;
+                }
+            }
+        }
+        .login-button {
+            display: block;
+            width: 2.96rem;
+            height: .45rem;
+            margin: 0 auto;
+            margin-top: .465rem;
+            background-image: url('../images/login-button.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+    }
+}
+
+
+// 占位符样式
+::-webkit-input-placeholder { color:#c1c1c1; text-align: center;}
+::-moz-placeholder { color:#c1c1c1; text-align: center;} /* firefox 19+ */
+:-ms-input-placeholder { color:#c1c1c1; text-align: center;} /* Internet Explorer 10+ */
+:-moz-placeholder { color:#c1c1c1; text-align: center;} /* firefox 14-18 */

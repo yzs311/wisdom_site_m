@@ -1,0 +1,14 @@
+{
+  "name": "wisdom_site_m",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html --out-dir dist/build/output"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

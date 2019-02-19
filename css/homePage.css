@@ -1,0 +1,166 @@
+html {
+  font-size: 100px;
+}
+body {
+  background-color: #fff;
+  font-size: .12rem;
+  line-height: .12rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #333333;
+}
+ul {
+  list-style: none;
+}
+i,
+strong,
+u {
+  font-style: normal;
+}
+p {
+  margin: 0;
+  padding: 0;
+  line-height: .16rem;
+  font-size: .12rem;
+}
+img {
+  vertical-align: middle;
+}
+input[type=email],
+input[type=search],
+input[type=text],
+input[type=password] {
+  margin: 0;
+}
+input[type=search] {
+  text-align: left;
+}
+html,
+body {
+  height: 100%;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  padding-top: .15rem;
+  box-sizing: border-box;
+  background-color: #010118;
+}
+.main .logo {
+  width: 1.28rem;
+  height: .265rem;
+  margin: 0 auto;
+  background-image: url('../images/homePage-logo.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .title {
+  width: 3.45rem;
+  height: .445rem;
+  margin: 0 auto;
+  margin-top: .1rem;
+  background-image: url('../images/homePage-titleBorder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-align: center;
+}
+.main .title span {
+  font-size: .19rem;
+  font-weight: bolder;
+  line-height: .445rem;
+}
+.main .nav {
+  width: 3.45rem;
+  height: 1.4rem;
+  margin: 0 auto;
+  margin-top: .125rem;
+  position: relative;
+}
+.main .nav .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.main .nav .swiper-container li {
+  text-align: center;
+}
+.main .nav .swiper-container li a {
+  width: 100%;
+  height: 50%;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+}
+.main .nav .swiper-container li a img {
+  width: .48rem;
+  height: .48rem;
+}
+.main .slide {
+  width: 3.45rem;
+  height: 1.43rem;
+  margin: 0 auto;
+  margin-top: .13rem;
+  padding: .01rem;
+  box-sizing: border-box;
+  background-image: url('../images/homePage-slideBorder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.main .slide .swiper-container {
+  width: 3.43rem;
+  height: 1.41rem;
+  background-color: #ccc;
+  border-radius: .02rem;
+  overflow: hidden;
+}
+.main .slide .swiper-container .swiper-slide {
+  text-align: center;
+  line-height: 1.41rem;
+  font-size: .2rem;
+}
+.main .message {
+  width: 3.45rem;
+  height: 1.26rem;
+  margin: 0 auto;
+  margin-top: .1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.main .message div {
+  width: 1.675rem;
+  height: 1.26rem;
+  background-image: url('../images/homePage-messageBorder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  padding-top: .06rem;
+  padding-left: .235rem;
+  box-sizing: border-box;
+}
+.main .message div p {
+  font-size: .13rem;
+  font-weight: bolder;
+  line-height: .21rem;
+}
+.main .message div ul li {
+  position: relative;
+  line-height: .2rem;
+}
+.main .message div ul li i {
+  width: .065rem;
+  height: .065rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -0.11rem;
+  border-radius: .065rem;
+  background-color: #4cd964;
+}
