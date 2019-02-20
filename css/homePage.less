@@ -1,16 +1,12 @@
 @import 'base.less';
 
-html,
-body {
-    height: 100%;
-}
 
 // 首页样式
 .main {
     width: 100%;
-    height: 100%;
     color: #fff;
     padding-top: .15rem;
+    padding-bottom: .27rem;
     box-sizing: border-box;
     background-color: #010118;
     .logo {
@@ -96,43 +92,39 @@ body {
             }
         }
     }
-    .message {
+    .particulars {
         width: 3.45rem;
-        height: 1.26rem;
+        height: 3.83rem;
         margin: 0 auto;
         margin-top: .1rem;
-        display: flex;
-        justify-content: space-between;
-        div {
-            width: 1.675rem;
-            height: 1.26rem;
-            background-image: url('../images/homePage-messageBorder.png');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            padding-top: .06rem;
-            padding-left: .235rem;
-            box-sizing: border-box;
-            p {
-                font-size: .13rem;
-                font-weight: bolder;
-                line-height: .21rem;
+        background-image: url('../images/homePage-particularsBorder.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        padding-top: .15rem;
+        padding-left: .32rem;
+        box-sizing: border-box;
+        .particulars-title {
+            position: relative;
+            font-size: .16rem;
+            font-weight: bolder;
+            i {
+                width: .135rem;
+                height: .135rem;
+                position: absolute;
+                background-image: url('../images/shade.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                left: -0.22rem;
+                top: 0;
             }
-            ul {
-                li {
-                    position: relative;
-                    line-height: .2rem;
-                    i {
-                        width: .065rem;
-                        height: .065rem;
-                        position: absolute;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        left: -.11rem;
-                        border-radius: .065rem;
-                        background-color: #4cd964;
-                    }
-                }
+        }
+        ul {
+            margin-top: .08rem;
+            li {
+                color: #7f9ea8;
+                line-height: .28rem;
             }
         }
     }
