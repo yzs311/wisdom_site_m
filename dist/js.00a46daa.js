@@ -108,8 +108,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 $(function () {
   // FastClick.attach(document.body)
   // 判断账号密码是否正确
+  var height = $('body').height();
+  $('body').height(height);
   $(".login-button").on("click", function () {
-    if ($("#user").val() == 'admin' && $("#password").val() == "admin") {
+    if ($("#user").val() == "123" && $("#password").val() == "123") {
       //登录成功时跳转到首页
       alert('登录成功');
       location = '../components/homePage.html';
