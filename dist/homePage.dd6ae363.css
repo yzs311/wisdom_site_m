@@ -42,7 +42,7 @@ input[type=search] {
 .main {
   width: 100%;
   color: #fff;
-  padding-top: .15rem;
+  padding-top: .225rem;
   padding-bottom: .27rem;
   box-sizing: border-box;
   background-color: #010118;
@@ -55,6 +55,7 @@ input[type=search] {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+  margin-bottom: .225rem;
 }
 .main .title {
   width: 3.45rem;
@@ -74,14 +75,12 @@ input[type=search] {
 }
 .main .nav {
   width: 3.45rem;
-  height: 1.4rem;
+  height: 1.79rem;
   margin: 0 auto;
-  margin-top: .125rem;
   position: relative;
 }
 .main .nav .swiper-container {
   width: 100%;
-  height: 100%;
 }
 .main .nav .swiper-container li {
   text-align: center;
@@ -91,6 +90,7 @@ input[type=search] {
   height: 50%;
   color: #fff;
   display: block;
+  margin-top: .195rem;
   text-decoration: none;
 }
 .main .nav .swiper-container li a img {
@@ -101,7 +101,7 @@ input[type=search] {
   width: 3.45rem;
   height: 1.43rem;
   margin: 0 auto;
-  margin-top: .13rem;
+  margin-top: .115rem;
   padding: .01rem;
   box-sizing: border-box;
   background-image: url('homePage-slideBorder.bdf9b402.png');
@@ -126,7 +126,7 @@ input[type=search] {
   width: 3.45rem;
   height: 3.83rem;
   margin: 0 auto;
-  margin-top: .1rem;
+  margin-top: .225rem;
   background-image: url('homePage-particularsBorder.730cc720.png');
   background-position: center center;
   background-repeat: no-repeat;

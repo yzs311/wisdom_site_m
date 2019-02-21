@@ -1,0 +1,281 @@
+html {
+  font-size: 100px;
+}
+body {
+  background-color: #fff;
+  font-size: .12rem;
+  line-height: .12rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #333333;
+}
+ul {
+  list-style: none;
+}
+i,
+strong,
+u {
+  font-style: normal;
+}
+p {
+  margin: 0;
+  padding: 0;
+  line-height: .16rem;
+  font-size: .12rem;
+}
+img {
+  vertical-align: middle;
+}
+input[type=email],
+input[type=search],
+input[type=text],
+input[type=password] {
+  margin: 0;
+}
+input[type=search] {
+  text-align: left;
+}
+.main {
+  width: 100%;
+  color: #fff;
+  padding-top: .45rem;
+  padding-bottom: .45rem;
+  box-sizing: border-box;
+  background-color: #010118;
+}
+.main .title {
+  width: 3.3rem;
+  height: .445rem;
+  font-size: .18rem;
+  font-weight: bolder;
+  margin: 0 auto;
+  text-align: center;
+  line-height: .445rem;
+  background-image: url('../images/labour-titleBorder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .attendance-rate {
+  width: 3.3rem;
+  height: 2.635rem;
+  margin: 0 auto;
+  position: relative;
+  margin-top: .45rem;
+  padding-top: .08rem;
+  box-sizing: border-box;
+  background-image: url('../images/labour-attendanceBorder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .attendance-rate .attendance-title {
+  height: .17rem;
+  font-size: .17rem;
+  font-weight: bolder;
+  padding-left: .325rem;
+  box-sizing: border-box;
+  position: relative;
+}
+.main .attendance-rate .schedule {
+  width: 1.15rem;
+  height: .175rem;
+  position: absolute;
+  top: .08rem;
+  left: 1.775rem;
+}
+.main .attendance-rate .schedule .sub-schedule {
+  width: 100%;
+  height: .175rem;
+  position: absolute;
+  background: linear-gradient(to right, #0163ff, #00adfe);
+  transform: skew(13deg);
+}
+.main .attendance-rate .schedule .sub-schedule p {
+  margin-left: 105%;
+  transform: skew(-13deg);
+}
+.main .attendance-rate .content-box {
+  margin-top: .085rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.main .attendance-rate .content-box > div {
+  width: 1.535rem;
+  height: .81rem;
+  margin-top: .225rem;
+  padding: .135rem .1rem .1rem .1rem;
+  box-sizing: border-box;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.main .attendance-rate .content-box > div .content-top {
+  font-size: 0.16rem;
+}
+.main .attendance-rate .content-box > div .content-bottom {
+  font-size: .2rem;
+  font-weight: bolder;
+  position: absolute;
+  bottom: .14rem;
+}
+.main .attendance-rate .content-box > div i {
+  right: .1rem;
+  bottom: .1rem;
+  width: .25rem;
+  height: .25rem;
+  position: absolute;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .contract-box {
+  width: 3.3rem;
+  height: 1.26rem;
+  margin: 0 auto;
+  margin-top: .225rem;
+  background-image: url('../images/labour-contractBorder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: space-between;
+  padding: .12rem .31rem 0 .31rem;
+  box-sizing: border-box;
+}
+.main .contract-box .left-box {
+  position: relative;
+}
+.main .contract-box .left-box .box-title {
+  height: .22rem;
+  font-size: .17rem;
+  font-weight: bolder;
+}
+.main .contract-box .left-box .box-data li {
+  font-size: .135rem;
+  line-height: .22rem;
+}
+.main .contract-box .left-box i {
+  left: -0.21rem;
+}
+.main .contract-box .right-box {
+  width: .9rem;
+  height: .9rem;
+  margin-top: .05rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+.main .contract-box .right-box .border {
+  width: .66rem;
+  height: .66rem;
+  border: .025rem solid;
+  border-radius: .7rem;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: .12rem;
+}
+.main .contract-box .right-box .subBorder {
+  width: .7rem;
+  height: .7rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main .contract-box .right-box .subBorder .wrapper {
+  width: .35rem;
+  height: .7rem;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+.main .contract-box .right-box .subBorder .circleProgress {
+  width: .7rem;
+  height: .7rem;
+  border: 0.06rem solid transparent;
+  border-radius: .7rem;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+}
+.main .contract-box .right-box .subBorder .rightcircle-green {
+  border-top: 0.06rem solid #4cd964;
+  border-right: 0.06rem solid #4cd964;
+  right: 0;
+  transform: rotate(45deg);
+}
+.main .contract-box .right-box .subBorder .leftcircle-green {
+  border-bottom: 0.06rem solid #4cd964;
+  border-left: 0.06rem solid #4cd964;
+  left: 0;
+  transform: rotate(15deg);
+}
+.main .contract-box .right-box .subBorder .rightcircle-red {
+  border-top: 0.06rem solid #ff3b30;
+  border-right: 0.06rem solid #ff3b30;
+  right: 0;
+  transform: rotate(45deg);
+}
+.main .contract-box .right-box .subBorder .leftcircle-red {
+  border-bottom: 0.06rem solid #ff3b30;
+  border-left: 0.06rem solid #ff3b30;
+  left: 0;
+  transform: rotate(15deg);
+}
+.main .contract-box .right-box > span {
+  position: absolute;
+  font-size: .2rem;
+  font-weight: bolder;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.rise {
+  background-image: url('../images/labour-rise.png');
+}
+.decline {
+  background-image: url('../images/labour-decline.png');
+}
+.online {
+  background-image: url('../images/labour-onlineBg.png');
+}
+.real-time {
+  background-image: url('../images/labour-realTimeBorder.png');
+}
+.worker {
+  background-image: url('../images/labour-workerBorder.png');
+}
+.administrator {
+  background-image: url('../images/labour-administratorBorder.png');
+}
+.shade {
+  width: .135rem;
+  height: .135rem;
+  position: absolute;
+  background-image: url('../images/shade.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  left: .11rem;
+  top: 0;
+}
+.green-color {
+  color: #4cd964;
+}
+.red-color {
+  color: #ff3b30;
+}
+.green-bg {
+  background-image: url('../images/labour-greenBg.png');
+}
+.red-bg {
+  background-image: url('../images/labour-redBg.png');
+}
