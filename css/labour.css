@@ -267,6 +267,9 @@ input[type=search] {
 .administrator {
   background-image: url('../images/labour-administratorBorder.png');
 }
+.shade {
+  top: 0;
+}
 .green-color {
   color: #4cd964;
 }
