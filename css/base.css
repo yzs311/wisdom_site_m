@@ -39,3 +39,14 @@ input[type=password] {
 input[type=search] {
   text-align: left;
 }
+.shade {
+  width: .135rem;
+  height: .135rem;
+  position: absolute;
+  background-image: url('../images/shade.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: .09rem;
+  left: .11rem;
+}

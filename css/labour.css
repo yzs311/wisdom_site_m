@@ -39,6 +39,17 @@ input[type=password] {
 input[type=search] {
   text-align: left;
 }
+.shade {
+  width: .135rem;
+  height: .135rem;
+  position: absolute;
+  background-image: url('../images/shade.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  top: .09rem;
+  left: .11rem;
+}
 .main {
   width: 100%;
   color: #fff;
@@ -255,17 +266,6 @@ input[type=search] {
 }
 .administrator {
   background-image: url('../images/labour-administratorBorder.png');
-}
-.shade {
-  width: .135rem;
-  height: .135rem;
-  position: absolute;
-  background-image: url('../images/shade.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  left: .11rem;
-  top: 0;
 }
 .green-color {
   color: #4cd964;
