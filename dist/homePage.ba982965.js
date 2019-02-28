@@ -118,10 +118,10 @@ $(function () {
   });
   var swiper2 = new Swiper('#swiper2', {
     slidesPerView: 4,
-    freeMode: true // scrollbar: {
-    //     el: '.swiper-scrollbar',
-    // },
-
+    freeMode: true,
+    scrollbar: {
+      el: '.swiper-scrollbar'
+    }
   });
 });
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -151,7 +151,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52609" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52181" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

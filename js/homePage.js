@@ -12,8 +12,8 @@ $(function(){
     const swiper2 = new Swiper('#swiper2', {
         slidesPerView: 4,
         freeMode : true,
-        // scrollbar: {
-        //     el: '.swiper-scrollbar',
-        // },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
     });
 })
