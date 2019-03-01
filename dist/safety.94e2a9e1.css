@@ -73,6 +73,7 @@ input[type=search] {
 }
 .main .nav {
   width: 3.3rem;
+  height: .755rem;
   margin: 0 auto;
   margin-top: .225rem;
 }
@@ -83,52 +84,37 @@ input[type=search] {
   width: 1.035rem;
   height: .67rem;
 }
+.main .nav .swiper-scrollbar {
+  background-color: #80808c;
+  width: .4rem;
+  height: .025rem;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0;
+}
+.main .nav .swiper-scrollbar .swiper-scrollbar-drag {
+  background-color: #fff;
+}
 .main .content {
   width: 3.3rem;
   margin: 0 auto;
-  margin-top: .105rem;
+  margin-top: .125rem;
 }
-.main .content .silde-box {
+.main .content .towerCrane .silde-box {
   position: relative;
 }
-.main .content .silde-box .last-bg {
-  width: .15rem;
-  height: .75rem;
-  position: absolute;
-  background-color: #010118;
-  background-image: url('safety-lastBtn.00a2f3a5.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  left: 0;
-  top: 0;
-  z-index: 999;
-}
-.main .content .silde-box .next-bg {
-  width: .15rem;
-  height: .75rem;
-  position: absolute;
-  background-color: #010118;
-  background-image: url('safety-nextBtn.ff00e02c.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  right: 0;
-  top: 0;
-  z-index: 999;
-}
-.main .content .silde-box .information {
-  width: 2.75rem;
+.main .content .towerCrane .silde-box .information {
+  width: 3.3rem;
   height: .75rem;
   margin: 0 auto;
-  padding: .1rem .09rem;
+  padding: .1rem .375rem;
   box-sizing: border-box;
   background-image: url('safety-InformationBg.1bbbe2ee.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .content .silde-box .information .information-left {
+.main .content .towerCrane .silde-box .information .information-left {
   float: left;
   font-size: .18rem;
   font-weight: bolder;
@@ -138,29 +124,29 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: .37rem .385rem;
 }
-.main .content .silde-box .information .information-middle {
+.main .content .towerCrane .silde-box .information .information-middle {
   float: left;
   font-size: .13rem;
-  margin-left: .28rem;
+  margin-left: .25rem;
 }
-.main .content .silde-box .information .information-middle > div {
+.main .content .towerCrane .silde-box .information .information-middle > div {
   font-weight: bolder;
   line-height: .265rem;
 }
-.main .content .silde-box .information .information-middle > div span {
+.main .content .towerCrane .silde-box .information .information-middle > div span {
   font-weight: normal;
 }
-.main .content .silde-box .information .information-right {
+.main .content .towerCrane .silde-box .information .information-right {
   float: left;
   width: .47rem;
   height: .52rem;
   margin-left: .1rem;
 }
-.main .content .silde-box .information .information-right img {
+.main .content .towerCrane .silde-box .information .information-right img {
   width: 100%;
   height: 100%;
 }
-.main .content .silde-box .data {
+.main .content .towerCrane .silde-box .data {
   width: 3.3rem;
   height: 4rem;
   margin: 0 auto;
@@ -172,24 +158,24 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .content .silde-box .data .name {
+.main .content .towerCrane .silde-box .data .name {
   font-size: .18rem;
   font-weight: bolder;
   padding-left: .19rem;
   box-sizing: border-box;
 }
-.main .content .silde-box .data .top-data {
+.main .content .towerCrane .silde-box .data .top-data {
   height: .97rem;
   margin-top: .25rem;
 }
-.main .content .silde-box .data .top-data .left-box {
+.main .content .towerCrane .silde-box .data .top-data .left-box {
   float: left;
   font-size: .14rem;
   padding-top: .34rem;
   margin-left: .44rem;
   margin-right: .44rem;
 }
-.main .content .silde-box .data .top-data .middle-box {
+.main .content .towerCrane .silde-box .data .top-data .middle-box {
   float: left;
   width: .97rem;
   height: .97rem;
@@ -202,45 +188,144 @@ input[type=search] {
   text-align: center;
   line-height: .97rem;
 }
-.main .content .silde-box .data .top-data .middle-box p {
+.main .content .towerCrane .silde-box .data .top-data .middle-box p {
   position: absolute;
   bottom: -0.21rem;
   left: 50%;
   transform: translate(-50%);
 }
-.main .content .silde-box .data .top-data .right-box {
+.main .content .towerCrane .silde-box .data .top-data .right-box {
   float: left;
   font-size: .14rem;
   padding-top: .34rem;
   margin-left: .44rem;
   margin-right: .44rem;
 }
-.main .content .silde-box .data .bottom-data {
+.main .content .towerCrane .silde-box .data .bottom-data {
   margin-top: .21rem;
 }
-.main .content .silde-box .data .bottom-data ul {
+.main .content .towerCrane .silde-box .data .bottom-data ul {
   display: flex;
   flex-wrap: wrap;
 }
-.main .content .silde-box .data .bottom-data ul li {
+.main .content .towerCrane .silde-box .data .bottom-data ul li {
   width: 50%;
   margin-top: .3rem;
 }
-.main .content .silde-box .data .bottom-data ul li img {
+.main .content .towerCrane .silde-box .data .bottom-data ul li img {
   float: left;
   width: .26rem;
   height: .26rem;
   margin-left: .43rem;
 }
-.main .content .silde-box .data .bottom-data ul li .li-data {
+.main .content .towerCrane .silde-box .data .bottom-data ul li .li-data {
   float: left;
   margin-left: .06rem;
 }
-.main .content .silde-box .data .service {
+.main .content .towerCrane .silde-box .data .service {
   font-size: .16rem;
   font-weight: bolder;
   text-align: center;
   margin-top: .21rem;
+}
+.main .content .elevator .silde-box {
+  position: relative;
+}
+.main .content .elevator .silde-box .information {
+  width: 3.3rem;
+  height: .75rem;
+  margin: 0 auto;
+  padding: .1rem .375rem;
+  box-sizing: border-box;
+  background-image: url('safety-InformationBg.1bbbe2ee.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .elevator .silde-box .information .information-left {
+  float: left;
+  font-size: .18rem;
+  font-weight: bolder;
+  line-height: .55rem;
+  background-image: url('safety-operationBg.a5fe8ec5.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: .37rem .385rem;
+}
+.main .content .elevator .silde-box .information .information-middle {
+  float: left;
+  font-size: .13rem;
+  margin-left: .25rem;
+}
+.main .content .elevator .silde-box .information .information-middle > div {
+  font-weight: bolder;
+  line-height: .265rem;
+}
+.main .content .elevator .silde-box .information .information-middle > div span {
+  font-weight: normal;
+}
+.main .content .elevator .silde-box .information .information-right {
+  float: left;
+  width: .47rem;
+  height: .52rem;
+  margin-left: .1rem;
+}
+.main .content .elevator .silde-box .information .information-right img {
+  width: 100%;
+  height: 100%;
+}
+.main .content .elevator .silde-box .data {
+  width: 3.3rem;
+  height: 4rem;
+  margin: 0 auto;
+  margin-top: .225rem;
+  padding-top: .26rem;
+  box-sizing: border-box;
+  background-image: url('safety-dataBg.5e22b107.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .elevator .silde-box .data .name {
+  font-size: .18rem;
+  font-weight: bolder;
+  padding-left: .19rem;
+  box-sizing: border-box;
+}
+.main .content .elevator .silde-box .data .data-box ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .25rem;
+}
+.main .content .elevator .silde-box .data .data-box ul li {
+  width: 50%;
+  height: 1.42rem;
+  font-size: .175rem;
+  font-weight: bolder;
+  background-image: url('safety-greenCircle.e3d5cbf0.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: .99rem .99rem;
+  position: relative;
+  text-align: center;
+  line-height: .99rem;
+}
+.main .content .elevator .silde-box .data .data-box ul li span {
+  left: 50%;
+  transform: translate(-50%);
+  bottom: .2rem;
+  color: #fff;
+  width: 1rem;
+  font-size: .13rem;
+  font-weight: normal;
+  position: absolute;
+  line-height: normal;
+}
+.main .content .elevator .silde-box .data .service {
+  font-size: .16rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: .095rem;
 }
 .anomaly {
   color: #ff3b30;

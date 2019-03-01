@@ -109,13 +109,35 @@ $(function () {
   // 初始化导航栏滚动
   var swiper1 = new Swiper('#swiper1', {
     slidesPerView: 3,
-    freeMode: true // scrollbar: {
-    //     el: '.swiper-scrollbar',
-    // },
-
+    freeMode: true,
+    scrollbar: {
+      el: '.swiper-scrollbar'
+    }
   }); // 初始化设备信息滚动
 
-  var swiper2 = new Swiper('#swiper2');
+  var swiper2 = new Swiper('#swiper2'); // const swiper3 = new Swiper('#swiper3')
+  // 模块切换点击事件
+  // 切换到塔吊模块
+
+  $('#towerCraneBtn').on('click', function () {
+    $('.towerCrane').css('display', '');
+    var siblings = $('.towerCrane').siblings();
+
+    for (var i = 0; i < siblings.length; i++) {
+      $(siblings[i]).css('display', 'none');
+    }
+  }); // 切换到升降机模块
+
+  $('#elevatorBtn').on('click', function () {
+    $('.elevator').css('display', '');
+    var siblings = $('.elevator').siblings();
+
+    for (var i = 0; i < siblings.length; i++) {
+      $(siblings[i]).css('display', 'none');
+    }
+
+    var swiper3 = new Swiper('#swiper3');
+  });
 });
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -144,7 +166,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52181" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51612" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

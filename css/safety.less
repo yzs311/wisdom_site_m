@@ -23,6 +23,7 @@
     }
     .nav {
         width: 3.3rem;
+        height: .755rem;
         margin: 0 auto;
         margin-top: .225rem;
         li {
@@ -32,163 +33,281 @@
                 height: .67rem;
             }
         }
+        .swiper-scrollbar {
+            background-color: #80808c;
+            width: .4rem;
+            height: .025rem;
+            left: 50%;
+            transform: translate(-50%);
+            bottom: 0;
+            .swiper-scrollbar-drag {
+                background-color: #fff;
+            }
+        }
     }
     .content {
         width: 3.3rem;
         margin: 0 auto;
-        margin-top: .105rem;
-        .silde-box {
-            position: relative;
-            .last-bg {
-                width: .15rem;
-                height: .75rem;
-                position: absolute;
-                background-color: #010118;
-                background-image: url('../images/safety-lastBtn.png');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                left: 0;
-                top: 0;
-                z-index: 999;
-            }
-            .next-bg {
-                width: .15rem;
-                height: .75rem;
-                position: absolute;
-                background-color: #010118;
-                background-image: url('../images/safety-nextBtn.png');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                right: 0;
-                top: 0;
-                z-index: 999;
-            }
-            .information {
-                width: 2.75rem;
-                height: .75rem;
-                margin: 0 auto;
-                padding: .1rem .09rem;
-                box-sizing: border-box;
-                background-image: url('../images/safety-InformationBg.png');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                .information-left {
-                    float: left;
-                    font-size: .18rem;
-                    font-weight: bolder;
-                    line-height: .55rem;
-                    background-image: url('../images/safety-operationBg.png');
+        margin-top: .125rem;
+        // 塔吊设备数据样式
+        .towerCrane {
+            .silde-box {
+                position: relative;
+                // .last-bg {
+                //     width: .15rem;
+                //     height: .75rem;
+                //     position: absolute;
+                //     background-color: #010118;
+                //     background-image: url('../images/safety-lastBtn.png');
+                //     background-position: center center;
+                //     background-repeat: no-repeat;
+                //     background-size: contain;
+                //     left: 0;
+                //     top: 0;
+                //     z-index: 999;
+                // }
+                // .next-bg {
+                //     width: .15rem;
+                //     height: .75rem;
+                //     position: absolute;
+                //     background-color: #010118;
+                //     background-image: url('../images/safety-nextBtn.png');
+                //     background-position: center center;
+                //     background-repeat: no-repeat;
+                //     background-size: contain;
+                //     right: 0;
+                //     top: 0;
+                //     z-index: 999;
+                // }
+                .information {
+                    width: 3.3rem;
+                    height: .75rem;
+                    margin: 0 auto;
+                    padding: .1rem .375rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-InformationBg.png');
                     background-position: center center;
                     background-repeat: no-repeat;
-                    background-size: .37rem .385rem;
-                }
-                .information-middle {
-                    float: left;
-                    font-size: .13rem;
-                    margin-left: .28rem;
-                    >div {
+                    background-size: contain;
+                    .information-left {
+                        float: left;
+                        font-size: .18rem;
                         font-weight: bolder;
-                        line-height: .265rem;
-                        span {
-                            font-weight: normal;
+                        line-height: .55rem;
+                        background-image: url('../images/safety-operationBg.png');
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: .37rem .385rem;
+                    }
+                    .information-middle {
+                        float: left;
+                        font-size: .13rem;
+                        margin-left: .25rem;
+                        >div {
+                            font-weight: bolder;
+                            line-height: .265rem;
+                            span {
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                    .information-right {
+                        float: left;
+                        width: .47rem;
+                        height: .52rem;
+                        margin-left: .1rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
                         }
                     }
                 }
-                .information-right {
-                    float: left;
-                    width: .47rem;
-                    height: .52rem;
-                    margin-left: .1rem;
-                    img {
-                        width: 100%;
-                        height: 100%;
+                .data {
+                    width: 3.3rem;
+                    height: 4rem;
+                    margin: 0 auto;
+                    margin-top: .225rem;
+                    padding-top: .26rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-dataBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    .name {
+                        font-size: .18rem;
+                        font-weight: bolder;
+                        padding-left: .19rem;
+                        box-sizing: border-box;
+                    }
+                    .top-data {
+                        height: .97rem;
+                        margin-top: .25rem;
+                        .left-box {
+                            float: left;
+                            font-size: .14rem;
+                            padding-top: .34rem;
+                            margin-left: .44rem;
+                            margin-right: .44rem;
+                        }
+                        .middle-box {
+                            float: left;
+                            width: .97rem;
+                            height: .97rem;
+                            font-size: .14rem;
+                            background-image: url('../images/safety-centreBg.png');
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            position: relative;
+                            text-align: center;
+                            line-height: .97rem;
+                            p {
+                                position: absolute;
+                                bottom: -0.21rem;
+                                left: 50%;
+                                transform: translate(-50%);
+                            }
+                        }
+                        .right-box {
+                            float: left;
+                            font-size: .14rem;
+                            padding-top: .34rem;
+                            margin-left: .44rem;
+                            margin-right: .44rem;
+                        }
+                    }
+                    .bottom-data {
+                        margin-top: .21rem;
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            li {
+                                width: 50%;
+                                margin-top: .3rem;
+                                img {
+                                    float: left;
+                                    width: .26rem;
+                                    height: .26rem;
+                                    // vertical-align: top;
+                                    margin-left: .43rem;
+                                }
+                                .li-data {
+                                    float: left;
+                                    margin-left: .06rem;
+                                }
+                            }
+                        }
+                    }
+                    .service {
+                        font-size: .16rem;
+                        font-weight: bolder;
+                        text-align: center;
+                        margin-top: .21rem;
                     }
                 }
             }
-            .data {
-                width: 3.3rem;
-                height: 4rem;
-                margin: 0 auto;
-                margin-top: .225rem;
-                padding-top: .26rem;
-                box-sizing: border-box;
-                background-image: url('../images/safety-dataBg.png');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                .name {
-                    font-size: .18rem;
-                    font-weight: bolder;
-                    padding-left: .19rem;
+        }
+        // 升降机设备数据样式
+        .elevator {
+            .silde-box {
+                position: relative;
+                .information {
+                    width: 3.3rem;
+                    height: .75rem;
+                    margin: 0 auto;
+                    padding: .1rem .375rem;
                     box-sizing: border-box;
-                }
-                .top-data {
-                    height: .97rem;
-                    margin-top: .25rem;
-                    .left-box {
+                    background-image: url('../images/safety-InformationBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    .information-left {
                         float: left;
-                        font-size: .14rem;
-                        padding-top: .34rem;
-                        margin-left: .44rem;
-                        margin-right: .44rem;
-                    }
-                    .middle-box {
-                        float: left;
-                        width: .97rem;
-                        height: .97rem;
-                        font-size: .14rem;
-                        background-image: url('../images/safety-centreBg.png');
+                        font-size: .18rem;
+                        font-weight: bolder;
+                        line-height: .55rem;
+                        background-image: url('../images/safety-operationBg.png');
                         background-position: center center;
                         background-repeat: no-repeat;
-                        background-size: contain;
-                        position: relative;
-                        text-align: center;
-                        line-height: .97rem;
-                        p {
-                            position: absolute;
-                            bottom: -0.21rem;
-                            left: 50%;
-                            transform: translate(-50%);
-                        }
+                        background-size: .37rem .385rem;
                     }
-                    .right-box {
+                    .information-middle {
                         float: left;
-                        font-size: .14rem;
-                        padding-top: .34rem;
-                        margin-left: .44rem;
-                        margin-right: .44rem;
-                    }
-                }
-                .bottom-data {
-                    margin-top: .21rem;
-                    ul {
-                        display: flex;
-                        flex-wrap: wrap;
-                        li {
-                            width: 50%;
-                            margin-top: .3rem;
-                            img {
-                                float: left;
-                                width: .26rem;
-                                height: .26rem;
-                                // vertical-align: top;
-                                margin-left: .43rem;
-                            }
-                            .li-data {
-                                float: left;
-                                margin-left: .06rem;
+                        font-size: .13rem;
+                        margin-left: .25rem;
+                        >div {
+                            font-weight: bolder;
+                            line-height: .265rem;
+                            span {
+                                font-weight: normal;
                             }
                         }
                     }
+                    .information-right {
+                        float: left;
+                        width: .47rem;
+                        height: .52rem;
+                        margin-left: .1rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
                 }
-                .service {
-                    font-size: .16rem;
-                    font-weight: bolder;
-                    text-align: center;
-                    margin-top: .21rem;
+                .data {
+                    width: 3.3rem;
+                    height: 4rem;
+                    margin: 0 auto;
+                    margin-top: .225rem;
+                    padding-top: .26rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-dataBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    .name {
+                        font-size: .18rem;
+                        font-weight: bolder;
+                        padding-left: .19rem;
+                        box-sizing: border-box;
+                    }
+                    .data-box {
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-top: .25rem;
+                            li {
+                                width: 50%;
+                                height: 1.42rem;
+                                font-size: .175rem;
+                                font-weight: bolder;
+                                background-image: url('../images/safety-greenCircle.png');
+                                background-position: center top;
+                                background-repeat: no-repeat;
+                                background-size: .99rem .99rem;
+                                position: relative;
+                                text-align: center;
+                                line-height: .99rem;
+                                span {
+                                    left: 50%;
+                                    transform: translate(-50%);
+                                    bottom: .2rem;
+                                    color: #fff;
+                                    width: 1rem;
+                                    font-size: .13rem;
+                                    font-weight: normal;
+                                    position: absolute;
+                                    line-height: normal;
+                                }
+                            }
+                        }
+                    }
+                    .service {
+                        font-size: .16rem;
+                        font-weight: bolder;
+                        text-align: center;
+                        margin-top: .095rem;
+                    }
                 }
             }
         }
