@@ -51,7 +51,7 @@
         margin-top: .125rem;
         // 塔吊设备数据样式
         .towerCrane {
-            .silde-box {
+            .slide-box {
                 position: relative;
                 // .last-bg {
                 //     width: .15rem;
@@ -209,7 +209,7 @@
         }
         // 升降机设备数据样式
         .elevator {
-            .silde-box {
+            .slide-box {
                 position: relative;
                 .information {
                     width: 3.3rem;
@@ -308,6 +308,89 @@
                         text-align: center;
                         margin-top: .095rem;
                     }
+                }
+            }
+        }
+        // 车辆出入设备数据样式
+        .car {
+            .slide-box {
+                width: 3.3rem;
+                height: 5.41rem;
+                padding-top: .2rem;
+                box-sizing: border-box;
+                background-image: url('../images/safety-carDataBg.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                .name {
+                    height: .18rem;
+                    font-size: .18rem;
+                    font-weight: bolder;
+                    text-align: center;
+                }
+                .state {
+                    height: .385rem;
+                    font-size: .18rem;
+                    margin-top: .055rem;
+                    font-weight: bolder;
+                    text-align: center;
+                    line-height: .385rem;
+                    background-image:url('../images/safety-operationBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+                .number-box {
+                    display: flex;
+                    >div {
+                        width: 50%;
+                        height: .885rem;
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        position: relative;
+                        font-size: .16rem;
+                        text-align: center;
+                        line-height: .885rem;
+                        span {
+                            color: #fff;
+                            position: absolute;
+                            line-height: normal;
+                            left: 50%;
+                            transform: translate(-50%);
+                            bottom: -0.3rem;
+                        }
+                    }
+                    .car-green {
+                        background-image: url('../images/safety-carGreen.png');
+                    }
+                    .car-red {
+                        background-image: url('../images/safety-carRed.png');
+                    }
+                }
+                .real-time {
+                    font-size: .16rem;
+                    text-align: center;
+                    margin-top: .43rem;
+                }
+                .data-box {
+                    height: 2.27rem;
+                    margin-top: .14rem;
+                    overflow: hidden;
+                    ul {
+                        li {
+                            color: #7f9ea8;
+                            font-size: .12rem;                        
+                            text-align: center;
+                            line-height: .165rem;
+                        }
+                    }
+                }
+                .service {
+                    font-size: .16rem;
+                    font-weight: bolder;
+                    text-align: center;
+                    margin-top: .27rem;
                 }
             }
         }

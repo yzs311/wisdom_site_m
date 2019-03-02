@@ -100,10 +100,10 @@ input[type=search] {
   margin: 0 auto;
   margin-top: .125rem;
 }
-.main .content .towerCrane .silde-box {
+.main .content .towerCrane .slide-box {
   position: relative;
 }
-.main .content .towerCrane .silde-box .information {
+.main .content .towerCrane .slide-box .information {
   width: 3.3rem;
   height: .75rem;
   margin: 0 auto;
@@ -114,7 +114,7 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .content .towerCrane .silde-box .information .information-left {
+.main .content .towerCrane .slide-box .information .information-left {
   float: left;
   font-size: .18rem;
   font-weight: bolder;
@@ -124,29 +124,29 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: .37rem .385rem;
 }
-.main .content .towerCrane .silde-box .information .information-middle {
+.main .content .towerCrane .slide-box .information .information-middle {
   float: left;
   font-size: .13rem;
   margin-left: .25rem;
 }
-.main .content .towerCrane .silde-box .information .information-middle > div {
+.main .content .towerCrane .slide-box .information .information-middle > div {
   font-weight: bolder;
   line-height: .265rem;
 }
-.main .content .towerCrane .silde-box .information .information-middle > div span {
+.main .content .towerCrane .slide-box .information .information-middle > div span {
   font-weight: normal;
 }
-.main .content .towerCrane .silde-box .information .information-right {
+.main .content .towerCrane .slide-box .information .information-right {
   float: left;
   width: .47rem;
   height: .52rem;
   margin-left: .1rem;
 }
-.main .content .towerCrane .silde-box .information .information-right img {
+.main .content .towerCrane .slide-box .information .information-right img {
   width: 100%;
   height: 100%;
 }
-.main .content .towerCrane .silde-box .data {
+.main .content .towerCrane .slide-box .data {
   width: 3.3rem;
   height: 4rem;
   margin: 0 auto;
@@ -158,24 +158,24 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .content .towerCrane .silde-box .data .name {
+.main .content .towerCrane .slide-box .data .name {
   font-size: .18rem;
   font-weight: bolder;
   padding-left: .19rem;
   box-sizing: border-box;
 }
-.main .content .towerCrane .silde-box .data .top-data {
+.main .content .towerCrane .slide-box .data .top-data {
   height: .97rem;
   margin-top: .25rem;
 }
-.main .content .towerCrane .silde-box .data .top-data .left-box {
+.main .content .towerCrane .slide-box .data .top-data .left-box {
   float: left;
   font-size: .14rem;
   padding-top: .34rem;
   margin-left: .44rem;
   margin-right: .44rem;
 }
-.main .content .towerCrane .silde-box .data .top-data .middle-box {
+.main .content .towerCrane .slide-box .data .top-data .middle-box {
   float: left;
   width: .97rem;
   height: .97rem;
@@ -188,50 +188,50 @@ input[type=search] {
   text-align: center;
   line-height: .97rem;
 }
-.main .content .towerCrane .silde-box .data .top-data .middle-box p {
+.main .content .towerCrane .slide-box .data .top-data .middle-box p {
   position: absolute;
   bottom: -0.21rem;
   left: 50%;
   transform: translate(-50%);
 }
-.main .content .towerCrane .silde-box .data .top-data .right-box {
+.main .content .towerCrane .slide-box .data .top-data .right-box {
   float: left;
   font-size: .14rem;
   padding-top: .34rem;
   margin-left: .44rem;
   margin-right: .44rem;
 }
-.main .content .towerCrane .silde-box .data .bottom-data {
+.main .content .towerCrane .slide-box .data .bottom-data {
   margin-top: .21rem;
 }
-.main .content .towerCrane .silde-box .data .bottom-data ul {
+.main .content .towerCrane .slide-box .data .bottom-data ul {
   display: flex;
   flex-wrap: wrap;
 }
-.main .content .towerCrane .silde-box .data .bottom-data ul li {
+.main .content .towerCrane .slide-box .data .bottom-data ul li {
   width: 50%;
   margin-top: .3rem;
 }
-.main .content .towerCrane .silde-box .data .bottom-data ul li img {
+.main .content .towerCrane .slide-box .data .bottom-data ul li img {
   float: left;
   width: .26rem;
   height: .26rem;
   margin-left: .43rem;
 }
-.main .content .towerCrane .silde-box .data .bottom-data ul li .li-data {
+.main .content .towerCrane .slide-box .data .bottom-data ul li .li-data {
   float: left;
   margin-left: .06rem;
 }
-.main .content .towerCrane .silde-box .data .service {
+.main .content .towerCrane .slide-box .data .service {
   font-size: .16rem;
   font-weight: bolder;
   text-align: center;
   margin-top: .21rem;
 }
-.main .content .elevator .silde-box {
+.main .content .elevator .slide-box {
   position: relative;
 }
-.main .content .elevator .silde-box .information {
+.main .content .elevator .slide-box .information {
   width: 3.3rem;
   height: .75rem;
   margin: 0 auto;
@@ -242,7 +242,7 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .content .elevator .silde-box .information .information-left {
+.main .content .elevator .slide-box .information .information-left {
   float: left;
   font-size: .18rem;
   font-weight: bolder;
@@ -252,29 +252,29 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: .37rem .385rem;
 }
-.main .content .elevator .silde-box .information .information-middle {
+.main .content .elevator .slide-box .information .information-middle {
   float: left;
   font-size: .13rem;
   margin-left: .25rem;
 }
-.main .content .elevator .silde-box .information .information-middle > div {
+.main .content .elevator .slide-box .information .information-middle > div {
   font-weight: bolder;
   line-height: .265rem;
 }
-.main .content .elevator .silde-box .information .information-middle > div span {
+.main .content .elevator .slide-box .information .information-middle > div span {
   font-weight: normal;
 }
-.main .content .elevator .silde-box .information .information-right {
+.main .content .elevator .slide-box .information .information-right {
   float: left;
   width: .47rem;
   height: .52rem;
   margin-left: .1rem;
 }
-.main .content .elevator .silde-box .information .information-right img {
+.main .content .elevator .slide-box .information .information-right img {
   width: 100%;
   height: 100%;
 }
-.main .content .elevator .silde-box .data {
+.main .content .elevator .slide-box .data {
   width: 3.3rem;
   height: 4rem;
   margin: 0 auto;
@@ -286,18 +286,18 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .content .elevator .silde-box .data .name {
+.main .content .elevator .slide-box .data .name {
   font-size: .18rem;
   font-weight: bolder;
   padding-left: .19rem;
   box-sizing: border-box;
 }
-.main .content .elevator .silde-box .data .data-box ul {
+.main .content .elevator .slide-box .data .data-box ul {
   display: flex;
   flex-wrap: wrap;
   margin-top: .25rem;
 }
-.main .content .elevator .silde-box .data .data-box ul li {
+.main .content .elevator .slide-box .data .data-box ul li {
   width: 50%;
   height: 1.42rem;
   font-size: .175rem;
@@ -310,7 +310,7 @@ input[type=search] {
   text-align: center;
   line-height: .99rem;
 }
-.main .content .elevator .silde-box .data .data-box ul li span {
+.main .content .elevator .slide-box .data .data-box ul li span {
   left: 50%;
   transform: translate(-50%);
   bottom: .2rem;
@@ -321,11 +321,89 @@ input[type=search] {
   position: absolute;
   line-height: normal;
 }
-.main .content .elevator .silde-box .data .service {
+.main .content .elevator .slide-box .data .service {
   font-size: .16rem;
   font-weight: bolder;
   text-align: center;
   margin-top: .095rem;
+}
+.main .content .car .slide-box {
+  width: 3.3rem;
+  height: 5.41rem;
+  padding-top: .2rem;
+  box-sizing: border-box;
+  background-image: url('../images/safety-carDataBg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .car .slide-box .name {
+  height: .18rem;
+  font-size: .18rem;
+  font-weight: bolder;
+  text-align: center;
+}
+.main .content .car .slide-box .state {
+  height: .385rem;
+  font-size: .18rem;
+  margin-top: .055rem;
+  font-weight: bolder;
+  text-align: center;
+  line-height: .385rem;
+  background-image: url('../images/safety-operationBg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .car .slide-box .number-box {
+  display: flex;
+}
+.main .content .car .slide-box .number-box > div {
+  width: 50%;
+  height: .885rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  font-size: .16rem;
+  text-align: center;
+  line-height: .885rem;
+}
+.main .content .car .slide-box .number-box > div span {
+  color: #fff;
+  position: absolute;
+  line-height: normal;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: -0.3rem;
+}
+.main .content .car .slide-box .number-box .car-green {
+  background-image: url('../images/safety-carGreen.png');
+}
+.main .content .car .slide-box .number-box .car-red {
+  background-image: url('../images/safety-carRed.png');
+}
+.main .content .car .slide-box .real-time {
+  font-size: .16rem;
+  text-align: center;
+  margin-top: .43rem;
+}
+.main .content .car .slide-box .data-box {
+  height: 2.27rem;
+  margin-top: .14rem;
+  overflow: hidden;
+}
+.main .content .car .slide-box .data-box ul li {
+  color: #7f9ea8;
+  font-size: .12rem;
+  text-align: center;
+  line-height: .165rem;
+}
+.main .content .car .slide-box .service {
+  font-size: .16rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: .27rem;
 }
 .anomaly {
   color: #ff3b30;
