@@ -154,9 +154,10 @@ $(function () {
     var swiper4 = new Swiper('#swiper4', {
       spaceBetween: 30
     });
-    scrollStart('carBox1', 'carBox1-1', 'carBox1-2');
-    scrollStart('carBox2', 'carBox2-1', 'carBox2-2');
-  }); // 滚动启动函数
+  }); // 启动车辆出入模块滚动
+
+  scrollStart('carBox1', 'carBox1-1', 'carBox1-2');
+  scrollStart('carBox2', 'carBox2-1', 'carBox2-2'); // 滚动启动函数
 
   function scrollStart(id, id1, id2) {
     setTimeout(function () {
@@ -190,7 +191,21 @@ $(function () {
       //     MyMar1 = setInterval(Marquee1, speed);
       //   };
     }, 100);
-  }
+  } // 切换到气体检测数据模块
+
+
+  $('#gasBtn').on('click', function () {
+    $('.gas').css('display', '');
+    var siblings = $('.gas').siblings();
+
+    for (var i = 0; i < siblings.length; i++) {
+      $(siblings[i]).css('display', 'none');
+    }
+
+    var swiper5 = new Swiper('#swiper5', {
+      spaceBetween: 30
+    });
+  });
 });
 },{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -219,7 +234,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49511" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57779" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

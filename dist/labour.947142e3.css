@@ -230,14 +230,14 @@ input[type=search] {
   transform: rotate(15deg);
 }
 .main .contract-box .right-box .subBorder .rightcircle-red {
-  border-top: 0.06rem solid #ff3b30;
-  border-right: 0.06rem solid #ff3b30;
+  border-top: 0.06rem solid #ff2d55;
+  border-right: 0.06rem solid #ff2d55;
   right: 0;
   transform: rotate(45deg);
 }
 .main .contract-box .right-box .subBorder .leftcircle-red {
-  border-bottom: 0.06rem solid #ff3b30;
-  border-left: 0.06rem solid #ff3b30;
+  border-bottom: 0.06rem solid #ff2d55;
+  border-left: 0.06rem solid #ff2d55;
   left: 0;
   transform: rotate(15deg);
 }
@@ -274,7 +274,7 @@ input[type=search] {
   color: #4cd964;
 }
 .red-color {
-  color: #ff3b30;
+  color: #ff2d55;
 }
 .green-bg {
   background-image: url('labour-greenBg.5400c261.png');

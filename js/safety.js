@@ -42,9 +42,10 @@ $(function(){
         const swiper4 = new Swiper('#swiper4',{
             spaceBetween : 30,
         })
-        scrollStart('carBox1','carBox1-1','carBox1-2')
-        scrollStart('carBox2','carBox2-1','carBox2-2')
     })
+    // 启动车辆出入模块滚动
+    scrollStart('carBox1','carBox1-1','carBox1-2')
+    scrollStart('carBox2','carBox2-1','carBox2-2')
     // 滚动启动函数
     function scrollStart(id,id1,id2) {
         setTimeout(() => {
@@ -76,4 +77,15 @@ $(function(){
         //   };
         }, 100);
     }
+    // 切换到气体检测数据模块
+    $('#gasBtn').on('click',()=>{
+        $('.gas').css('display','')
+        let siblings = $('.gas').siblings()
+        for (let i = 0; i < siblings.length; i++) {
+            $(siblings[i]).css('display','none')
+        }
+        const swiper5 = new Swiper('#swiper5',{
+            spaceBetween : 30,
+        })
+    })
 })

@@ -394,12 +394,116 @@
                 }
             }
         }
+        // 气体检测设备数据样式
+        .gas {
+            .slide-box {
+                .information {
+                    width: 3.3rem;
+                    height: .75rem;
+                    margin: 0 auto;
+                    padding: .1rem .375rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-InformationBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    display: flex;
+                    justify-content: space-between;
+                    .information-left {
+                        font-size: .18rem;
+                        font-weight: bolder;
+                        line-height: .55rem;
+                        background-image: url('../images/safety-operationBg.png');
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: .37rem .385rem;
+                    }
+                    .information-right {
+                        height: 100%;
+                        display: table;
+                        .text-box {
+                            text-align: center;
+                            display: table-cell;
+                            vertical-align: middle;
+                            font-size: .13rem;
+                            font-weight: bolder;
+                            p {
+                                font-size: .13rem;
+                                font-weight: normal;
+                            }
+                            span {
+                                font-size: .12rem;
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                }
+                .data {
+                    width: 3.3rem;
+                    height: 4rem;
+                    margin: 0 auto;
+                    margin-top: .225rem;
+                    padding-top: .26rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-dataBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    .name {
+                        font-size: .18rem;
+                        font-weight: bolder;
+                        padding-left: .19rem;
+                        box-sizing: border-box;
+                    }
+                    .data-box {
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-top: .25rem;
+                            li {
+                                width: 50%;
+                                height: 1.42rem;
+                                font-size: .14rem;
+                                font-weight: bolder;
+                                background-image: url('../images/safety-greenCircle.png');
+                                background-position: center top;
+                                background-repeat: no-repeat;
+                                background-size: .99rem .99rem;
+                                position: relative;
+                                text-align: center;
+                                line-height: .99rem;
+                                span {
+                                    left: 50%;
+                                    transform: translate(-50%);
+                                    bottom: .2rem;
+                                    color: #fff;
+                                    width: 1rem;
+                                    font-size: .14rem;
+                                    font-weight: normal;
+                                    position: absolute;
+                                    line-height: normal;
+                                }
+                            }
+                            .red-circle {
+                                background-image: url('../images/safety-redCircle.png');
+                            }
+                        }
+                    }
+                    .history {
+                        font-size: .13rem;
+                        font-weight: bolder;
+                        text-align: center;
+                        margin-top: .2rem;
+                    }
+                }
+            }
+        }
     }
 }
 
 // 公共样式
 .anomaly {
-    color: #ff3b30;
+    color: #ff2d55;
 }
 .normal {
     color: #4cd964;

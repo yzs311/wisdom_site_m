@@ -405,8 +405,105 @@ input[type=search] {
   text-align: center;
   margin-top: .27rem;
 }
+.main .content .gas .slide-box .information {
+  width: 3.3rem;
+  height: .75rem;
+  margin: 0 auto;
+  padding: .1rem .375rem;
+  box-sizing: border-box;
+  background-image: url('../images/safety-InformationBg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: space-between;
+}
+.main .content .gas .slide-box .information .information-left {
+  font-size: .18rem;
+  font-weight: bolder;
+  line-height: .55rem;
+  background-image: url('../images/safety-operationBg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: .37rem .385rem;
+}
+.main .content .gas .slide-box .information .information-right {
+  height: 100%;
+  display: table;
+}
+.main .content .gas .slide-box .information .information-right .text-box {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: .13rem;
+  font-weight: bolder;
+}
+.main .content .gas .slide-box .information .information-right .text-box p {
+  font-size: .13rem;
+  font-weight: normal;
+}
+.main .content .gas .slide-box .information .information-right .text-box span {
+  font-size: .12rem;
+  font-weight: normal;
+}
+.main .content .gas .slide-box .data {
+  width: 3.3rem;
+  height: 4rem;
+  margin: 0 auto;
+  margin-top: .225rem;
+  padding-top: .26rem;
+  box-sizing: border-box;
+  background-image: url('../images/safety-dataBg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .gas .slide-box .data .name {
+  font-size: .18rem;
+  font-weight: bolder;
+  padding-left: .19rem;
+  box-sizing: border-box;
+}
+.main .content .gas .slide-box .data .data-box ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: .25rem;
+}
+.main .content .gas .slide-box .data .data-box ul li {
+  width: 50%;
+  height: 1.42rem;
+  font-size: .14rem;
+  font-weight: bolder;
+  background-image: url('../images/safety-greenCircle.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: .99rem .99rem;
+  position: relative;
+  text-align: center;
+  line-height: .99rem;
+}
+.main .content .gas .slide-box .data .data-box ul li span {
+  left: 50%;
+  transform: translate(-50%);
+  bottom: .2rem;
+  color: #fff;
+  width: 1rem;
+  font-size: .14rem;
+  font-weight: normal;
+  position: absolute;
+  line-height: normal;
+}
+.main .content .gas .slide-box .data .data-box ul .red-circle {
+  background-image: url('../images/safety-redCircle.png');
+}
+.main .content .gas .slide-box .data .history {
+  font-size: .13rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: .2rem;
+}
 .anomaly {
-  color: #ff3b30;
+  color: #ff2d55;
 }
 .normal {
   color: #4cd964;
