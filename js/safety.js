@@ -12,6 +12,7 @@ $(function(){
         spaceBetween : 30,
     })
     // const swiper3 = new Swiper('#swiper3')
+    
     // 模块切换点击事件
     // 切换到塔吊模块
     $('#towerCraneBtn').on('click',()=>{
@@ -21,6 +22,7 @@ $(function(){
             $(siblings[i]).css('display','none')
         }
     })
+
     // 切换到升降机模块
     $('#elevatorBtn').on('click',()=>{
         $('.elevator').css('display','')
@@ -32,6 +34,7 @@ $(function(){
             spaceBetween : 30,
         })
     })
+
     // 切换到车辆出入模块
     $('#carBtn').on('click',()=>{
         $('.car').css('display','')
@@ -43,6 +46,7 @@ $(function(){
             spaceBetween : 30,
         })
     })
+
     // 启动车辆出入模块滚动
     scrollStart('carBox1','carBox1-1','carBox1-2')
     scrollStart('carBox2','carBox2-1','carBox2-2')
@@ -77,6 +81,7 @@ $(function(){
         //   };
         }, 100);
     }
+
     // 切换到气体检测数据模块
     $('#gasBtn').on('click',()=>{
         $('.gas').css('display','')

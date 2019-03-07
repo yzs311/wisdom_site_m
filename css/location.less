@@ -1,0 +1,133 @@
+@import 'base.less';
+
+html,
+body {
+    height: 100%;
+}
+
+#main {
+    width:100%;
+    height: 100%;
+    position: relative;
+    .search {
+        box-sizing: border-box;
+        position: absolute;
+        width: 3.5rem;
+        height: .48rem;
+        // border: .01rem solid #000;
+        left: 50%;
+        transform: translate(-50%);
+        top: .15rem;
+        z-index: 100;
+        background-color: #fff;
+        display: flex;
+        border-radius: .05rem;
+        overflow: hidden;
+        box-shadow: 0 0 .1rem .01rem #CCC;
+        .nav {
+            width:  .39rem;
+            height: .48rem;
+            background-image: url('../images/location-leftBtn.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: .19rem .14rem;
+        }
+        .input-box {
+            flex: 1;
+            height: .48rem;
+            input {
+                width: 100%;
+                height: 100%;
+                border: none;
+                outline: none;
+                font-size: .16rem;
+                padding-left: .1rem;
+                box-sizing: border-box;
+            }
+        }
+        .line {
+            width: .01rem;
+            padding-top: .14rem;
+            i {
+                display: block;
+                height: .2rem;
+                background-color: #e6e6e6;
+            }
+        }
+        .button {
+            width: .5rem;
+            text-align: center;
+            line-height: .48rem;
+            font-size: .16rem;
+        }
+    }
+    .search-data {
+        // display: none;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        top: .78rem;
+        z-index: 100;
+        background-color: #fff;
+        border-radius: .05rem;
+        overflow: hidden;
+        box-shadow: 0 0 .1rem .01rem #CCC;
+        width: 3.5rem;
+        box-sizing: border-box;
+        ul {
+            li {
+                height: .85rem;
+                display: flex;
+                box-sizing: border-box;
+                border-bottom: .01rem solid #f6f6f6;
+                .left-img {
+                    width: .405rem;
+                }
+                .content {
+                    flex: 1;
+                    padding-top: .14rem;
+                    box-sizing: border-box;
+                    .name {
+                        font-size: .15rem;
+                    }
+                    .company {
+                        color: #898989;
+                        margin-top: .09rem;
+                    }
+                    .location {
+                        color: #898989;
+                        overflow: hidden;
+                        text-overflow:ellipsis;
+                        white-space: nowrap;
+                        margin-top: .09rem;
+                    }
+                }
+                .right-img {
+                    width: .5rem;
+                }
+            }
+        }
+        .more {
+            height: .45rem;
+            line-height: .45rem;
+            font-size: .15rem;
+            text-align: center;
+        }
+    }
+    .side-box {
+        top: .15rem;
+        left: -2.15rem;
+        width: 2.15rem;
+        height: 5.285rem;
+        background-color: rgba(47, 58, 255, .5);
+        z-index: 100;
+        position: absolute;
+    }
+    .aa {
+        width: 100%;
+        height: 100%;
+        // background-color: rgba(0, 0, 0, .1);
+        // position: absolute;
+        // z-index: 999;
+    }
+}
