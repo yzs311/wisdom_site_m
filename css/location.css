@@ -174,43 +174,83 @@ body {
   text-align: center;
 }
 #main .side-box {
-  top: .15rem;
-  left: -2.15rem;
-  width: 2.15rem;
-  height: 5.285rem;
+  top: 0;
+  left: -3.2rem;
+  width: 3.2rem;
+  height: 100%;
+  background-color: #fff;
   z-index: 300;
   position: absolute;
-  background-image: url('../images/location-sideBorder.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: contain;
   padding-top: .26rem;
   box-sizing: border-box;
 }
 #main .side-box .project {
   color: #3979fe;
-  font-size: .15rem;
-  line-height: .25rem;
+  font-size: .19rem;
+  line-height: .39rem;
   padding-left: .125rem;
   box-sizing: border-box;
+  position: relative;
+  height: .39rem;
+  overflow: hidden;
+}
+#main .side-box .project .blue-v {
+  width: .145rem;
+  height: .39rem;
+  position: absolute;
+  right: .25rem;
+  top: 0;
+  background-image: url('../images/location-blueV.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all .3s;
+  transform: rotate(-90deg);
 }
 #main .side-box .project .sub-project {
-  color: #fff;
-  font-size: .12rem;
-  line-height: .22rem;
+  height: .35rem;
+  overflow: hidden;
+  color: #1b1b1b;
+  font-size: .15rem;
+  line-height: .35rem;
   padding-left: .125rem;
   box-sizing: border-box;
+  position: relative;
+}
+#main .side-box .project .sub-project .black-v {
+  width: .145rem;
+  height: .35rem;
+  position: absolute;
+  right: .25rem;
+  top: 0;
+  background-image: url('../images/location-blackV.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all .3s;
+  transform: rotate(-90deg);
 }
 #main .side-box .project .sub-project .name {
   display: flex;
   justify-content: space-between;
-  width: 1.27rem;
-  line-height: .22rem;
+  width: 2.38rem;
+  line-height: .35rem;
   padding-left: .125rem;
   box-sizing: border-box;
 }
-#main .side-box .project .sub-project .name .status {
-  color: #4cd964;
+#main .side-box .project .sub-project .name .green-dot {
+  display: inline-block;
+  width: .09rem;
+  height: .09rem;
+  border-radius: .09rem;
+  background-color: #4cd964;
+}
+#main .side-box .project .sub-project .name .red-dot {
+  display: inline-block;
+  width: .09rem;
+  height: .09rem;
+  border-radius: .09rem;
+  background-color: #ff2d55;
 }
 #main .data-box {
   display: none;
@@ -255,7 +295,7 @@ body {
   border: .02rem solid #f6f6f6;
 }
 #main .data-box .bottom-box {
-  height: .945rem;
+  height: .545rem;
   padding-top: .1rem;
   box-sizing: border-box;
   border-top: .01rem solid #f6f6f6;
@@ -335,10 +375,12 @@ body {
   border: .02rem solid #f6f6f6;
 }
 #main .history-box .middle-box {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
   color: #898989;
   display: flex;
   box-sizing: border-box;
-  padding-bottom: .2rem;
   padding-right: .2rem;
   line-height: .2rem;
 }
@@ -359,7 +401,7 @@ body {
   background-size: contain;
 }
 #main .history-box .bottom-box {
-  height: .945rem;
+  height: .545rem;
   padding-top: .1rem;
   box-sizing: border-box;
   border-top: .01rem solid #f6f6f6;
@@ -396,4 +438,13 @@ body {
   line-height: .35rem;
   background-color: #3979fe;
   margin-left: .1rem;
+}
+.green-color {
+  color: #4cd964;
+}
+.red-color {
+  color: #ff2d55;
+}
+.rotate {
+  transform: rotate(0deg) !important;
 }
