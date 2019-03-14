@@ -137,7 +137,7 @@ $(function () {
   }); // 监听输入框状态
 
   $('#search').on('input propertychange', function () {
-    if ($(this).val().includes('某')) {
+    if ($(this).val().includes('段') || $(this).val().includes('裕') || $(this).val().includes('德')) {
       $('.search-data').css('display', 'block');
     } else {
       $('.search-data').css('display', 'none');
@@ -277,7 +277,7 @@ $(function () {
   $('#project').on('click', function () {
     if (project == 1) {
       $('#project').animate({
-        height: '3.19rem'
+        height: '1.74rem'
       });
       project = 0;
       $('.blue-v').addClass('rotate');
@@ -336,7 +336,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49515" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

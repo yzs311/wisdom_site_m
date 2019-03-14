@@ -32,7 +32,7 @@ $(function(){
 
     // 监听输入框状态
     $('#search').on('input propertychange',function(){
-        if ($(this).val().includes('某')) {
+        if ($(this).val().includes('段')||$(this).val().includes('裕')||$(this).val().includes('德')) {
             $('.search-data').css('display','block')
         } else{
             $('.search-data').css('display','none')
@@ -157,7 +157,7 @@ $(function(){
     $('#project').on('click',function(){
         if (project == 1) {
             $('#project').animate({
-                height: '3.19rem'
+                height: '1.74rem'
             })
             project = 0
             $('.blue-v').addClass('rotate')
