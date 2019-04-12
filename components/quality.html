@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../images/hujiang.ico" type="image/x-icon">
+    <title>智慧工地-质量巡检</title>
+    <link href="https://cdn.bootcss.com/Swiper/4.4.6/css/swiper.min.css" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../css/quality.css">
+</head>
+<body>
+    <!-- 质量巡检页面 -->
+    <div class="main">
+        <!-- 导航栏 -->
+        <div class="nav">
+            <div class="swiper-container" id="swiper">
+                <ul class="swiper-wrapper">
+                    <li class="ybg swiper-slide active">
+                        <span>全部巡检</span>
+                    </li>
+                    <li class="bbg swiper-slide">
+                        <span>待办</span>
+                    </li>
+                    <li class="gbg swiper-slide">
+                        <span>我发起的</span>
+                    </li>
+                    <li class="ybg swiper-slide">
+                        <span>通知</span>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+        <!-- 信息列表 -->
+        <div class="list">
+            <div class="list-nav">
+                <span class="active">待整改</span>
+                <span>待复查</span>
+                <span>筛选</span>
+            </div>
+            <div class="list-centent">
+                <ul>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="title">
+                                <div class="title-name">
+                                    地下室负二层漏水
+                                </div>
+                                <div class="title-state">
+                                    待整改
+                                </div>
+                            </div>
+                            <div class="middle">
+                                <div>
+                                    <span class="name">检查区域</span>
+                                    <span class="message">上塔工业区</span>
+                                </div>
+                                <div>
+                                    <span class="name">描述</span>
+                                    <span class="message">地下室漏水</span>
+                                </div>
+                                <div>
+                                    <span class="name">检查人</span>
+                                    <span class="message">某某某</span>
+                                </div>
+                                <div>
+                                    <span class="name">整改时限</span>
+                                    <span class="message">2019-02-02</span>
+                                </div>
+                                <div class="img-box"></div>
+                                <div class="bottom">
+                                    <span class="slight"></span>
+                                    <span class="name">整改人</span>
+                                    <span class="message">某某某</span>
+                                    <div class="time">2019-03-18 08:00</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="title">
+                                <div class="title-name">
+                                    地下室负二层漏水
+                                </div>
+                                <div class="title-state">
+                                    待整改
+                                </div>
+                            </div>
+                            <div class="middle">
+                                <div>
+                                    <span class="name">检查区域</span>
+                                    <span class="message">上塔工业区</span>
+                                </div>
+                                <div>
+                                    <span class="name">描述</span>
+                                    <span class="message">地下室漏水</span>
+                                </div>
+                                <div>
+                                    <span class="name">检查人</span>
+                                    <span class="message">某某某</span>
+                                </div>
+                                <div>
+                                    <span class="name">整改时限</span>
+                                    <span class="message">2019-02-02</span>
+                                </div>
+                                <div class="img-box"></div>
+                                <div class="bottom">
+                                    <span class="ordinary"></span>
+                                    <span class="name">整改人</span>
+                                    <span class="message">某某某</span>
+                                    <div class="time">2019-03-18 08:00</div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="title">
+                                <div class="title-name">
+                                    地下室负二层漏水
+                                </div>
+                                <div class="title-state">
+                                    待整改
+                                </div>
+                            </div>
+                            <div class="middle">
+                                <div>
+                                    <span class="name">检查区域</span>
+                                    <span class="message">上塔工业区</span>
+                                </div>
+                                <div>
+                                    <span class="name">描述</span>
+                                    <span class="message">地下室漏水</span>
+                                </div>
+                                <div>
+                                    <span class="name">检查人</span>
+                                    <span class="message">某某某</span>
+                                </div>
+                                <div>
+                                    <span class="name">整改时限</span>
+                                    <span class="message">2019-02-02</span>
+                                </div>
+                                <div class="img-box"></div>
+                                <div class="bottom">
+                                    <span class="severity"></span>
+                                    <span class="name">整改人</span>
+                                    <span class="message">某某某</span>
+                                    <div class="time">2019-03-18 08:00</div>
+                                </div>
+                            </div>
+                        </a>    
+                    </li>
+                </ul>
+            </div>
+            <div class="screen-box" style="display:none">
+                <div class="state">
+                    <div class="title">
+                        状态
+                        <span class="eliminate">清除所有</span>
+                    </div>
+                    <ul class="option-box">
+                        <li class="active">所有</li>
+                        <li>待整改</li>
+                        <li>待复查</li>
+                        <li>复查未通过</li>
+                        <li>复查通过</li>
+                        <li>合格</li>
+                        <li>不合格不整改</li>
+                    </ul>
+                </div>
+                <div class="rank">
+                    <div class="title">
+                        问题级别
+                    </div>
+                    <ul class="option-box">
+                        <li class="active">所有</li>
+                        <li>轻微</li>
+                        <li>一般</li>
+                        <li>严重</li>
+                    </ul>
+                </div>
+                <div class="type">
+                    <div class="title">
+                        隐患类型
+                    </div>
+                    <ul class="option-box">
+                        <li class="active">所有</li>
+                        <li>安全管理</li>
+                        <li>高处作业</li>
+                        <li>基坑作业</li>
+                        <li>脚手架</li>
+                        <li>模板工程</li>
+                        <li>施工机具</li>
+                        <li>施工用电</li>
+                        <li>塔式起重机</li>
+                        <li>文明施工</li>
+                        <li>施工电梯</li>
+                        <li>消防管理</li>
+                        <li>物料提升机</li>
+                        <li>起重吊装</li>
+                        <li>其他</li>
+                    </ul>
+                </div>
+                <div class="time">
+                    <div class="title">
+                        发起时间
+                    </div>
+                    <ul class="option-box">
+                        <li class="active">所有</li>
+                        <li>一个月内</li>
+                        <li>三个月内</li>
+                        <li>半年内</li>
+                        <li>一年内</li>
+                    </ul>
+                </div>
+                <div class="unit">
+                    <div class="title">分包单位</div>
+                    <div class="option-bar">
+                        所有
+                        <i></i>
+                    </div>
+                </div>
+                <div class="work-area">
+                    <div class="title">工区</div>
+                    <div class="option-bar">
+                        所有
+                        <i></i>
+                    </div>
+                </div>
+                <div class="countersign">
+                    确认
+                </div>
+            </div>
+        </div>
+        <!-- 待办列表 -->
+        <div class="backlog" style="display:none">
+            <div class="list-nav">
+                <span class="active">待办</span>
+                <span>已办</span>
+            </div>
+            <div class="list-centent">
+                <ul>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="title">
+                                <div class="title-name">
+                                    地下室负二层漏水
+                                </div>
+                            </div>
+                            <div class="middle">
+                                <div>
+                                    <span class="name">发起人</span>
+                                    <span class="message">某某木</span>
+                                </div>
+                                <div>
+                                    <span class="name">类型</span>
+                                    <span class="message">质量巡检</span>
+                                </div>
+                                <div>
+                                    <span class="name">整改人</span>
+                                    <span class="message">某某某</span>
+                                </div>
+                                <div class="time">2019-02-02</div>
+                            </div>
+                            <div class="arrows"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 我发起的列表 -->
+        <div class="sponsor" style="display:none">
+            <div class="img-box"></div>
+            <div class="text-box">暂无数据</div>
+        </div>
+        <!-- 通知列表 -->
+        <div class="inform" style="display:none">
+            <div class="list-nav">
+                <span class="active">信息</span>
+                <span>警告</span>
+            </div>
+            <div class="list-centent" id="message">
+                <ul>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="img-box"></div>
+                            <div class="text-box">
+                                <div class="title">
+                                    <div class="title-name">
+                                        安全复查
+                                    </div>
+                                    <div class="title-state">
+                                        待复查
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        地下室负二层梁板漏水
+                                    </div>
+                                    <div>
+                                        深圳市西城建筑工程劳务有限公司
+                                    </div>
+                                    <div class="last-box">
+                                        <div class="left-box">
+                                            <span class="name">整改人</span>
+                                            <span class="message">某某某</span>
+                                        </div>
+                                        <div class="right-box">
+                                            <div class="time">2019-02-02</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="img-box"></div>
+                            <div class="text-box">
+                                <div class="title">
+                                    <div class="title-name">
+                                        安全整改
+                                    </div>
+                                    <div class="title-state">
+                                        待整改
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        地下室负二层梁板漏水
+                                    </div>
+                                    <div>
+                                        深圳市西城建筑工程劳务有限公司
+                                    </div>
+                                    <div class="last-box">
+                                        <div class="left-box">
+                                            <span class="name">发起人</span>
+                                            <span class="message">某某某</span>
+                                        </div>
+                                        <div class="right-box">
+                                            <div class="time">2019-02-02</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="list-centent" id="warning" style="display:none">
+                <ul>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="img-box"></div>
+                            <div class="text-box">
+                                <div class="title">
+                                    <div class="title-name">
+                                        安全整改
+                                    </div>
+                                    <div class="title-state">
+                                        超期未整改
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        地下室负二层梁板漏水
+                                    </div>
+                                    <div>
+                                        深圳市西城建筑工程劳务有限公司
+                                    </div>
+                                    <div class="last-box">
+                                        <div class="left-box">
+                                            <span class="name">整改人</span>
+                                            <span class="message">某某某</span>
+                                        </div>
+                                        <div class="right-box">
+                                            <div class="time">2019-02-02</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./qualityParticulars.html">
+                            <div class="img-box"></div>
+                            <div class="text-box">
+                                <div class="title">
+                                    <div class="title-name">
+                                        安全整改
+                                    </div>
+                                    <div class="title-state">
+                                        超期未整改
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        地下室负二层梁板漏水
+                                    </div>
+                                    <div>
+                                        深圳市西城建筑工程劳务有限公司
+                                    </div>
+                                    <div class="last-box">
+                                        <div class="left-box">
+                                            <span class="name">整改人</span>
+                                            <span class="message">某某某</span>
+                                        </div>
+                                        <div class="right-box">
+                                            <div class="time">2019-02-02</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 固定按钮 -->
+        <a href="./establish.html" class="fixed-box"></a>
+        <!-- 分包单位选项栏 -->
+        <div class="unit-box" style="display:none">
+            <ul>
+                <li>方大幕墙</li>
+                <li>深圳市伟业建筑劳务有限公司</li>
+                <li>深圳市西城建筑工程劳务有限公司</li>
+                <li>深圳市众城兴建建筑劳务有限公司</li>
+                <li>中建二局第三建筑工程有限公司机电事业部</li>
+            </ul>
+        </div>
+        <!-- 工区选项栏 -->
+        <div class="work-area-box" style="display:none">
+                <ul>
+                    <li>工区1</li>
+                    <li>工区2</li>
+                </ul>
+        </div>
+        <!-- 遮罩层 -->
+        <div class="shade-box" style="display:none"></div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <script src="https://cdn.bootcss.com/Swiper/4.4.6/js/swiper.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
+
+    <script src="../js/quality.js"></script>
+    <script src="../js/rem.js"></script>
+</body>
+</html>

@@ -106,9 +106,44 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/labour.js":[function(require,module,exports) {
 $(function () {
-  console.log('hello world');
+  // console.log('hello world')
+  var pid = localStorage.getItem('pid'); // 获取合同签订数据
+
+  $.ajax({
+    type: "GET",
+    url: "http://lz.hj-tec.com/lz/get/getDataCount",
+    data: {
+      pid: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      // console.log(data)
+      // 渲染进场手续签订模块
+      $('#entrance').html("<div class=\"left-box\">\n                    <i class=\"shade\"></i>\n                    <div class=\"box-title\">\n                        \u8FDB\u573A\u624B\u7EED\u7B7E\u8BA2\u7B7E\u8BA2\n                    </div>\n                    <div class=\"box-data\">\n                        <ul>\n                            <li>\u5171\u5F55\u5165\uFF1A".concat(data.entrance.total, "\u4EBA</li>\n                            <li>\u5171\u7B7E\u8BA2\uFF1A").concat(data.entrance.ht, "\u4EBA</li>\n                            <li>\u672A\u7B7E\u8BA2\uFF1A").concat(data.entrance.wq, "\u4EBA</li>\n                            <li>\u662F\u5426\u5408\u683C\uFF1A<span class=\"").concat(data.entrance.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(data.entrance.hg, "</span></li>\n                        </ul>\n                    </div>\n                </div>\n                <div class=\"right-box ").concat(data.entrance.bfb == 100 ? 'green-bg' : 'red-bg', "\">\n                    <div class=\"border ").concat(data.entrance.bfb == 100 ? 'green-color' : 'red-color', "\"></div>\n                    <div class=\"subBorder ").concat(data.entrance.bfb == 100 ? 'green-color' : 'red-color', "\">\n                        <div class=\"wrapper\" style=\"right:0\">\n                            <div class=\"circleProgress ").concat(data.entrance.bfb == 100 ? 'rightcircle-green' : 'rightcircle-red', "\"></div>\n                        </div>\n                        <div class=\"wrapper\" style=\"left:0\">\n                            <div class=\"circleProgress ").concat(data.entrance.bfb == 100 ? 'leftcircle-green' : 'leftcircle-red', "\"></div>\n                        </div>\n                    </div>\n                    <span class=\"").concat(data.entrance.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(Math.floor(data.entrance.bfb), "%</span>\n                </div>")); // 渲染退场手续模块
+
+      $('#exit_pdf').html("<div class=\"left-box\">\n                   <i class=\"shade\"></i>\n                   <div class=\"box-title\">\n                       \u9000\u573A\u624B\u7EED\u7B7E\u8BA2\n                   </div>\n                   <div class=\"box-data\">\n                       <ul>\n                           <li>\u5171\u5F55\u5165\uFF1A".concat(data.exit_pdf.total, "\u4EBA</li>\n                           <li>\u5171\u7B7E\u8BA2\uFF1A").concat(data.exit_pdf.ht, "\u4EBA</li>\n                           <li>\u672A\u7B7E\u8BA2\uFF1A").concat(data.exit_pdf.wq, "\u4EBA</li>\n                           <li>\u662F\u5426\u5408\u89C4\uFF1A<span class=\"").concat(data.exit_pdf.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(data.exit_pdf.hg, "</span></li>\n                       </ul>\n                   </div>\n                </div>\n                <div class=\"right-box ").concat(data.exit_pdf.bfb == 100 ? 'green-bg' : 'red-bg', "\">\n                   <div class=\"border ").concat(data.exit_pdf.bfb == 100 ? 'green-color' : 'red-color', "\"></div>\n                   <div class=\"subBorder ").concat(data.exit_pdf.bfb == 100 ? 'green-color' : 'red-color', "\">\n                       <div class=\"wrapper\" style=\"right:0\">\n                           <div class=\"circleProgress ").concat(data.exit_pdf.bfb == 100 ? 'rightcircle-green' : 'rightcircle-red', "\"></div>\n                       </div>\n                       <div class=\"wrapper\" style=\"left:0\">\n                           <div class=\"circleProgress ").concat(data.exit_pdf.bfb == 100 ? 'leftcircle-green' : 'leftcircle-red', "\"></div>\n                       </div>\n                   </div>\n                   <span class=\"").concat(data.exit_pdf.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(Math.floor(data.exit_pdf.bfb), "%</span>\n                </div>")); // 渲染劳动合同签订模块
+
+      $('#contract').html("<div class=\"left-box\">\n                    <i class=\"shade\"></i>\n                    <div class=\"box-title\">\n                        \u52B3\u52A8\u5408\u540C\u7B7E\u8BA2\n                    </div>\n                    <div class=\"box-data\">\n                        <ul>\n                            <li>\u5171\u5F55\u5165\uFF1A".concat(data.contract.total, "\u4EBA</li>\n                            <li>\u5171\u7B7E\u8BA2\uFF1A").concat(data.contract.ht, "\u4EBA</li>\n                            <li>\u672A\u7B7E\u8BA2\uFF1A").concat(data.contract.wq, "\u4EBA</li>\n                            <li>\u662F\u5426\u5408\u89C4\uFF1A<span class=\"").concat(data.contract.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(data.contract.hg, "</span></li>\n                        </ul>\n                    </div>\n                </div>\n                <div class=\"right-box ").concat(data.contract.bfb == 100 ? 'green-bg' : 'red-bg', "\">\n                    <div class=\"border ").concat(data.contract.bfb == 100 ? 'green-color' : 'red-color', "\"></div>\n                    <div class=\"subBorder ").concat(data.contract.bfb == 100 ? 'green-color' : 'red-color', "\">\n                        <div class=\"wrapper\" style=\"right:0\">\n                            <div class=\"circleProgress ").concat(data.contract.bfb == 100 ? 'rightcircle-green' : 'rightcircle-red', "\"></div>\n                        </div>\n                        <div class=\"wrapper\" style=\"left:0\">\n                            <div class=\"circleProgress ").concat(data.contract.bfb == 100 ? 'leftcircle-green' : 'leftcircle-red', "\"></div>\n                        </div>\n                    </div>\n                    <span class=\"").concat(data.contract.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(Math.floor(data.contract.bfb), "%</span>\n                </div>")); // 两制确认书签订模块
+
+      $('#workConfirm').html("<div class=\"left-box\">\n                    <i class=\"shade\"></i>\n                    <div class=\"box-title\">\n                        \u4E24\u5236\u786E\u8BA4\u4E66\u7B7E\u8BA2\n                    </div>\n                    <div class=\"box-data\">\n                        <ul>\n                            <li>\u5171\u5F55\u5165\uFF1A".concat(data.workConfirm.total, "\u4EBA</li>\n                            <li>\u5171\u7B7E\u8BA2\uFF1A").concat(data.workConfirm.ht, "\u4EBA</li>\n                            <li>\u672A\u7B7E\u8BA2\uFF1A").concat(data.workConfirm.wq, "\u4EBA</li>\n                            <li>\u662F\u5426\u5408\u89C4\uFF1A<span class=\"").concat(data.workConfirm.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(data.workConfirm.hg, "</span></li>\n                        </ul>\n                    </div>\n                </div>\n                <div class=\"right-box ").concat(data.workConfirm.bfb == 100 ? 'green-bg' : 'red-bg', "\">\n                    <div class=\"border ").concat(data.workConfirm.bfb == 100 ? 'green-color' : 'red-color', "\"></div>\n                    <div class=\"subBorder ").concat(data.workConfirm.bfb == 100 ? 'green-color' : 'red-color', "\">\n                        <div class=\"wrapper\" style=\"right:0\">\n                            <div class=\"circleProgress ").concat(data.workConfirm.bfb == 100 ? 'rightcircle-green' : 'rightcircle-red', "\"></div>\n                        </div>\n                        <div class=\"wrapper\" style=\"left:0\">\n                            <div class=\"circleProgress ").concat(data.workConfirm.bfb == 100 ? 'leftcircle-green' : 'leftcircle-red', "\"></div>\n                        </div>\n                    </div>\n                    <span class=\"").concat(data.workConfirm.bfb == 100 ? 'green-color' : 'red-color', "\">").concat(Math.floor(data.workConfirm.bfb), "%</span>\n                </div>"));
+    }
+  }); // 获取工人出勤模块
+
+  $.ajax({
+    type: "get",
+    url: "http://lz.hj-tec.com/lz/get/getKQCount",
+    data: {
+      pid: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      console.log(data); // 工人出勤模块渲染
+
+      $('.attendance-rate').html("<div class=\"attendance-title\">\n                    <i class=\"shade\"></i>\n                    \u5DE5\u4EBA\u51FA\u52E4\u60C5\u51B5\n                </div>\n                <div class=\"schedule\">\n                    <div class=\"sub-schedule\" style=\"width:".concat(data.bfb, "%\">\n                        <p>").concat(Math.floor(data.bfb), "%</p>\n                    </div>\n                </div>\n                <div class=\"content-box\">\n                    <div class=\"online\">\n                        <div class=\"content-top\">\n                            \u9879\u76EE\u5728\u5728\u573A\u4EBA\u6570\n                        </div>\n                        <div class=\"content-bottom\">\n                            ").concat(data.sum, "\n                        </div>\n                        <i class=\"rise\"></i>\n                    </div>\n                    <div class=\"real-time\">\n                        <div class=\"content-top\">\n                            \u4ECA\u65E5\u8003\u52E4\u603B\u4EBA\u6570\n                        </div>\n                        <div class=\"content-bottom\">\n                            ").concat(data.kq, "\n                        </div>\n                        <i class=\"rise\"></i>\n                    </div>\n                    <div class=\"worker\">\n                        <div class=\"content-top\">\n                            \u4ECA\u65E5\u5DE5\u4EBA\u51FA\u52E4\u4EBA\u6570\n                        </div>\n                        <div class=\"content-bottom\">\n                            ").concat(data.workerCheck, "\n                        </div>\n                        <i class=\"rise\"></i>\n                    </div>\n                    <div class=\"administrator\">\n                        <div class=\"content-top\">\n                            \u4ECA\u65E5\u7BA1\u7406\u51FA\u52E4\u4EBA\u6570\n                        </div>\n                        <div class=\"content-bottom\">\n                            ").concat(data.managerCheck, "\n                        </div>\n                        <i class=\"rise\"></i>\n                    </div>\n                </div>"));
+    }
+  });
 });
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -135,7 +170,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -277,5 +312,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/labour.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/labour.js"], null)
 //# sourceMappingURL=/labour.d0f7b534.map

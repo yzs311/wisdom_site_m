@@ -23,7 +23,7 @@ body {
         display: flex;
         border-radius: .05rem;
         overflow: hidden;
-        box-shadow: 0 0 .1rem .01rem #CCC;
+        box-shadow: 0 0 .05rem .01rem #ddd;
         .nav {
             width:  .39rem;
             height: .48rem;
@@ -44,6 +44,10 @@ body {
                 padding-left: .1rem;
                 box-sizing: border-box;
             }
+            ::-webkit-input-placeholder { color:#d5d5d5;}
+            ::-moz-placeholder { color:#d5d5d5;} /* firefox 19+ */
+            :-ms-input-placeholder { color:#d5d5d5;} /* Internet Explorer 10+ */
+            :-moz-placeholder { color:#d5d5d5;} /* firefox 14-18 */
         }
         .line {
             width: .01rem;
@@ -63,17 +67,19 @@ body {
     }
     .search-data {
         display: none;
+        height: 88.3%;
         position: absolute;
-        left: 50%;
-        transform: translate(-50%);
+        // left: 50%;
+        // transform: translate(-50%);
         top: .78rem;
-        z-index: 100;
+        z-index: 500;
         background-color: #fff;
         border-radius: .05rem;
-        overflow: hidden;
-        box-shadow: 0 0 .1rem .01rem #CCC;
-        width: 3.5rem;
+        overflow: auto;
+        box-shadow: 0 0 .05rem .01rem #ddd;
+        // width: 3.5rem;
         box-sizing: border-box;
+        width: 100%;
         ul {
             li {
                 height: .85rem;
@@ -118,12 +124,6 @@ body {
                     background-size: .22rem .34rem;
                 }
             }
-        }
-        .more {
-            height: .45rem;
-            line-height: .45rem;
-            font-size: .15rem;
-            text-align: center;
         }
     }
     .side-box {
@@ -181,7 +181,8 @@ body {
                     transition: all .3s;
                     transform: rotate(-90deg);
                 }
-                .name {
+                .name-box {
+                    .name {
                     display: flex;
                     justify-content: space-between;
                     width: 2.38rem;
@@ -201,6 +202,7 @@ body {
                         height: .09rem;
                         border-radius: .09rem;
                         background-color: #ff2d55;
+                    }
                     }
                 }
             }
@@ -271,7 +273,7 @@ body {
                 border-radius: .35rem;
                 text-align: center;
                 line-height: .35rem;
-                margin-left: .36rem;
+                margin-left: .2rem;
             }
             .switchover {
                 color: #fff;
@@ -307,6 +309,20 @@ body {
         box-sizing: border-box;
         .top-box {
             padding-bottom: .2rem;
+            .pull-up {
+                position: absolute;
+                width: .2592rem;
+                height: .16rem;
+                right: 50%;
+                transform: translate(50%);
+                top: .125rem;
+                background-image: url('../images/location-pullUp.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                transition: linear 300ms;
+                // transform: rotate(180deg)
+            }
             .list-box {
                 width: 2rem;
                 display: inline-block;
@@ -343,6 +359,7 @@ body {
             padding-right: .2rem;
             line-height: .2rem;
             .enter {
+                flex: 1;
                 .img-box {
                     width: .305rem;
                     height: .305rem;
@@ -353,6 +370,7 @@ body {
                 }
             }
             .come {
+                flex: 1;
                 .img-box {
                     width: .305rem;
                     height: .305rem;
@@ -384,7 +402,7 @@ body {
                 border-radius: .35rem;
                 text-align: center;
                 line-height: .35rem;
-                margin-left: .36rem;
+                margin-left: .2rem;
             }
             .switchover {
                 color: #fff;
@@ -415,4 +433,12 @@ body {
 .rotate {
     // transition: all .3s;
     transform: rotate(0deg) !important;
+}
+
+// 插件样式
+.ym_roll,
+.date_roll,
+.datetime_roll,
+.time_roll {
+    font-weight: normal;
 }

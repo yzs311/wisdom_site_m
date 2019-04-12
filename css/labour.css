@@ -202,6 +202,7 @@ input[type=search] {
   transform: translate(-50%, -50%);
 }
 .main .contract-box .right-box .subBorder .wrapper {
+  display: none;
   width: .35rem;
   height: .7rem;
   position: absolute;
@@ -227,23 +228,23 @@ input[type=search] {
   border-bottom: 0.06rem solid #4cd964;
   border-left: 0.06rem solid #4cd964;
   left: 0;
-  transform: rotate(15deg);
+  transform: rotate(45deg);
 }
 .main .contract-box .right-box .subBorder .rightcircle-red {
   border-top: 0.06rem solid #ff2d55;
   border-right: 0.06rem solid #ff2d55;
   right: 0;
-  transform: rotate(45deg);
+  transform: rotate(-135deg);
 }
 .main .contract-box .right-box .subBorder .leftcircle-red {
   border-bottom: 0.06rem solid #ff2d55;
   border-left: 0.06rem solid #ff2d55;
   left: 0;
-  transform: rotate(15deg);
+  transform: rotate(-135deg);
 }
 .main .contract-box .right-box > span {
   position: absolute;
-  font-size: .2rem;
+  font-size: .16rem;
   font-weight: bolder;
   top: 50%;
   left: 50%;

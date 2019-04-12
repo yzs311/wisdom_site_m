@@ -1,13 +1,20 @@
 @import 'base.less';
 
+html,
+body {
+    height: 100%;
+}
+
 // 绿色施工页面样式
 .main {
     width: 100%;
+    min-height: 100%;
     color: #fff;
     padding-top: .45rem;
     padding-bottom: .45rem;
     box-sizing: border-box;
     background-color: #010118;
+    position: relative;
     .title {
         width: 3.3rem;
         height: .445rem;
@@ -72,6 +79,7 @@
                     margin-left: 50%;
                     transform: translate(-50%);
                     padding: 0 .025rem;
+                    width: .6rem;
                 }
                 .line {
                     position: absolute;
@@ -122,6 +130,7 @@
                         margin-left: 50%;
                         transform: translate(-50%);
                         padding: 0 .025rem;
+                        width: .6rem;
                     }
                     .line {
                         position: absolute;
@@ -138,189 +147,191 @@
             }
         }
     }
-    .environment {
-        margin-top: .45rem;
-        .environment-title {
-            font-size: .16rem;
-            line-height: .16rem;
-            text-align: center;
-        }
-        .PM {
-            height: 1.5rem;
-            width: 3.3rem;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            .subPM1 {
-                flex: 1;
-                background-image: url('../images/green-excellentCircle.png');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                padding-top: .43rem;
-                box-sizing: border-box;
+    .dust-box {
+        .environment {
+            margin-top: .45rem;
+            .environment-title {
+                font-size: .16rem;
+                line-height: .16rem;
                 text-align: center;
-                p {
-                    font-size: .14rem;
-                    height: .14rem;
-                    font-weight: bolder;
-                    color: #b9bbbc;
-                    text-align: center;
-                    margin-bottom: .1rem;
-                }
-                span {
-                    font-size: .23rem;
-                    font-weight: bolder;
-                }
-                i {
-                    display: block;
-                    width: .57rem;
-                    height: .21rem;
-                    box-sizing: border-box;
-                    border: .01rem solid #618471;
-                    border-radius: .21rem;
-                    margin: 0 auto;
-                    margin-top: .06rem;
-                    background-image: url('../images/green-excellent.png');
+            }
+            .PM {
+                height: 1.5rem;
+                width: 3.3rem;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                .subPM1 {
+                    flex: 1;
+                    background-image: url('../images/green-excellentCircle.png');
                     background-position: center center;
                     background-repeat: no-repeat;
                     background-size: contain;
-                }
-            }
-            .subPM2 {
-                flex: 1;
-                background-image: url('../images/green-excellentCircle.png');
-                background-position: center center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                padding-top: .43rem;
-                box-sizing: border-box;
-                text-align: center;
-                p {
-                    font-size: .14rem;
-                    height: .14rem;
-                    font-weight: bolder;
-                    color: #b9bbbc;
-                    text-align: center;
-                    margin-bottom: .1rem;
-                }
-                span {
-                    font-size: .23rem;
-                    font-weight: bolder;
-                }
-                i {
-                    display: block;
-                    width: .57rem;
-                    height: .21rem;
+                    padding-top: .43rem;
                     box-sizing: border-box;
-                    border: .01rem solid #618471;
-                    border-radius: .21rem;
-                    margin: 0 auto;
-                    margin-top: .06rem;
-                    background-image: url('../images/green-excellent.png');
+                    text-align: center;
+                    p {
+                        font-size: .14rem;
+                        height: .14rem;
+                        font-weight: bolder;
+                        color: #b9bbbc;
+                        text-align: center;
+                        margin-bottom: .1rem;
+                    }
+                    span {
+                        font-size: .23rem;
+                        font-weight: bolder;
+                    }
+                    i {
+                        display: block;
+                        width: .57rem;
+                        height: .21rem;
+                        box-sizing: border-box;
+                        border: .01rem solid #618471;
+                        border-radius: .21rem;
+                        margin: 0 auto;
+                        margin-top: .06rem;
+                        background-image: url('../images/green-excellent.png');
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                }
+                .subPM2 {
+                    flex: 1;
+                    background-image: url('../images/green-excellentCircle.png');
                     background-position: center center;
                     background-repeat: no-repeat;
                     background-size: contain;
+                    padding-top: .43rem;
+                    box-sizing: border-box;
+                    text-align: center;
+                    p {
+                        font-size: .14rem;
+                        height: .14rem;
+                        font-weight: bolder;
+                        color: #b9bbbc;
+                        text-align: center;
+                        margin-bottom: .1rem;
+                    }
+                    span {
+                        font-size: .23rem;
+                        font-weight: bolder;
+                    }
+                    i {
+                        display: block;
+                        width: .57rem;
+                        height: .21rem;
+                        box-sizing: border-box;
+                        border: .01rem solid #618471;
+                        border-radius: .21rem;
+                        margin: 0 auto;
+                        margin-top: .06rem;
+                        background-image: url('../images/green-excellent.png');
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+            .pollute {
+                width: 3.305rem;
+                height: .295rem;
+                margin: 0 auto;
+                margin-top: .21rem;
+                background-image: url('../images/green-polluteBar.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .environment-data {
+                width: 3.3rem;
+                height: .39rem;
+                margin: 0 auto;
+                margin-top: .19rem;
+                display: flex;
+                justify-content: space-between;
+                .temperature {
+                    flex: 1;
+                    background-image: url('../images/green-temperature.png');
+                    background-position: left center;
+                    background-repeat: no-repeat;
+                    background-size: .12rem .23rem;
+                    padding-left: .27rem;
+                    box-sizing: border-box;
+                    p {
+                        font-size: .13rem;
+                        line-height: .195rem;
+                    }
+                }
+                .humidity {
+                    flex: 1;
+                    background-image: url('../images/green-humidity.png');
+                    background-position: left center;
+                    background-repeat: no-repeat;
+                    background-size: .225rem .23rem;
+                    padding-left: .375rem;
+                    box-sizing: border-box;
+                    p {
+                        font-size: .13rem;
+                        line-height: .195rem;
+                    }
+                }
+                .wind-speed {
+                    background-image: url('../images/green-windSpeed.png');
+                    background-position: left center;
+                    background-repeat: no-repeat;
+                    background-size: .24rem .19rem;
+                    padding-left: .39rem;
+                    box-sizing: border-box;
+                    p {
+                        font-size: .13rem;
+                        line-height: .195rem;
+                    }
                 }
             }
         }
-        .pollute {
-            width: 3.305rem;
-            height: .295rem;
-            margin: 0 auto;
-            margin-top: .21rem;
-            background-image: url('../images/green-polluteBar.png');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-        .environment-data {
+        .noise {
             width: 3.3rem;
-            height: .39rem;
             margin: 0 auto;
-            margin-top: .19rem;
-            display: flex;
-            justify-content: space-between;
-            .temperature {
-                flex: 1;
-                background-image: url('../images/green-temperature.png');
-                background-position: left center;
-                background-repeat: no-repeat;
-                background-size: .12rem .23rem;
-                padding-left: .27rem;
-                box-sizing: border-box;
-                p {
-                    font-size: .13rem;
-                    line-height: .195rem;
-                }
-            }
-            .humidity {
-                flex: 1;
-                background-image: url('../images/green-humidity.png');
-                background-position: left center;
-                background-repeat: no-repeat;
-                background-size: .225rem .23rem;
-                padding-left: .375rem;
-                box-sizing: border-box;
-                p {
-                    font-size: .13rem;
-                    line-height: .195rem;
-                }
-            }
-            .wind-speed {
-                background-image: url('../images/green-windSpeed.png');
-                background-position: left center;
-                background-repeat: no-repeat;
-                background-size: .24rem .19rem;
-                padding-left: .39rem;
-                box-sizing: border-box;
-                p {
-                    font-size: .13rem;
-                    line-height: .195rem;
-                }
-            }
-        }
-    }
-    .noise {
-        width: 3.3rem;
-        margin: 0 auto;
-        margin-top: .45rem;
-        position: relative;
-        .noise-title {
-            height: .33rem;
-            background-image: url('../images/green-noiseBorder.png');
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: contain;
-            font-size: .17rem;
-            font-weight: bolder;
+            margin-top: .45rem;
             position: relative;
-            padding-left: .335rem;
-            padding-top: .09rem;
-            box-sizing: border-box;
-        }
-        .noise-state {
-            width: 1.15rem;
-            height: .175rem;
-            position: absolute;
-            top: .08rem;
-            left: 1.775rem;
-            background-color: #4cd964;
-            transform: skew(13deg);
-            p {
-                margin-left: 105%;
-                transform: skew(-13deg);
-                width: .3rem;
+            .noise-title {
+                height: .33rem;
+                background-image: url('../images/green-noiseBorder.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                font-size: .17rem;
+                font-weight: bolder;
+                position: relative;
+                padding-left: .335rem;
+                padding-top: .09rem;
+                box-sizing: border-box;
             }
-        }
-        .noise-data {
-            text-align: center;
-            height: .24rem;
-            line-height: .24rem;
-            font-size: .24rem;
-            margin-top: .22rem;
-            span {
-                color: #4cd964;
+            .noise-state {
+                width: 1.15rem;
+                height: .175rem;
+                position: absolute;
+                top: .08rem;
+                left: 1.775rem;
+                background-color: #4cd964;
+                transform: skew(13deg);
+                p {
+                    margin-left: 105%;
+                    transform: skew(-13deg);
+                    width: .3rem;
+                }
+            }
+            .noise-data {
+                text-align: center;
+                height: .24rem;
+                line-height: .24rem;
+                font-size: .24rem;
+                margin-top: .22rem;
+                span {
+                    color: #4cd964;
+                }
             }
         }
     }
@@ -344,14 +355,18 @@
         }
         .this-month {
             width: 3.08rem;
-            height: .23rem;
+            height: .3rem;
             margin: 0 auto;
             margin-top: .08rem;
-            line-height: .23rem;
+            line-height: .3rem;
             background-color: #071038;
             position: relative;
             padding-left: .32rem;
             box-sizing: border-box;
+            font-size: .15rem;
+            span {
+                color: #4cd964;
+            }
             i {
                 position: absolute;
                 width: .075rem;
@@ -382,11 +397,10 @@
                 background-size: contain;
                 font-size: .18rem;
                 text-align: center;
-                padding-top: .25rem;
+                padding-top: .17rem;
                 box-sizing: border-box;
                 p {
-                    padding-top: .04rem;
-                    margin-bottom: .34rem;
+                    margin-bottom: .46rem;
                     font-size: .12rem;
                 }
                 span {
@@ -434,6 +448,37 @@
                 span {
                     font-size: .13rem;
                 }
+            }
+        }
+    }
+    .selech {
+        box-sizing: border-box;
+        top: .3rem;
+        left: 50%;
+        transform: translate(-50%);
+        width: 3.3rem;
+        height: 6rem;
+        position: fixed;
+        border: .01rem solid #0f1f53;
+        border-radius: .03rem;
+        background-color: rgba(2, 5, 33, .9);
+        box-shadow: 0px 0px 40px #0f1f53 inset;
+        padding-top: .34rem;
+        padding-bottom: .34rem;
+        z-index: 100;
+        ul {
+            li {
+                width: 2.6rem;
+                margin: 0 auto;
+                font-size: .2rem;
+                text-align: center;
+                line-height: .4rem;
+                overflow: hidden;
+                border-radius: .03rem;
+                background-color: rgb(51, 117, 254);
+            }
+            li:not(:nth-child(1)) {
+                margin-top: .2rem;
             }
         }
     }

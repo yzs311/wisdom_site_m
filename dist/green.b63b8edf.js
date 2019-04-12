@@ -106,9 +106,136 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/green.js":[function(require,module,exports) {
 $(function () {
-  console.log('hello world');
+  // console.log('hello world')
+  var pid = localStorage.getItem('pid'); // console.log(pid)
+  // 获取扬尘监测设备数据
+
+  var getDustEmissionData = function getDustEmissionData(sid) {
+    $.ajax({
+      type: "GET",
+      url: "http://lz.hj-tec.com/dustEmission/get/DustEmissionDatas",
+      data: {
+        sid: sid
+      },
+      dataType: "json",
+      success: function success(data) {
+        // console.log(data)
+        var html = $('#dustBox').html();
+        html += "<div class=\"slide-box swiper-slide\">\n                    <!-- \u626C\u5C18\u76D1\u6D4B -->\n                    <div class=\"environment\">\n                <div class=\"environment-title\">\n                    ".concat(data.newData[0].comments, "\n                </div>\n                <div class=\"PM\">\n                    <div class=\"subPM1\">\n                        <p>PM2.5</p>\n                        <span> ").concat(data.newData[0].PM25, "</span>\n                        <i></i>\n                    </div>\n                    <div class=\"subPM2\">\n                        <p>PM10</p>\n                        <span> ").concat(data.newData[0].PM10, "</span>\n                        <i></i>\n                    </div>\n                </div>\n                <div class=\"pollute\"></div>\n                <div class=\"environment-data\">\n                    <div class=\"temperature\">\n                        <p>\u6C14\u6E29</p>\n                        <p> ").concat(data.newData[0].Temperature, "\u2103</p>\n                    </div>\n                    <div class=\"humidity\">\n                        <p>\u6E7F\u5EA6</p>\n                        <p> ").concat(data.newData[0].Humidity, "%</p>\n                    </div>\n                    <div class=\"wind-speed\">\n                        <p>\u98CE\u901F</p>\n                        <p> ").concat(data.newData[0].WindSpeed, "m/s</p>\n                    </div>\n                </div>\n                    </div>\n                    <!-- \u566A\u97F3\u76D1\u6D4B -->\n                    <div class=\"noise\">\n                <div class=\"noise-title\">\n                    <i class=\"shade\"></i>\n                    \u566A\u97F3\u68C0\u6D4B\n                </div>\n                <div class=\"noise-state\">\n                    <p>\u6B63\u5E38</p>\n                </div>\n                <div class=\"noise-data\">\n                    \u5B9E\u65F6\u6570\u636E\uFF1A\n                    <span> ").concat(data.newData[0].Noise, "</span>\n                    dB\n                </div>\n                    </div>\n                </div>");
+        $('#dustBox').html(html); // 初始化环境监测滚动
+
+        var swiper = new Swiper('#swiper', {
+          spaceBetween: 30
+        }); // 选择设备
+
+        $('.selech').on('click', 'li', function (event) {
+          event.stopPropagation();
+          $('.selech').css('display', 'none');
+          swiper.slideTo($(this).index(), 500, false);
+        });
+      }
+    });
+  }; // 显示选择框
+
+
+  $('#dustBox').on('click', '.environment-title', function (event) {
+    event.stopPropagation(); // console.log(`选择栏出现`)
+
+    $('.selech').css('display', 'block');
+  }); // 选择设备
+  // $('.selech').on('click','li',function(event){
+  //     event.stopPropagation()
+  //     $('.selech').css('display','none')
+  //     // console.log(this.id)
+  //     // console.log($(`#${this.id}`).html())
+  //     // $(`#${this.id}`).on('click',(event)=>{
+  //     //     event.stopPropagation()
+  //     //     swiper.slideTo(0, 1000, false)
+  //     //     // $('.selech').css('display','none')
+  //     // })
+  //     swiper.slideTo(0, 1000, false)
+  // })
+  // 获取天气数据
+
+  $.ajax({
+    type: "GET",
+    url: "http://lz.hj-tec.com/lz/get/getWeather",
+    data: {
+      pid: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      // console.log(data)
+      var mydate = new Date(); // console.log(mydate.getHours()+':'+mydate.getMinutes()+':'+mydate.getSeconds())
+
+      var hours = mydate.getHours();
+      var minutes = mydate.getMinutes();
+      var seconds = mydate.getSeconds(); // 开启计算器更新时间
+
+      setInterval(function () {
+        seconds++;
+
+        if (seconds == 60) {
+          seconds = 0;
+          minutes++;
+        }
+
+        if (minutes == 60) {
+          minutes = 0;
+          hours++;
+        }
+
+        if (hours == 24) {
+          hours = 0;
+        }
+
+        var time1 = hours < 10 ? '0' + hours : hours;
+        var time2 = minutes < 10 ? '0' + minutes : minutes;
+        var time3 = seconds < 10 ? '0' + seconds : seconds; // 渲染天气预报模块
+
+        $('#weather').html("<div class=\"weather-left\">\n                        <div class=\"time\">\n                            ".concat(time1 + ':' + time2, "\n                        </div>\n                        <div class=\"day\">\n                            ").concat(data.data[0].week, "\n                        </div>\n                        <div class=\"weather-data\">\n                            <i class=\"weather-img\"></i>\n                            <p>").concat(data.data[0].wea, "</p>\n                            <p>").concat(data.data[0].tem, "~").concat(data.data[0].tem2, "</p>\n                            <p class=\"weather-bg\">").concat(data.data[0].win[0], "</p>\n                            <i class=\"line\"></i>\n                        </div>\n                    </div>\n                    <div class=\"weather-right\">\n                        <div class=\"weather-title\">\n                            ").concat(data.city, "\u5E02\u5929\u6C14\u9884\u62A5\n                        </div>\n                        <div class=\"weather-box\">\n                            <div class=\"weather-data\">\n                                <p class=\"day\">").concat(data.data[1].week, "</p>\n                                <i class=\"weather-img\"></i>\n                                <p>").concat(data.data[1].wea, "</p>\n                                <p>").concat(data.data[1].tem, "~").concat(data.data[1].tem2, "</p>\n                                <p class=\"weather-bg\">").concat(data.data[1].win[0], "</p>\n                            </div>\n                            <div class=\"weather-data\">\n                                <p class=\"day\">").concat(data.data[2].week, "</p>\n                                <i class=\"weather-img\"></i>\n                                <p>").concat(data.data[2].wea, "</p>\n                                <p>").concat(data.data[2].tem, "~").concat(data.data[2].tem2, "</p>\n                                <p class=\"weather-bg\">").concat(data.data[2].win[0], "</p>\n                            </div>\n                        </div>\n                    </div>"));
+      }, 1000);
+    }
+  }); // 获取设备名称与设备编号
+
+  $.ajax({
+    type: "GET",
+    url: "http://lz.hj-tec.com/dustEmission/get/getDustEmissionList",
+    data: {
+      pid: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      // console.log(data.dustEmissionList)
+      var html = '';
+
+      for (var i = 0; i < data.dustEmissionList.length; i++) {
+        html += "<li id=\"sid".concat(data.dustEmissionList[data.dustEmissionList.length - 1 - i].id, "\" index=\"").concat(i, "\">").concat(data.dustEmissionList[data.dustEmissionList.length - 1 - i].comments, "</li>");
+        getDustEmissionData(data.dustEmissionList[data.dustEmissionList.length - 1 - i].id);
+      }
+
+      $('.dust-selech').html(html);
+    }
+  }); // 获取智能电箱设备数据
+
+  $.ajax({
+    type: "GET",
+    url: "http://lz.hj-tec.com/electricityBox/get/getElectricBoxState",
+    data: {
+      pid: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      console.log(data);
+      $('#electicBox').html("<div class=\"slide-box swiper-slide\">\n                    <div class=\"electic\" >\n                        <div class=\"electic-title\">\n                            <i class=\"shade\"></i>\n                            \u7528\u7535\u7BA1\u7406\n                        </div>\n                        <div class=\"this-month\">\n                            <i></i>\n                            \u7535\u7BB1\u8FD0\u884C\u72B6\u6001\uFF1A\n                            <span>".concat(data.sb, "</span>\n                        </div>\n                        <div class=\"electic-box\">\n                            <div class=\"today\">\n                                &nbsp;\n                                <p style=\"font-size:.2rem\">").concat(data.kg == 0 ? '关' : '开', "</p>\n                                <span>\u7BB1\u95E8\u5F00\u5173</span>\n                            </div>\n                            <div class=\"electic-temperature\">\n                                ").concat(data.envirwarm, "\n                                <p>\u2103</p>\n                                <span>\u7535\u7BB1\u6E29\u5EA6</span>\n                            </div>\n                            <div class=\"electic-temperature\">\n                                ").concat(data.current, "\n                                <p>kwh</p>\n                                <span>\u7535\u7BB1\u6F0F\u7535</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>")); // 初始化用电管理滚动
+
+      var swiper2 = new Swiper('#swiper2', {
+        spaceBetween: 30
+      });
+    }
+  });
 });
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -135,7 +262,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -277,5 +404,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/green.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/green.js"], null)
 //# sourceMappingURL=/green.b63b8edf.map

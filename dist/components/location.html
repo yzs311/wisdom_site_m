@@ -11,6 +11,7 @@
 <script src="/location.e43cb177.js"></script></head>
 <body>
     <div id="main">
+        <!-- 搜索框 -->
         <div class="search">
             <div class="nav">
                 <div class="img-box"></div>
@@ -23,155 +24,28 @@
             </div>
             <div class="button">搜索</div>
         </div>
+        <!-- 模糊查询 -->
         <div class="search-data">
-            <ul>
-                <li>
-                    <div class="left-img"></div>
-                    <div class="content">
-                        <div class="name">
-                            姓名：段裕德
-                        </div>
-                        <div class="company">
-                            所属公司：创新劳务有限公司
-                        </div>
-                        <div class="location">
-                            定位地址：广东省深圳市宝安区西乡街道兴业路宝源二区（兴业路）
-                        </div>
-                    </div>
-                    <div class="right-img" id="examine"></div>
-                </li>
+            <ul id="searchList">
             </ul>
-            <div class="more">
-                查看更多结果
-            </div>
         </div>
-        <div class="side-box">
-            <div class="project" id="project">
-                龙华大浪项目
-                <i class="blue-v"></i>
-                <div class="sub-project" id="subProject">
-                    隆创工业园
-                    <i class="black-v"></i>
-                    <div class="name">
-                        <span>段裕德</span>
-                        <span class="">
-                            在线
-                            <i class="green-dot"></i>
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <!-- 侧导航栏 -->
+        <div class="side-box" id="sideBox">
         </div>
-        <div class="data-box">
-            <div class="top-box">
-                <div class="list-box">
-                    <ul>
-                        <li class="name">
-                            姓名：段裕德
-                        </li>
-                        <li>
-                            电话：15811027226
-                        </li>
-                        <li>
-                            所属公司：创新劳务有限公司
-                        </li>
-                        <li>
-                            设备编号：001
-                        </li>
-                        <li>
-                            定位时间：2019-03-14 09:14
-                        </li>
-                        <li>
-                            定位地址：广东省深圳市宝安区西乡街道兴业路宝源二区（兴业路）
-                        </li>
-                    </ul>
-                </div>
-                <div class="picture-box">
-
-                </div>
-            </div>
-            <div class="bottom-box">
-                <div class="electric">
-                    100%
-                </div>
-                <div class="refresh">
-                    刷新定位
-                </div>
-                <div class="switchover" id="history">
-                    历史轨迹
-                </div>
-            </div>
+        <!-- 实时数据 -->
+        <div class="data-box" id="dataBox">
         </div>
-        <div class="history-box">
-            <div class="top-box" id="historyTop">
-                <div class="list-box">
-                    <ul>
-                        <li class="name">
-                            姓名：段裕德
-                        </li>
-                        <li>
-                            电话：15811027226
-                        </li>
-                        <li>
-                            所属公司：创新劳务有限公司
-                        </li>
-                        <li>
-                            设备编号：001
-                        </li>
-                    </ul>
-                </div>
-                <div class="picture-box">
-                </div>
-            </div>
-            <div class="middle-box" id="historyMiddle">
-                <div class="enter">
-                    <div class="img-box"></div>
-                    <ul>
-                        <li>
-                            设备电量：90%
-                        </li>
-                        <li>
-                            时间：2019-3-13
-                            <br>
-                            07：06：15
-                        </li>
-                        <li>
-                            位置：广东省深圳市宝安区西乡街道兴业路宝源二区（兴业路）
-                        </li>
-                    </ul>
-                </div>
-                <div class="come">
-                    <div class="img-box"></div>
-                    <ul>
-                        <li>
-                            设备电量：30%
-                        </li>
-                        <li>
-                            时间：2019-3-13
-                            <br>
-                            19:11:04
-                        </li>
-                        <li>
-                            位置：广东省深圳市宝安区西乡街道兴业路宝源二区（兴业路）
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="bottom-box">
-                <div class="electric">
-                    100%
-                </div>
-                <div class="refresh">
-                    刷新定位
-                </div>
-                <div class="switchover" id="particular">
-                    个人详情
-                </div>
-            </div>
+        <!-- 历史轨迹 -->
+        <div class="history-box" id="historyBox">
         </div>
+        <!-- <button id="demo1" style="position: absolute; z-index: 600">123</button> -->
     </div> 
 
+    <script src="/datePicker.09a2f13a.js"></script>
+
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    
     <script src="/location.0d2fe3e7.js"></script>
 </body>
 </html>

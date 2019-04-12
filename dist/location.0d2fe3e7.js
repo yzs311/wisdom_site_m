@@ -106,7 +106,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/location.js":[function(require,module,exports) {
 $(function () {
-  // 手机长度适配
+  var pid = localStorage.getItem('pid'); // 手机长度适配
+
   var height = $('body').height();
   $('body').height(height); // 初始化地图
 
@@ -137,179 +138,272 @@ $(function () {
   }); // 监听输入框状态
 
   $('#search').on('input propertychange', function () {
-    if ($(this).val().includes('段') || $(this).val().includes('裕') || $(this).val().includes('德')) {
-      $('.search-data').css('display', 'block');
-    } else {
+    // console.log($(this).val())
+    var value = $(this).val();
+    $.ajax({
+      type: "GET",
+      url: "http://lz.hj-tec.com/lz/hire/localtionList",
+      data: {
+        id: pid,
+        string: value
+      },
+      dataType: "json",
+      success: function success(data) {
+        // console.log(data)
+        var html = '';
+
+        if (data.length > 0) {
+          for (var i = 0; i < data.length; i++) {
+            html += "<li data-name=".concat(data[i].hname, ">\n                            <div class=\"left-img\"></div>\n                            <div class=\"content\">\n                                <div class=\"name\">\n                                    \u59D3\u540D\uFF1A").concat(data[i].hname, "\n                                </div>\n                                <div class=\"company\">\n                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[i].laowu, "\n                                </div>\n                                <div class=\"location\">\n                                    \u6240\u5C5E\u5DE5\u533A\uFF1A").concat(data[i].areaList[0].name, "\n                                </div>\n                            </div>\n                            <div class=\"right-img\"></div>\n                        </li>");
+          }
+
+          $('#searchList').html(html);
+          $('.search-data').css('display', 'block');
+        } else {
+          $('#searchList').html("<li style=\"border-bottom:none\">\n                            <div class=\"content\" style=\"line-height:.7rem; text-align:center; font-size:.16rem\">\n                                \u65E0\u76F8\u5173\u4EBA\u5458\n                            </div>\n                        </li>");
+          $('.search-data').css('display', 'block');
+        }
+      }
+    });
+
+    if (value == '') {
       $('.search-data').css('display', 'none');
     }
   });
-  var marker;
-  var polygon; // 查看人员信息点击事件
+  var marker; // 当前位置
 
-  $('#examine').on('click', function () {
-    $('.data-box').css('display', 'block');
-    $('.search-data').css('display', 'none');
-    marker = new AMap.Marker({
-      position: [114.003378, 22.571492] // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+  var circle; // 电子围栏
 
+  var polyline; // 历史轨迹
+  // 查看人员信息点击事件
+
+  $('#searchList').on('click', 'li', function () {
+    // console.log($(this).data('name'))
+    var name = $(this).data('name');
+    $('.history-box').css('display', 'none');
+    $.ajax({
+      type: "GET",
+      url: "http://lz.hj-tec.com/lz/hire/localtionList",
+      data: {
+        id: pid,
+        string: name
+      },
+      dataType: "json",
+      // async: false,
+      success: function success(data) {
+        // console.log(data)
+        var temp = [];
+        var temp2 = [];
+        temp.push(data[0].areaList[0].xloc);
+        temp.push(data[0].areaList[0].yloc);
+        temp2.push(data[0].localtionList[0].xloc);
+        temp2.push(data[0].localtionList[0].yloc);
+        $('.data-box').css('display', 'block');
+        $('.search-data').css('display', 'none');
+        marker = new AMap.Marker({
+          position: temp2 // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+
+        });
+        map.add(marker);
+        circle = new AMap.Circle({
+          center: temp,
+          // 圆心位置
+          radius: data[0].areaList[0].radius,
+          // 圆半径
+          fillColor: 'none',
+          // 圆形填充颜色
+          fillOpacity: 0,
+          // 填充色透明度
+          strokeColor: '#3979fe',
+          // 描边颜色
+          strokeWeight: 2 // 描边宽度
+
+        });
+        map.add(circle);
+        map.setZoomAndCenter(13, temp);
+        $('#dataBox').html("<div class=\"top-box\">\n                        <div class=\"list-box\">\n                            <ul>\n                                <li class=\"name\">\n                                    \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                </li>\n                                <li>\n                                    \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                </li>\n                                <li>\n                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                </li>\n                                <li>\n                                    \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                </li>\n                                <li>\n                                    \u5B9A\u4F4D\u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                </li>\n                                <li>\n                                    \u5B9A\u4F4D\u5730\u5740\uFF1A").concat(data[0].localtionList[0].address, "\n                                </li>\n                            </ul>\n                        </div>\n                    </div>\n                    <div class=\"bottom-box\">\n                        <div class=\"electric\">\n                            \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                        </div>\n                        <div class=\"refresh\">\n                            \u5237\u65B0\u5B9A\u4F4D\n                        </div>\n                        <div class=\"switchover\" id=\"history\" >\n                            \u5386\u53F2\u8F68\u8FF9\n                        </div>\n                    </div>"));
+        var calendar = new datePicker();
+        calendar.init({
+          'trigger': '#history',
+
+          /*按钮选择器，用于触发弹出插件*/
+          'type': 'date',
+
+          /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+          'minDate': '1900-1-1',
+
+          /*最小日期*/
+          'maxDate': '2100-12-31',
+
+          /*最大日期*/
+          'onSubmit': function onSubmit() {
+            /*确认时触发事件*/
+            var theSelectData = calendar.value; // console.log(name)
+
+            $.ajax({
+              type: "GET",
+              url: "http://lz.hj-tec.com/lz/hire/localtionList",
+              data: {
+                id: pid,
+                string: name,
+                createDate: theSelectData
+              },
+              dataType: "json",
+              success: function success(data) {
+                // console.log(data)
+                $('.data-box').css('display', 'none');
+                $('.history-box').css('display', 'block');
+                var temp = [];
+                var temp2 = [];
+                var temp3 = [];
+                temp.push(data[0].areaList[0].xloc);
+                temp.push(data[0].areaList[0].yloc);
+
+                for (var i = 0; i < data[0].localtionList.length; i++) {
+                  temp2 = [];
+                  temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - i].xloc);
+                  temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - i].yloc);
+                  temp3.push(temp2);
+                }
+
+                polyline = new AMap.Polyline({
+                  path: temp3,
+                  lineJoin: 'round',
+                  //折线拐点样式
+                  showDir: true,
+                  //移动方向
+                  strokeWeight: 3,
+                  //线条宽度
+                  strokeColor: '#3366ff' //线条颜色
+
+                });
+                map.add(polyline);
+                map.remove(marker);
+                map.setZoomAndCenter(13, temp);
+                $('#historyBox').html("<div class=\"top-box\" id=\"historyTop\">\n                                        <div class=\"pull-up\"></div>\n                                        <div class=\"list-box\">\n                                            <ul>\n                                                <li class=\"name\">\n                                                    \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                </li>\n                                                <li>\n                                                    \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                </li>\n                                                <li>\n                                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                </li>\n                                                <li>\n                                                    \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                </li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                    <div class=\"middle-box\" id=\"historyMiddle\">\n                                        <div class=\"enter\">\n                                            <div class=\"img-box\"></div>\n                                            <ul>\n                                                <li>\n                                                    \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                </li>\n                                                <li>\n                                                    \u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                    <br>\n                                                    \n                                                </li>\n                                                <li>\n                                                    \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[0].address, "\n                                                </li>\n                                            </ul>\n                                        </div>\n                                        <div class=\"come\">\n                                            <div class=\"img-box\"></div>\n                                            <ul>\n                                                <li>\n                                                    \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].bat, "%\n                                                </li>\n                                                <li>\n                                                    \u65F6\u95F4\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].createDate, "\n                                                    <br>\n                                                    \n                                                </li>\n                                                <li>\n                                                    \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].address, "\n                                                </li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                    <div class=\"bottom-box\">\n                                        <div class=\"electric\">\n                                            \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                        </div>\n                                        <div class=\"refresh\">\n                                            \u5237\u65B0\u5B9A\u4F4D\n                                        </div>\n                                        <div class=\"switchover\" id=\"particular\">\n                                            \u4E2A\u4EBA\u8BE6\u60C5\n                                        </div>\n                                    </div>"));
+              }
+            });
+          },
+          'onClose': function onClose() {
+            /*取消时触发事件*/
+            // console.log(`123`)
+          }
+        });
+      }
     });
-    map.add(marker);
-    polygon = new AMap.Polygon({
-      path: [new AMap.LngLat(113.992992, 22.581439), new AMap.LngLat(114.01033, 22.582786), new AMap.LngLat(114.010287, 22.562853), new AMap.LngLat(113.996898, 22.563329)],
-      fillColor: '#fff',
-      // 多边形填充颜色
-      fillOpacity: 0,
-      //填充颜色透明度
-      borderWeight: 1,
-      // 线条宽度
-      strokeColor: '#137ed2' // 线条颜色}
+  }); // 人员信息与历史轨迹切换
 
-    });
-    map.add(polygon);
-    map.setZoomAndCenter(14, [114.003378, 22.561492]);
-  });
-  var circle1;
-  var circle2;
-  var circle3;
-  var circle4;
-  var polyline; // 人员信息与历史轨迹切换
-
-  $('#particular').on('click', function () {
+  $('#historyBox').on('click', '#particular', function () {
     $('.data-box').css('display', 'block');
     $('.history-box').css('display', 'none');
     map.add(marker);
-    map.remove(circle1);
-    map.remove(circle2);
-    map.remove(circle3);
-    map.remove(circle4);
     map.remove(polyline);
-  });
-  $('#history').on('click', function () {
-    $('.data-box').css('display', 'none');
-    $('.history-box').css('display', 'block');
-    circle1 = new AMap.Circle({
-      center: [113.994194, 22.578189],
-      fillOpacity: 1,
-      //透明度
-      zIndex: 100,
-      //层级
-      radius: 10,
-      //半径
-      fillColor: '#e10505',
-      //填充颜色
-      strokeColor: '#e10505' //轮廓线颜色
-
-    });
-    circle2 = new AMap.Circle({
-      center: [114.004537, 22.563725],
-      fillOpacity: 1,
-      //透明度
-      zIndex: 100,
-      //层级
-      radius: 10,
-      //半径
-      fillColor: '#e10505',
-      //填充颜色
-      strokeColor: '#e10505' //轮廓线颜色
-
-    });
-    circle3 = new AMap.Circle({
-      center: [114.009601, 22.570383],
-      fillOpacity: 1,
-      //透明度
-      zIndex: 100,
-      //层级
-      radius: 10,
-      //半径
-      fillColor: '#e10505',
-      //填充颜色
-      strokeColor: '#e10505' //轮廓线颜色
-
-    });
-    circle4 = new AMap.Circle({
-      center: [114.006167, 22.580171],
-      fillOpacity: 1,
-      //透明度
-      zIndex: 100,
-      //层级
-      radius: 10,
-      //半径
-      fillColor: '#e10505',
-      //填充颜色
-      strokeColor: '#e10505' //轮廓线颜色
-
-    });
-    polyline = new AMap.Polyline({
-      path: [new AMap.LngLat(113.994194, 22.578189), new AMap.LngLat(114.004537, 22.563725), new AMap.LngLat(114.009601, 22.570383), new AMap.LngLat(114.006167, 22.580171)],
-      lineJoin: 'round',
-      //折线拐点样式
-      showDir: true,
-      //移动方向
-      strokeWeight: 3,
-      //线条宽度
-      strokeColor: '#3366ff' //线条颜色
-
-    });
-    map.add(circle1);
-    map.add(circle2);
-    map.add(circle3);
-    map.add(circle4);
-    map.add(polyline);
-    map.remove(marker);
   });
   var temp = 1; // 历史轨迹详细信息
 
-  $('#historyTop').on('click', function () {
+  $('#historyBox').on('click', '#historyTop', function () {
+    // console.log(`123`)
     if (temp == 1) {
       $('#historyMiddle').animate({
         height: '1.705rem'
       });
+      $('.pull-up').css('transform', 'rotate(180deg)');
       temp = 0;
     } else {
       $('#historyMiddle').animate({
         height: '0'
       });
+      $('.pull-up').css('transform', 'rotate(0deg)');
       temp = 1;
     }
-  });
-  var project = 1; // 一级菜单
+  }); // 获取工区数据
 
-  $('#project').on('click', function () {
-    if (project == 1) {
-      $('#project').animate({
-        height: '1.74rem'
-      });
-      project = 0;
-      $('.blue-v').addClass('rotate');
-    } else {
-      $('#project').animate({
-        height: '.39rem'
-      });
-      $('.blue-v').removeClass('rotate');
-      project = 1;
-    }
-  });
-  var subProject = 1; // 二级菜单
+  $.ajax({
+    type: "GET",
+    url: "http://lz.hj-tec.com/lz/project/listzh",
+    data: {
+      id: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      // console.log(data)
+      $('#sideBox').html("<div class=\"project\" id=\"project\">\n                    ".concat(data.title, "\n                    <i class=\"blue-v\"></i>\n                </div>"));
+      var projectHtml = $('#project').html();
 
-  $('#subProject').on('click', function (event) {
-    event.stopPropagation();
+      for (var i = 0; i < data.areaList.length; i++) {
+        // console.log(projectHtml)
+        projectHtml += "<div class=\"sub-project\" id=\"subProject".concat(i, "\">\n                    ").concat(data.areaList[i].name, "\n                    <i class=\"black-v\"></i>\n                    <div class=\"name-box\">\n                        \n                    </div>\n                </div>");
+      }
 
-    if (subProject == 1) {
-      $('#subProject').animate({
-        height: '1.4rem'
-      });
-      $('.black-v').addClass('rotate');
-      subProject = 0;
-    } else {
-      $('#subProject').animate({
-        height: '.35rem'
-      });
-      $('.black-v').removeClass('rotate');
-      subProject = 1;
+      $('#project').html(projectHtml);
+      var subProjectHeight1 = $("#subProject0").height();
+      var nameHeight1 = $("#subProject0 .name-box").height(); // console.log(subProjectHeight1)
+
+      var subProjectHeight2 = 0;
+      var nameHeight2 = 0;
+
+      var _loop = function _loop(_i) {
+        var tempHtml = '';
+
+        for (var j = 0; j < data.areaList[_i].hireList.length; j++) {
+          tempHtml += "<div class=\"name\">\n                        <span>".concat(data.areaList[_i].hireList[j].hname, "</span>\n                    </div>");
+        }
+
+        $("#subProject".concat(_i, " .name-box")).html(tempHtml); // console.log( $(`#subProject${i} .name-box`).html())
+
+        subProjectHeight2 += $("#subProject".concat(_i)).height(); // console.log(subProjectHeight2)
+
+        nameHeight2 += $("#subProject".concat(_i, " .name-box")).height();
+        var projectHeight = $('#project').height();
+        var project = 1;
+        var subProject = 1; // 一级菜单
+
+        $('#project').on('click', function (event) {
+          // console.log($('#subProject').height())
+          event.stopPropagation();
+
+          if (project == 1) {
+            $('#project').animate({
+              height: projectHeight + subProjectHeight2 + nameHeight2 + 'px'
+            });
+            project = 0;
+            $('.blue-v').addClass('rotate');
+          } else {
+            $('#project').animate({
+              height: projectHeight + 'px'
+            });
+            $('.blue-v').removeClass('rotate');
+            project = 1;
+          }
+        }); // 二级菜单
+
+        $("#subProject".concat(_i)).on('click', function (event) {
+          // 阻止事件冒泡
+          event.stopPropagation(); // console.log(subProjectHeight2)        
+
+          if (subProject == 1) {
+            $("#subProject".concat(_i)).animate({
+              height: subProjectHeight2 + nameHeight2 + 'px'
+            });
+            $("#subProject".concat(_i, " .black-v")).addClass('rotate');
+            subProject = 0;
+          } else {
+            $("#subProject".concat(_i)).animate({
+              height: subProjectHeight1 + 'px'
+            });
+            $("#subProject".concat(_i, " .black-v")).removeClass('rotate');
+            subProject = 1;
+          }
+        });
+      };
+
+      for (var _i = 0; _i < data.areaList.length; _i++) {
+        _loop(_i);
+      }
     }
   });
 });
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -336,7 +430,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -478,5 +572,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/location.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/location.js"], null)
 //# sourceMappingURL=/location.0d2fe3e7.map

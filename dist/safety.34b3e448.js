@@ -122,6 +122,8 @@ $(function () {
   // 切换到塔吊模块
 
   $('#towerCraneBtn').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
+    event.stopPropagation();
     $('.towerCrane').css('display', '');
     var siblings = $('.towerCrane').siblings();
 
@@ -131,6 +133,7 @@ $(function () {
   }); // 切换到升降机模块
 
   $('#elevatorBtn').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
     $('.elevator').css('display', '');
     var siblings = $('.elevator').siblings();
 
@@ -144,6 +147,7 @@ $(function () {
   }); // 切换到车辆出入模块
 
   $('#carBtn').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
     $('.car').css('display', '');
     var siblings = $('.car').siblings();
 
@@ -195,6 +199,7 @@ $(function () {
 
 
   $('#gasBtn').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
     $('.gas').css('display', '');
     var siblings = $('.gas').siblings();
 
@@ -205,9 +210,25 @@ $(function () {
     var swiper5 = new Swiper('#swiper5', {
       spaceBetween: 30
     });
-  });
+  }); // 切换到龙门吊数据模块
+
+  $('#gantryCrane').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active');
+    $('.gantryCrane').css('display', '');
+    var siblings = $('.gantryCrane').siblings();
+
+    for (var i = 0; i < siblings.length; i++) {
+      $(siblings[i]).css('display', 'none');
+    }
+
+    var swiper6 = new Swiper('#swiper6', {
+      spaceBetween: 30
+    });
+  }); // 启动龙门吊实时数据滚动
+
+  scrollStart('gantryBox1', 'gantryBox1-1', 'gantryBox1-2');
 });
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -234,7 +255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -376,5 +397,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/safety.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/safety.js"], null)
 //# sourceMappingURL=/safety.34b3e448.map

@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="/hujiang.ad9a82e4.ico" type="image/x-icon">
     <title>智慧工地-绿色施工</title>
+    <link href="https://cdn.bootcss.com/Swiper/4.4.6/css/swiper.min.css" rel="stylesheet">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" href="/green.166b9164.css">
 <script src="/green.166b9164.js"></script></head>
 <body>
@@ -16,123 +18,35 @@
             绿色施工
         </div>
         <!-- 天气 -->
-        <div class="weather">
-            <div class="weather-left">
-                <div class="time">
-                    08：44
-                </div>
-                <div class="day">
-                    06月04日 周六
-                </div>
-                <div class="weather-data">
-                    <i class="weather-img"></i>
-                    <p>阴转多云</p>
-                    <p>18~26℃</p>
-                    <p class="weather-bg">微风级</p>
-                    <i class="line"></i>
-                </div>
-            </div>
-            <div class="weather-right">
-                <div class="weather-title">
-                    南山区环境监测动态显示
-                </div>
-                <div class="weather-box">
-                    <div class="weather-data">
-                        <p class="day">周日</p>
-                        <i class="weather-img"></i>
-                        <p>阴转多云</p>
-                        <p>18~26℃</p>
-                        <p class="weather-bg">微风级</p>
-                    </div>
-                    <div class="weather-data">
-                        <p class="day">周一</p>
-                        <i class="weather-img"></i>
-                        <p>阴转多云</p>
-                        <p>18~26℃</p>
-                        <p class="weather-bg">微风级</p>
-                    </div>
-                </div>
-            </div>
+        <div class="weather" id="weather">
         </div>
         <!-- 实时环境监测 -->
-        <div class="environment">
-            <div class="environment-title">
-                实时环境监测
-            </div>
-            <div class="PM">
-                <div class="subPM1">
-                    <p>PM2.5</p>
-                    <span>123</span>
-                    <i></i>
-                </div>
-                <div class="subPM2">
-                    <p>PM10</p>
-                    <span>123</span>
-                    <i></i>
-                </div>
-            </div>
-            <div class="pollute"></div>
-            <div class="environment-data">
-                <div class="temperature">
-                    <p>气温</p>
-                    <p>22℃</p>
-                </div>
-                <div class="humidity">
-                    <p>湿度</p>
-                    <p>20%</p>
-                </div>
-                <div class="wind-speed">
-                    <p>风速</p>
-                    <p>22m/s</p>
-                </div>
-            </div>
-        </div>
-        <!-- 噪音检测 -->
-        <div class="noise">
-            <div class="noise-title">
-                <i class="shade"></i>
-                噪音检测
-            </div>
-            <div class="noise-state">
-                <p>正常</p>
-            </div>
-            <div class="noise-data">
-                实时数据：
-                <span>60</span>
-                dB
+        <div class="dust-box swiper-container" id="swiper">
+            <div class="swiper-wrapper" id="dustBox">
             </div>
         </div>
         <!-- 用电管理 -->
-        <div class="electic">
-            <div class="electic-title">
-                <i class="shade"></i>
-                用电管理
+        <div class="swiper-container" id="swiper2">
+            <div class="swiper-wrapper" id="electicBox">
+                
             </div>
-            <div class="this-month">
-                <i></i>
-                本月用电 21,286 kw-h
-            </div>
-            <div class="electic-box">
-                <div class="today">
-                    200
-                    <p>kwh</p>
-                    <span>今日用电</span>
-                </div>
-                <div class="electic-temperature">
-                    80
-                    <p>℃</p>
-                    <span>电箱温度</span>
-                </div>
-                <div class="electic-leakage">
-                    200
-                    <p>kwh</p>
-                    <span>电箱漏电</span>
-                </div>
-            </div>
+        </div>
+        <!-- 设备选择栏 -->
+        <div class="selech" style="display:none">
+            <ul class="dust-selech">
+            </ul>
+            <ul class="electic-selech" style="display:none">
+                <li>电箱设备名称</li>
+            </ul>
         </div>
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+    <script src="https://cdn.bootcss.com/Swiper/4.4.6/js/swiper.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script> -->
+    
     <script src="/green.b63b8edf.js"></script>
     <script src="/rem.2ea82f2e.js"></script>
 </body>

@@ -50,13 +50,19 @@ input[type=search] {
   top: .09rem;
   left: .11rem;
 }
+html,
+body {
+  height: 100%;
+}
 .main {
   width: 100%;
+  min-height: 100%;
   color: #fff;
   padding-top: .45rem;
   padding-bottom: .45rem;
   box-sizing: border-box;
   background-color: #010118;
+  position: relative;
 }
 .main .title {
   width: 3.3rem;
@@ -125,6 +131,7 @@ input[type=search] {
   margin-left: 50%;
   transform: translate(-50%);
   padding: 0 .025rem;
+  width: .6rem;
 }
 .main .weather .weather-left .weather-data .line {
   position: absolute;
@@ -176,6 +183,7 @@ input[type=search] {
   margin-left: 50%;
   transform: translate(-50%);
   padding: 0 .025rem;
+  width: .6rem;
 }
 .main .weather .weather-right .weather-box .weather-data .line {
   position: absolute;
@@ -188,22 +196,22 @@ input[type=search] {
 .main .weather .weather-right .weather-box .weather-data .day {
   line-height: .12rem;
 }
-.main .environment {
+.main .dust-box .environment {
   margin-top: .45rem;
 }
-.main .environment .environment-title {
+.main .dust-box .environment .environment-title {
   font-size: .16rem;
   line-height: .16rem;
   text-align: center;
 }
-.main .environment .PM {
+.main .dust-box .environment .PM {
   height: 1.5rem;
   width: 3.3rem;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
-.main .environment .PM .subPM1 {
+.main .dust-box .environment .PM .subPM1 {
   flex: 1;
   background-image: url('../images/green-excellentCircle.png');
   background-position: center center;
@@ -213,7 +221,7 @@ input[type=search] {
   box-sizing: border-box;
   text-align: center;
 }
-.main .environment .PM .subPM1 p {
+.main .dust-box .environment .PM .subPM1 p {
   font-size: .14rem;
   height: .14rem;
   font-weight: bolder;
@@ -221,11 +229,11 @@ input[type=search] {
   text-align: center;
   margin-bottom: .1rem;
 }
-.main .environment .PM .subPM1 span {
+.main .dust-box .environment .PM .subPM1 span {
   font-size: .23rem;
   font-weight: bolder;
 }
-.main .environment .PM .subPM1 i {
+.main .dust-box .environment .PM .subPM1 i {
   display: block;
   width: .57rem;
   height: .21rem;
@@ -239,7 +247,7 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .environment .PM .subPM2 {
+.main .dust-box .environment .PM .subPM2 {
   flex: 1;
   background-image: url('../images/green-excellentCircle.png');
   background-position: center center;
@@ -249,7 +257,7 @@ input[type=search] {
   box-sizing: border-box;
   text-align: center;
 }
-.main .environment .PM .subPM2 p {
+.main .dust-box .environment .PM .subPM2 p {
   font-size: .14rem;
   height: .14rem;
   font-weight: bolder;
@@ -257,11 +265,11 @@ input[type=search] {
   text-align: center;
   margin-bottom: .1rem;
 }
-.main .environment .PM .subPM2 span {
+.main .dust-box .environment .PM .subPM2 span {
   font-size: .23rem;
   font-weight: bolder;
 }
-.main .environment .PM .subPM2 i {
+.main .dust-box .environment .PM .subPM2 i {
   display: block;
   width: .57rem;
   height: .21rem;
@@ -275,7 +283,7 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .environment .pollute {
+.main .dust-box .environment .pollute {
   width: 3.305rem;
   height: .295rem;
   margin: 0 auto;
@@ -285,7 +293,7 @@ input[type=search] {
   background-repeat: no-repeat;
   background-size: contain;
 }
-.main .environment .environment-data {
+.main .dust-box .environment .environment-data {
   width: 3.3rem;
   height: .39rem;
   margin: 0 auto;
@@ -293,7 +301,7 @@ input[type=search] {
   display: flex;
   justify-content: space-between;
 }
-.main .environment .environment-data .temperature {
+.main .dust-box .environment .environment-data .temperature {
   flex: 1;
   background-image: url('../images/green-temperature.png');
   background-position: left center;
@@ -302,11 +310,11 @@ input[type=search] {
   padding-left: .27rem;
   box-sizing: border-box;
 }
-.main .environment .environment-data .temperature p {
+.main .dust-box .environment .environment-data .temperature p {
   font-size: .13rem;
   line-height: .195rem;
 }
-.main .environment .environment-data .humidity {
+.main .dust-box .environment .environment-data .humidity {
   flex: 1;
   background-image: url('../images/green-humidity.png');
   background-position: left center;
@@ -315,11 +323,11 @@ input[type=search] {
   padding-left: .375rem;
   box-sizing: border-box;
 }
-.main .environment .environment-data .humidity p {
+.main .dust-box .environment .environment-data .humidity p {
   font-size: .13rem;
   line-height: .195rem;
 }
-.main .environment .environment-data .wind-speed {
+.main .dust-box .environment .environment-data .wind-speed {
   background-image: url('../images/green-windSpeed.png');
   background-position: left center;
   background-repeat: no-repeat;
@@ -327,17 +335,17 @@ input[type=search] {
   padding-left: .39rem;
   box-sizing: border-box;
 }
-.main .environment .environment-data .wind-speed p {
+.main .dust-box .environment .environment-data .wind-speed p {
   font-size: .13rem;
   line-height: .195rem;
 }
-.main .noise {
+.main .dust-box .noise {
   width: 3.3rem;
   margin: 0 auto;
   margin-top: .45rem;
   position: relative;
 }
-.main .noise .noise-title {
+.main .dust-box .noise .noise-title {
   height: .33rem;
   background-image: url('../images/green-noiseBorder.png');
   background-position: center center;
@@ -350,7 +358,7 @@ input[type=search] {
   padding-top: .09rem;
   box-sizing: border-box;
 }
-.main .noise .noise-state {
+.main .dust-box .noise .noise-state {
   width: 1.15rem;
   height: .175rem;
   position: absolute;
@@ -359,19 +367,19 @@ input[type=search] {
   background-color: #4cd964;
   transform: skew(13deg);
 }
-.main .noise .noise-state p {
+.main .dust-box .noise .noise-state p {
   margin-left: 105%;
   transform: skew(-13deg);
   width: .3rem;
 }
-.main .noise .noise-data {
+.main .dust-box .noise .noise-data {
   text-align: center;
   height: .24rem;
   line-height: .24rem;
   font-size: .24rem;
   margin-top: .22rem;
 }
-.main .noise .noise-data span {
+.main .dust-box .noise .noise-data span {
   color: #4cd964;
 }
 .main .electic {
@@ -395,14 +403,18 @@ input[type=search] {
 }
 .main .electic .this-month {
   width: 3.08rem;
-  height: .23rem;
+  height: .3rem;
   margin: 0 auto;
   margin-top: .08rem;
-  line-height: .23rem;
+  line-height: .3rem;
   background-color: #071038;
   position: relative;
   padding-left: .32rem;
   box-sizing: border-box;
+  font-size: .15rem;
+}
+.main .electic .this-month span {
+  color: #4cd964;
 }
 .main .electic .this-month i {
   position: absolute;
@@ -434,12 +446,11 @@ input[type=search] {
   background-size: contain;
   font-size: .18rem;
   text-align: center;
-  padding-top: .25rem;
+  padding-top: .17rem;
   box-sizing: border-box;
 }
 .main .electic .electic-box .today p {
-  padding-top: .04rem;
-  margin-bottom: .34rem;
+  margin-bottom: .46rem;
   font-size: .12rem;
 }
 .main .electic .electic-box .today span {
@@ -486,4 +497,33 @@ input[type=search] {
 }
 .main .electic .electic-box .electic-leakage span {
   font-size: .13rem;
+}
+.main .selech {
+  box-sizing: border-box;
+  top: .3rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 3.3rem;
+  height: 6rem;
+  position: fixed;
+  border: .01rem solid #0f1f53;
+  border-radius: .03rem;
+  background-color: rgba(2, 5, 33, 0.9);
+  box-shadow: 0px 0px 40px #0f1f53 inset;
+  padding-top: .34rem;
+  padding-bottom: .34rem;
+  z-index: 100;
+}
+.main .selech ul li {
+  width: 2.6rem;
+  margin: 0 auto;
+  font-size: .2rem;
+  text-align: center;
+  line-height: .4rem;
+  overflow: hidden;
+  border-radius: .03rem;
+  background-color: #3375fe;
+}
+.main .selech ul li:not(:nth-child(1)) {
+  margin-top: .2rem;
 }

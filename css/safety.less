@@ -26,11 +26,37 @@
         height: .755rem;
         margin: 0 auto;
         margin-top: .225rem;
-        li {
-            text-align: center;
-            img {
-                width: 1.035rem;
-                height: .67rem;
+        ul {
+            display: flex;
+            justify-content: space-between;
+            li {
+                width: 1rem;
+                height: .65rem;
+                font-size: .16rem;
+                font-weight: bolder;
+                line-height: .55rem;
+                text-align: center;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .active.ybg {
+                background-image: url('../images/quality-yellowBg.gif');
+            }
+            .active.bbg {
+                background-image: url('../images/quality-blueBg.gif');
+            }
+            .active.gbg {
+                background-image: url('../images/quality-greenBg.gif');
+            }
+            .ybg {
+                background-image: url('../images/quality-yellowBg.png');
+            }
+            .bbg {
+                background-image: url('../images/quality-blueBg.png');
+            }
+            .gbg {
+                background-image: url('../images/quality-greenBg.png');
             }
         }
         .swiper-scrollbar {
@@ -91,7 +117,7 @@
                     background-size: contain;
                     .information-left {
                         float: left;
-                        font-size: .18rem;
+                        font-size: .16rem;
                         font-weight: bolder;
                         line-height: .55rem;
                         background-image: url('../images/safety-operationBg.png');
@@ -223,7 +249,7 @@
                     background-size: contain;
                     .information-left {
                         float: left;
-                        font-size: .18rem;
+                        font-size: .16rem;
                         font-weight: bolder;
                         line-height: .55rem;
                         background-image: url('../images/safety-operationBg.png');
@@ -413,7 +439,7 @@
                     display: flex;
                     justify-content: space-between;
                     .information-left {
-                        font-size: .18rem;
+                        font-size: .16rem;
                         font-weight: bolder;
                         line-height: .55rem;
                         background-image: url('../images/safety-operationBg.png');
@@ -497,6 +523,175 @@
                         font-weight: bolder;
                         text-align: center;
                         margin-top: .2rem;
+                    }
+                }
+            }
+        }
+        // 龙门吊设备数据样式
+        .gantryCrane {
+            .slide-box {
+                position: relative;
+                .information {
+                    width: 3.3rem;
+                    height: .75rem;
+                    margin: 0 auto;
+                    padding: .1rem .375rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-InformationBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    .information-left {
+                        float: left;
+                        font-size: .16rem;
+                        font-weight: bolder;
+                        line-height: .55rem;
+                        background-image: url('../images/safety-operationBg.png');
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: .37rem .385rem;
+                    }
+                    .information-middle {
+                        float: left;
+                        font-size: .13rem;
+                        margin-left: .25rem;
+                        >div {
+                            font-weight: bolder;
+                            line-height: .265rem;
+                            span {
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                    .information-right {
+                        float: left;
+                        width: .47rem;
+                        height: .52rem;
+                        margin-left: .1rem;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+                .data {
+                    width: 3.3rem;
+                    height: 4rem;
+                    margin: 0 auto;
+                    margin-top: .225rem;
+                    padding-top: .26rem;
+                    box-sizing: border-box;
+                    background-image: url('../images/safety-dataBg.png');
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    .name {
+                        font-size: .18rem;
+                        font-weight: bolder;
+                        padding-left: .19rem;
+                        box-sizing: border-box;
+                    }
+                    .top-data {
+                        height: .97rem;
+                        margin-top: .25rem;
+                        .left-box {
+                            float: left;
+                            font-size: .14rem;
+                            padding-top: .34rem;
+                            margin-left: .32rem;
+                            margin-right: .32rem;
+                            p {
+                                text-align: center;
+                            }
+                        }
+                        .middle-box {
+                            float: left;
+                            width: .97rem;
+                            height: .97rem;
+                            font-size: .14rem;
+                            background-image: url('../images/safety-centreBg.png');
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                            position: relative;
+                            text-align: center;
+                            line-height: .97rem;
+                            p {
+                                position: absolute;
+                                bottom: -0.21rem;
+                                left: 50%;
+                                transform: translate(-50%);
+                            }
+                        }
+                        .right-box {
+                            float: left;
+                            font-size: .14rem;
+                            padding-top: .34rem;
+                            margin-left: .32rem;
+                            margin-right: .32rem;
+                            p {
+                                text-align: center;
+                            }
+                        }
+                    }
+                    .bottom-data {
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            li {
+                                width: 50%;
+                                margin-top: .3rem;
+                                img {
+                                    float: left;
+                                    width: .26rem;
+                                    height: .26rem;
+                                    // vertical-align: top;
+                                    margin-left: .43rem;
+                                }
+                                .li-data {
+                                    float: left;
+                                    margin-left: .06rem;
+                                }
+                            }
+                        }
+                    }
+                    .real-time-data {
+                        >div {
+                            text-align: center;
+                            font-size: .16rem;
+                        }
+                        .table-head {
+                            margin-top: .1rem;
+                            li {
+                                color: #7f9ea8;
+                                width: 2.4rem;
+                                display: flex;
+                                margin: 0 auto;
+                                line-height: .19rem;
+                                justify-content: space-between;
+                            }
+                        }
+                        #gantryBox1 {
+                            height: .95rem;
+                            overflow: hidden;
+                            .table-body {
+                                li {
+                                    color: #7f9ea8;
+                                    width: 2.4rem;
+                                    display: flex;
+                                    margin: 0 auto;
+                                    font-size: .12rem;
+                                    line-height: .19rem;
+                                    justify-content: space-between;
+                                }
+                            }
+                        }
+                    }
+                    .service {
+                        font-size: .16rem;
+                        font-weight: bolder;
+                        text-align: center;
+                        margin-top: .14rem;
                     }
                 }
             }

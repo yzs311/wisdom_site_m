@@ -108,7 +108,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 $(function () {
   // FastClick.attach(document.body)
   // console.log('hello world')
-  // 初始化swiper
+  var pid = localStorage.getItem('pid'); // 初始化swiper
+
   var swiper1 = new Swiper('#swiper1', {
     loop: true,
     autoplay: true,
@@ -122,9 +123,36 @@ $(function () {
     scrollbar: {
       el: '.swiper-scrollbar'
     }
+  }); // 获取首页数据
+
+  $.ajax({
+    type: "GET",
+    url: "http://lz.hj-tec.com/home/get/projectData",
+    data: {
+      pid: pid
+    },
+    dataType: "json",
+    success: function success(data) {
+      // console.log(data)
+      var html = '';
+
+      for (var i = 0; i < data.gcgk.length; i++) {
+        if (i != 0) {
+          html += "<li>".concat(data.gcgk[i].type, "\uFF1A").concat(data.gcgk[i].title, "</li>");
+        } else {
+          html += "<li>\u9879\u76EE\u540D\u79F0\uFF1A\u9F99\u5C97\u6DF1\u5733\u6CB3\u9879\u76EE\u5E03\u5409\u7247\u533A</li>";
+        }
+      }
+
+      for (var _i = 0; _i < data.cjaw.length; _i++) {
+        html += "<li>".concat(data.cjaw[_i].type, "\uFF1A").concat(data.cjaw[_i].title, "</li>");
+      }
+
+      $('#particulars').html(html);
+    }
   });
 });
-},{}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -151,7 +179,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -293,5 +321,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/homePage.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/homePage.js"], null)
 //# sourceMappingURL=/homePage.ba982965.map

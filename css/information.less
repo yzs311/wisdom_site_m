@@ -1,0 +1,124 @@
+@import 'base.less';
+
+html,
+body {
+    height: 100%;
+}
+
+// 资料管理页面样式
+.main {
+    width: 100%;
+    min-height: 100%;
+    color: #fff;
+    padding-top: .225rem;
+    padding-bottom: .225rem;
+    box-sizing: border-box;
+    background-color: #010118;
+    position: relative;
+    .title-box {
+        width: 3.3rem;
+        height: .445rem;
+        font-size: .18rem;
+        font-weight: bolder;
+        margin: 0 auto;
+        text-align: center;
+        line-height: .445rem;
+        background-image: url('../images/labour-titleBorder.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .centent-box {
+        box-sizing: border-box;
+        width: 3.3rem;
+        margin: 0 auto;
+        margin-top: .225rem;
+        border: .01rem solid #0f1f53;
+        border-radius: .03rem;
+        padding-bottom: .225rem;
+        .tier {
+            .icon-box {
+                width: .875rem;
+                height: 1rem;
+                display: inline-block;
+                background-image: url('../images/information-folder.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: .53rem .42rem;
+                vertical-align: top;
+            }
+            .text-box {
+                font-size: .15rem;
+                line-height: 1rem;
+                display: inline-block;
+            }
+            .line {
+                width: 3.13rem;
+                height: .01rem;
+                margin: 0 auto;
+                background-color: #0f1f53;
+            }
+        }
+        .last {
+            .icon-box {
+                width: .875rem;
+                height: 1rem;
+                display: inline-block;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: .42rem .42rem;
+                vertical-align: top;
+            }
+            .pdf-icon {
+                background-image: url('../images/information-pdf.png');
+            }
+            .wd-icon {
+                background-image: url('../images/information-wd.png');
+            }
+            .ex-icon {
+                background-image: url('../images/information-ex.png');
+            }
+            .ppt-icon {
+                background-image: url('../images/information-ppt.png');
+            }
+            .video-icon {
+                background-image: url('../images/information-video.png');
+            }
+            .music-icon {
+                background-image: url('../images/information-music.png');
+            }
+            .unknown-icon {
+                background-image: url('../images/information-unknown.png');
+            }
+            .cad-icon {
+                background-image: url('../images/information-cad.png');
+            }
+            .text-box {
+                box-sizing: border-box;
+                display: inline-block;
+                padding-right: .2rem;
+                .name {
+                    box-sizing: border-box;
+                    height: .57rem;
+                    font-size: .15rem;
+                    padding-top: .25rem;
+                    width: 2.1rem;
+                    word-wrap: normal;
+                    // margin-bottom: .1rem;
+                    overflow: hidden;
+                    // text-overflow:ellipsis;
+                }
+                .message {
+                    // height: .5rem;
+                    font-size: .12rem;
+                }
+            }
+            .line {
+                width: 3.13rem;
+                height: .01rem;
+                margin: 0 auto;
+                background-color: #0f1f53;
+            }
+        }
+    }
+}

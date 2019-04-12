@@ -109,7 +109,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\images\\login-bg.png":[["login-bg.edf6a52d.png","images/login-bg.png"],"images/login-bg.png"],"./..\\images\\login-border.png":[["login-border.82484982.png","images/login-border.png"],"images/login-border.png"],"./..\\images\\login-logo.png":[["login-logo.d440eba0.png","images/login-logo.png"],"images/login-logo.png"],"./..\\images\\login-title.png":[["login-title.d617f20b.png","images/login-title.png"],"images/login-title.png"],"./..\\images\\login-line.png":[["login-line.c973a044.png","images/login-line.png"],"images/login-line.png"],"./..\\images\\login-user.png":[["login-user.81169760.png","images/login-user.png"],"images/login-user.png"],"./..\\images\\login-password.png":[["login-password.081020ca.png","images/login-password.png"],"images/login-password.png"],"./..\\images\\login-button.png":[["login-button.f55292f0.png","images/login-button.png"],"images/login-button.png"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./..\\images\\login-bg.png":[["login-bg.edf6a52d.png","images/login-bg.png"],"images/login-bg.png"],"./..\\images\\login-border.png":[["login-border.82484982.png","images/login-border.png"],"images/login-border.png"],"./..\\images\\login-logo.png":[["login-logo.d440eba0.png","images/login-logo.png"],"images/login-logo.png"],"./..\\images\\login-title.png":[["login-title.d617f20b.png","images/login-title.png"],"images/login-title.png"],"./..\\images\\login-line.png":[["login-line.c973a044.png","images/login-line.png"],"images/login-line.png"],"./..\\images\\login-user.png":[["login-user.81169760.png","images/login-user.png"],"images/login-user.png"],"./..\\images\\login-password.png":[["login-password.081020ca.png","images/login-password.png"],"images/login-password.png"],"./..\\images\\login-button.png":[["login-button.f55292f0.png","images/login-button.png"],"images/login-button.png"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -136,7 +136,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64444" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
@@ -417,4 +417,4 @@ module.exports = function loadJSBundle(bundle) {
 };
 },{}],0:[function(require,module,exports) {
 var b=require("../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/bundle-loader.js");b.register("js",require("../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/loaders/browser/js-loader.js"));b.load([]);
-},{}]},{},["../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js",0], null)

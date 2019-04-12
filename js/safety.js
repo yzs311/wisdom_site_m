@@ -15,7 +15,9 @@ $(function(){
     
     // 模块切换点击事件
     // 切换到塔吊模块
-    $('#towerCraneBtn').on('click',()=>{
+    $('#towerCraneBtn').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active')
+        event.stopPropagation()
         $('.towerCrane').css('display','')
         let siblings = $('.towerCrane').siblings()
         for (let i = 0; i < siblings.length; i++) {
@@ -24,7 +26,8 @@ $(function(){
     })
 
     // 切换到升降机模块
-    $('#elevatorBtn').on('click',()=>{
+    $('#elevatorBtn').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active')
         $('.elevator').css('display','')
         let siblings = $('.elevator').siblings()
         for (let i = 0; i < siblings.length; i++) {
@@ -36,7 +39,8 @@ $(function(){
     })
 
     // 切换到车辆出入模块
-    $('#carBtn').on('click',()=>{
+    $('#carBtn').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active')
         $('.car').css('display','')
         let siblings = $('.car').siblings()
         for (let i =0; i < siblings.length; i++) {
@@ -83,7 +87,8 @@ $(function(){
     }
 
     // 切换到气体检测数据模块
-    $('#gasBtn').on('click',()=>{
+    $('#gasBtn').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active')
         $('.gas').css('display','')
         let siblings = $('.gas').siblings()
         for (let i = 0; i < siblings.length; i++) {
@@ -93,4 +98,20 @@ $(function(){
             spaceBetween : 30,
         })
     })
+
+    // 切换到龙门吊数据模块
+    $('#gantryCrane').on('click',function(){
+        $(this).addClass('active').siblings().removeClass('active')
+        $('.gantryCrane').css('display','')
+        let siblings = $('.gantryCrane').siblings()
+        for (let i = 0; i < siblings.length; i++) {
+            $(siblings[i]).css('display','none')
+        }
+        const swiper6 = new Swiper('#swiper6',{
+            spaceBetween : 30,
+        })
+    })
+
+    // 启动龙门吊实时数据滚动
+    scrollStart('gantryBox1','gantryBox1-1','gantryBox1-2')
 })

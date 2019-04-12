@@ -77,12 +77,38 @@ input[type=search] {
   margin: 0 auto;
   margin-top: .225rem;
 }
-.main .nav li {
-  text-align: center;
+.main .nav ul {
+  display: flex;
+  justify-content: space-between;
 }
-.main .nav li img {
-  width: 1.035rem;
-  height: .67rem;
+.main .nav ul li {
+  width: 1rem;
+  height: .65rem;
+  font-size: .16rem;
+  font-weight: bolder;
+  line-height: .55rem;
+  text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .nav ul .active.ybg {
+  background-image: url('quality-yellowBg.c16237b6.gif');
+}
+.main .nav ul .active.bbg {
+  background-image: url('quality-blueBg.56d1357a.gif');
+}
+.main .nav ul .active.gbg {
+  background-image: url('quality-greenBg.d36390b6.gif');
+}
+.main .nav ul .ybg {
+  background-image: url('quality-yellowBg.de2dcdea.png');
+}
+.main .nav ul .bbg {
+  background-image: url('quality-blueBg.0badc560.png');
+}
+.main .nav ul .gbg {
+  background-image: url('quality-greenBg.0b0e3828.png');
 }
 .main .nav .swiper-scrollbar {
   background-color: #80808c;
@@ -116,7 +142,7 @@ input[type=search] {
 }
 .main .content .towerCrane .slide-box .information .information-left {
   float: left;
-  font-size: .18rem;
+  font-size: .16rem;
   font-weight: bolder;
   line-height: .55rem;
   background-image: url('safety-operationBg.a5fe8ec5.png');
@@ -244,7 +270,7 @@ input[type=search] {
 }
 .main .content .elevator .slide-box .information .information-left {
   float: left;
-  font-size: .18rem;
+  font-size: .16rem;
   font-weight: bolder;
   line-height: .55rem;
   background-image: url('safety-operationBg.a5fe8ec5.png');
@@ -422,7 +448,7 @@ input[type=search] {
   justify-content: space-between;
 }
 .main .content .gas .slide-box .information .information-left {
-  font-size: .18rem;
+  font-size: .16rem;
   font-weight: bolder;
   line-height: .55rem;
   background-image: url('safety-operationBg.a5fe8ec5.png');
@@ -504,6 +530,165 @@ input[type=search] {
   font-weight: bolder;
   text-align: center;
   margin-top: .2rem;
+}
+.main .content .gantryCrane .slide-box {
+  position: relative;
+}
+.main .content .gantryCrane .slide-box .information {
+  width: 3.3rem;
+  height: .75rem;
+  margin: 0 auto;
+  padding: .1rem .375rem;
+  box-sizing: border-box;
+  background-image: url('safety-InformationBg.1bbbe2ee.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .gantryCrane .slide-box .information .information-left {
+  float: left;
+  font-size: .16rem;
+  font-weight: bolder;
+  line-height: .55rem;
+  background-image: url('safety-operationBg.a5fe8ec5.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: .37rem .385rem;
+}
+.main .content .gantryCrane .slide-box .information .information-middle {
+  float: left;
+  font-size: .13rem;
+  margin-left: .25rem;
+}
+.main .content .gantryCrane .slide-box .information .information-middle > div {
+  font-weight: bolder;
+  line-height: .265rem;
+}
+.main .content .gantryCrane .slide-box .information .information-middle > div span {
+  font-weight: normal;
+}
+.main .content .gantryCrane .slide-box .information .information-right {
+  float: left;
+  width: .47rem;
+  height: .52rem;
+  margin-left: .1rem;
+}
+.main .content .gantryCrane .slide-box .information .information-right img {
+  width: 100%;
+  height: 100%;
+}
+.main .content .gantryCrane .slide-box .data {
+  width: 3.3rem;
+  height: 4rem;
+  margin: 0 auto;
+  margin-top: .225rem;
+  padding-top: .26rem;
+  box-sizing: border-box;
+  background-image: url('safety-dataBg.5e22b107.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .gantryCrane .slide-box .data .name {
+  font-size: .18rem;
+  font-weight: bolder;
+  padding-left: .19rem;
+  box-sizing: border-box;
+}
+.main .content .gantryCrane .slide-box .data .top-data {
+  height: .97rem;
+  margin-top: .25rem;
+}
+.main .content .gantryCrane .slide-box .data .top-data .left-box {
+  float: left;
+  font-size: .14rem;
+  padding-top: .34rem;
+  margin-left: .32rem;
+  margin-right: .32rem;
+}
+.main .content .gantryCrane .slide-box .data .top-data .left-box p {
+  text-align: center;
+}
+.main .content .gantryCrane .slide-box .data .top-data .middle-box {
+  float: left;
+  width: .97rem;
+  height: .97rem;
+  font-size: .14rem;
+  background-image: url('safety-centreBg.1bb065d4.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  text-align: center;
+  line-height: .97rem;
+}
+.main .content .gantryCrane .slide-box .data .top-data .middle-box p {
+  position: absolute;
+  bottom: -0.21rem;
+  left: 50%;
+  transform: translate(-50%);
+}
+.main .content .gantryCrane .slide-box .data .top-data .right-box {
+  float: left;
+  font-size: .14rem;
+  padding-top: .34rem;
+  margin-left: .32rem;
+  margin-right: .32rem;
+}
+.main .content .gantryCrane .slide-box .data .top-data .right-box p {
+  text-align: center;
+}
+.main .content .gantryCrane .slide-box .data .bottom-data ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .content .gantryCrane .slide-box .data .bottom-data ul li {
+  width: 50%;
+  margin-top: .3rem;
+}
+.main .content .gantryCrane .slide-box .data .bottom-data ul li img {
+  float: left;
+  width: .26rem;
+  height: .26rem;
+  margin-left: .43rem;
+}
+.main .content .gantryCrane .slide-box .data .bottom-data ul li .li-data {
+  float: left;
+  margin-left: .06rem;
+}
+.main .content .gantryCrane .slide-box .data .real-time-data > div {
+  text-align: center;
+  font-size: .16rem;
+}
+.main .content .gantryCrane .slide-box .data .real-time-data .table-head {
+  margin-top: .1rem;
+}
+.main .content .gantryCrane .slide-box .data .real-time-data .table-head li {
+  color: #7f9ea8;
+  width: 2.4rem;
+  display: flex;
+  margin: 0 auto;
+  line-height: .19rem;
+  justify-content: space-between;
+}
+.main .content .gantryCrane .slide-box .data .real-time-data #gantryBox1 {
+  height: .95rem;
+  overflow: hidden;
+}
+.main .content .gantryCrane .slide-box .data .real-time-data #gantryBox1 .table-body li {
+  color: #7f9ea8;
+  width: 2.4rem;
+  display: flex;
+  margin: 0 auto;
+  font-size: .12rem;
+  line-height: .19rem;
+  justify-content: space-between;
+}
+.main .content .gantryCrane .slide-box .data .service {
+  font-size: .16rem;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: .14rem;
 }
 .anomaly {
   color: #ff2d55;

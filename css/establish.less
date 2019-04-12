@@ -1,0 +1,176 @@
+@import 'base.less';
+
+// 创建巡检单页面样式
+.main {
+    width: 100%;
+    color: #fff;
+    padding-top: .225rem;
+    padding-bottom: .225rem;
+    box-sizing: border-box;
+    background-color: #010118;
+    .centent-box {
+        width: 3.3rem;
+        box-sizing: border-box;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: .03rem;
+        border: .01rem solid #0f1f53;
+        >div {
+            box-sizing: border-box;
+            padding-left: .075rem;
+            padding-right: .075rem;
+            position: relative;
+            .title {
+                box-sizing: border-box;
+                font-size: .15rem;
+                line-height: .4rem;
+                padding-left: .06rem;
+                display: inline-block;
+            }
+            i {
+                right: .175rem;
+                top: 0;
+                // bottom: 50%;
+                // transform: translateY(-50%);
+                width: .065rem;
+                height: .4rem;
+                position: absolute;
+                background-image: url('../images/quality-arrows.png');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            .border-bottom {
+                height: .01rem;
+                background-color: #0f1f53;
+            }
+        }
+        .line {
+            height: .05rem;
+            background-color: #0f1f53;
+        }
+        .position {
+            input {
+                width: 1.95rem;
+                line-height: .4rem;
+                padding-right: .06rem;
+                float: right;
+                color: #fff;
+                border: 0;
+                text-align: right;
+                outline: none;
+                background-color: rgba(0, 0, 0, 0);
+            }
+            ::-webkit-input-placeholder { color:rgba(117, 117, 117, .8);}
+            ::-moz-placeholder { color:rgba(117, 117, 117, .8);} /* firefox 19+ */
+            :-ms-input-placeholder { color:rgba(117, 117, 117, .8);} /* Internet Explorer 10+ */
+            :-moz-placeholder { color:rgba(117, 117, 117, .8);} /* firefox 14-18 */
+        }
+        .pic {
+            img {
+                box-sizing: border-box;
+                margin-bottom: .13rem;
+                padding-left: .06rem;
+                display: block;
+                width: .71rem;
+            }
+        }
+        .describe {
+            margin-bottom: .1rem;
+            textarea {
+                box-sizing: border-box;
+                padding-left: .06rem;
+                padding-right: .06rem;
+                color: #fff;
+                border: 0;
+                outline: none;
+                display: block;
+                width: 3.13rem;
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+        .rank {
+            .button-box {
+                margin-bottom: .225rem;
+                >div {
+                    width: .435rem;
+                    height: .175rem;
+                    display: inline-block;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                }
+                >div:first-child {
+                    margin-left: .06rem;
+                }
+                >div:not(:first-child) {
+                    margin-left: .1rem;
+                }
+                .slight {
+                    background-image: url('../images/establish-slight.png');
+                    &.active {
+                        background-image: url('../images/establish-slightActive.png');
+                    }
+                }
+                .ordinary {
+                    background-image: url('../images/establish-ordinary.png');
+                    &.active {
+                        background-image: url('../images/establish-ordinaryActive.png');
+                    }
+                }
+                .severity {
+                    background-image: url('../images/establish-severity.png');
+                    &.active {
+                        background-image: url('../images/establish-severityActive.png');
+                    }
+                }
+            }
+        }
+        .require {
+            margin-bottom: .1rem;
+            textarea {
+                box-sizing: border-box;
+                padding-left: .06rem;
+                padding-right: .06rem;
+                color: #fff;
+                border: 0;
+                outline: none;
+                display: block;
+                width: 3.13rem;
+                background-color: rgba(0, 0, 0, 0);
+            }
+        }
+        .copy {
+            ul {
+                box-sizing: border-box;
+                margin-top: .1rem;
+                margin-bottom: .2rem;
+                padding-left: .06rem;
+                li {
+                    display: inline-block;
+                    color: #2555be;
+                    box-sizing: border-box;
+                    font-size: .12rem;
+                    padding: 0 .065rem;
+                    border: .01rem solid #818290;
+                    border-radius: .03rem;
+                    line-height: .255rem;
+                }
+            }
+        }
+        .countersign {
+            width: 1.6rem;
+            height: .4rem;
+            margin: 0 auto;
+            overflow: hidden;
+            font-size: .18rem;
+            // font-weight: bolder;
+            text-align: center;
+            line-height: .4rem;
+            border-radius: .03rem;
+            background-color: rgb(51, 117, 254);
+            margin-top: .2rem;
+            margin-bottom: .2rem;
+        }
+    }
+}
