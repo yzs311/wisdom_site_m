@@ -8,7 +8,7 @@ $(function(){
     let getDustEmissionData = (sid) =>{
         $.ajax({
             type: "GET",
-            url: "http://lz.hj-tec.com/dustEmission/get/DustEmissionDatas",
+            url: "http://39.108.103.150:8989/dustEmission/get/DustEmissionDatas",
             data: {sid:sid},
             dataType: "json",
             success: function(data){
@@ -22,12 +22,12 @@ $(function(){
                     ${data.newData[0].comments}
                 </div>
                 <div class="PM">
-                    <div class="subPM1">
+                    <div class="subPM1 ${data.newData[0].PM25>50?data.newData[0].PM25>75?data.newData[0].PM25>150?data.newData[0].PM25>250?data.newData[0].PM25>300?'severe':'serious':'moderate':'mild':'good':'excellent'}">
                         <p>PM2.5</p>
                         <span> ${data.newData[0].PM25}</span>
                         <i></i>
                     </div>
-                    <div class="subPM2">
+                    <div class="subPM2 ${data.newData[0].PM10>50?data.newData[0].PM10>75?data.newData[0].PM10>150?data.newData[0].PM10>250?data.newData[0].PM10>300?'severe':'serious':'moderate':'mild':'good':'excellent'}">
                         <p>PM10</p>
                         <span> ${data.newData[0].PM10}</span>
                         <i></i>
@@ -106,7 +106,7 @@ $(function(){
     // 获取天气数据
     $.ajax({
         type: "GET",
-        url: "http://lz.hj-tec.com/lz/get/getWeather",
+        url: "http://39.108.103.150:8989/lz/get/getWeather",
         data: {pid:pid},
         dataType: "json",
         success: function(data){
@@ -179,7 +179,7 @@ $(function(){
     // 获取设备名称与设备编号
     $.ajax({
         type: "GET",
-        url: "http://lz.hj-tec.com/dustEmission/get/getDustEmissionList",
+        url: "http://39.108.103.150:8989/dustEmission/get/getDustEmissionList",
         data: {pid:pid},
         dataType: "json",
         success: function(data) {
@@ -196,7 +196,7 @@ $(function(){
     // 获取智能电箱设备数据
     $.ajax({
         type: "GET",
-        url: "http://lz.hj-tec.com/electricityBox/get/getElectricBoxState",
+        url: "http://39.108.103.150:8989/electricityBox/get/getElectricBoxState",
         data: {pid:pid},
         dataType: "json",
         success: function(data) {
@@ -219,12 +219,12 @@ $(function(){
                                 <p style="font-size:.2rem">${data.kg==0?'关':'开'}</p>
                                 <span>箱门开关</span>
                             </div>
-                            <div class="electic-temperature">
+                            <div class="${data.envirwarm<45?'electic-temperature':'electic-leakage'}">
                                 ${data.envirwarm}
                                 <p>℃</p>
                                 <span>电箱温度</span>
                             </div>
-                            <div class="electic-temperature">
+                            <div class=${data.current<150?'electic-temperature':'electic-leakage'}>
                                 ${data.current}
                                 <p>kwh</p>
                                 <span>电箱漏电</span>

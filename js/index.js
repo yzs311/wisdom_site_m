@@ -287,7 +287,7 @@ $(function(){
         //     }
         // })
 
-        axios.post('http://lz.hj-tec.com/lz/wisdom/wisdomLogin',{account:$("#user").val(),password:hex_md5($("#password").val())}).then(
+        axios.post('http://39.108.103.150:8989/lz/wisdom/wisdomLogin',{account:$("#user").val(),password:hex_md5($("#password").val())}).then(
             res => {
                 if (res.data.msg != '账户或密码错误') {
                     // alert('登录成功')

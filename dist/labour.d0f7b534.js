@@ -111,7 +111,7 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: "http://lz.hj-tec.com/lz/get/getDataCount",
+    url: "http://39.108.103.150:8989/lz/get/getDataCount",
     data: {
       pid: pid
     },
@@ -131,7 +131,7 @@ $(function () {
 
   $.ajax({
     type: "get",
-    url: "http://lz.hj-tec.com/lz/get/getKQCount",
+    url: "http://39.108.103.150:8989/lz/get/getKQCount",
     data: {
       pid: pid
     },
@@ -170,7 +170,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49422" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

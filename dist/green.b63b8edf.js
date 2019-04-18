@@ -113,7 +113,7 @@ $(function () {
   var getDustEmissionData = function getDustEmissionData(sid) {
     $.ajax({
       type: "GET",
-      url: "http://lz.hj-tec.com/dustEmission/get/DustEmissionDatas",
+      url: "http://39.108.103.150:8989/dustEmission/get/DustEmissionDatas",
       data: {
         sid: sid
       },
@@ -121,7 +121,7 @@ $(function () {
       success: function success(data) {
         // console.log(data)
         var html = $('#dustBox').html();
-        html += "<div class=\"slide-box swiper-slide\">\n                    <!-- \u626C\u5C18\u76D1\u6D4B -->\n                    <div class=\"environment\">\n                <div class=\"environment-title\">\n                    ".concat(data.newData[0].comments, "\n                </div>\n                <div class=\"PM\">\n                    <div class=\"subPM1\">\n                        <p>PM2.5</p>\n                        <span> ").concat(data.newData[0].PM25, "</span>\n                        <i></i>\n                    </div>\n                    <div class=\"subPM2\">\n                        <p>PM10</p>\n                        <span> ").concat(data.newData[0].PM10, "</span>\n                        <i></i>\n                    </div>\n                </div>\n                <div class=\"pollute\"></div>\n                <div class=\"environment-data\">\n                    <div class=\"temperature\">\n                        <p>\u6C14\u6E29</p>\n                        <p> ").concat(data.newData[0].Temperature, "\u2103</p>\n                    </div>\n                    <div class=\"humidity\">\n                        <p>\u6E7F\u5EA6</p>\n                        <p> ").concat(data.newData[0].Humidity, "%</p>\n                    </div>\n                    <div class=\"wind-speed\">\n                        <p>\u98CE\u901F</p>\n                        <p> ").concat(data.newData[0].WindSpeed, "m/s</p>\n                    </div>\n                </div>\n                    </div>\n                    <!-- \u566A\u97F3\u76D1\u6D4B -->\n                    <div class=\"noise\">\n                <div class=\"noise-title\">\n                    <i class=\"shade\"></i>\n                    \u566A\u97F3\u68C0\u6D4B\n                </div>\n                <div class=\"noise-state\">\n                    <p>\u6B63\u5E38</p>\n                </div>\n                <div class=\"noise-data\">\n                    \u5B9E\u65F6\u6570\u636E\uFF1A\n                    <span> ").concat(data.newData[0].Noise, "</span>\n                    dB\n                </div>\n                    </div>\n                </div>");
+        html += "<div class=\"slide-box swiper-slide\">\n                    <!-- \u626C\u5C18\u76D1\u6D4B -->\n                    <div class=\"environment\">\n                <div class=\"environment-title\">\n                    ".concat(data.newData[0].comments, "\n                </div>\n                <div class=\"PM\">\n                    <div class=\"subPM1 ").concat(data.newData[0].PM25 > 50 ? data.newData[0].PM25 > 75 ? data.newData[0].PM25 > 150 ? data.newData[0].PM25 > 250 ? data.newData[0].PM25 > 300 ? 'severe' : 'serious' : 'moderate' : 'mild' : 'good' : 'excellent', "\">\n                        <p>PM2.5</p>\n                        <span> ").concat(data.newData[0].PM25, "</span>\n                        <i></i>\n                    </div>\n                    <div class=\"subPM2 ").concat(data.newData[0].PM10 > 50 ? data.newData[0].PM10 > 75 ? data.newData[0].PM10 > 150 ? data.newData[0].PM10 > 250 ? data.newData[0].PM10 > 300 ? 'severe' : 'serious' : 'moderate' : 'mild' : 'good' : 'excellent', "\">\n                        <p>PM10</p>\n                        <span> ").concat(data.newData[0].PM10, "</span>\n                        <i></i>\n                    </div>\n                </div>\n                <div class=\"pollute\"></div>\n                <div class=\"environment-data\">\n                    <div class=\"temperature\">\n                        <p>\u6C14\u6E29</p>\n                        <p> ").concat(data.newData[0].Temperature, "\u2103</p>\n                    </div>\n                    <div class=\"humidity\">\n                        <p>\u6E7F\u5EA6</p>\n                        <p> ").concat(data.newData[0].Humidity, "%</p>\n                    </div>\n                    <div class=\"wind-speed\">\n                        <p>\u98CE\u901F</p>\n                        <p> ").concat(data.newData[0].WindSpeed, "m/s</p>\n                    </div>\n                </div>\n                    </div>\n                    <!-- \u566A\u97F3\u76D1\u6D4B -->\n                    <div class=\"noise\">\n                <div class=\"noise-title\">\n                    <i class=\"shade\"></i>\n                    \u566A\u97F3\u68C0\u6D4B\n                </div>\n                <div class=\"noise-state\">\n                    <p>\u6B63\u5E38</p>\n                </div>\n                <div class=\"noise-data\">\n                    \u5B9E\u65F6\u6570\u636E\uFF1A\n                    <span> ").concat(data.newData[0].Noise, "</span>\n                    dB\n                </div>\n                    </div>\n                </div>");
         $('#dustBox').html(html); // 初始化环境监测滚动
 
         var swiper = new Swiper('#swiper', {
@@ -159,7 +159,7 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: "http://lz.hj-tec.com/lz/get/getWeather",
+    url: "http://39.108.103.150:8989/lz/get/getWeather",
     data: {
       pid: pid
     },
@@ -200,7 +200,7 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: "http://lz.hj-tec.com/dustEmission/get/getDustEmissionList",
+    url: "http://39.108.103.150:8989/dustEmission/get/getDustEmissionList",
     data: {
       pid: pid
     },
@@ -220,14 +220,14 @@ $(function () {
 
   $.ajax({
     type: "GET",
-    url: "http://lz.hj-tec.com/electricityBox/get/getElectricBoxState",
+    url: "http://39.108.103.150:8989/electricityBox/get/getElectricBoxState",
     data: {
       pid: pid
     },
     dataType: "json",
     success: function success(data) {
       console.log(data);
-      $('#electicBox').html("<div class=\"slide-box swiper-slide\">\n                    <div class=\"electic\" >\n                        <div class=\"electic-title\">\n                            <i class=\"shade\"></i>\n                            \u7528\u7535\u7BA1\u7406\n                        </div>\n                        <div class=\"this-month\">\n                            <i></i>\n                            \u7535\u7BB1\u8FD0\u884C\u72B6\u6001\uFF1A\n                            <span>".concat(data.sb, "</span>\n                        </div>\n                        <div class=\"electic-box\">\n                            <div class=\"today\">\n                                &nbsp;\n                                <p style=\"font-size:.2rem\">").concat(data.kg == 0 ? '关' : '开', "</p>\n                                <span>\u7BB1\u95E8\u5F00\u5173</span>\n                            </div>\n                            <div class=\"electic-temperature\">\n                                ").concat(data.envirwarm, "\n                                <p>\u2103</p>\n                                <span>\u7535\u7BB1\u6E29\u5EA6</span>\n                            </div>\n                            <div class=\"electic-temperature\">\n                                ").concat(data.current, "\n                                <p>kwh</p>\n                                <span>\u7535\u7BB1\u6F0F\u7535</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>")); // 初始化用电管理滚动
+      $('#electicBox').html("<div class=\"slide-box swiper-slide\">\n                    <div class=\"electic\" >\n                        <div class=\"electic-title\">\n                            <i class=\"shade\"></i>\n                            \u7528\u7535\u7BA1\u7406\n                        </div>\n                        <div class=\"this-month\">\n                            <i></i>\n                            \u7535\u7BB1\u8FD0\u884C\u72B6\u6001\uFF1A\n                            <span>".concat(data.sb, "</span>\n                        </div>\n                        <div class=\"electic-box\">\n                            <div class=\"today\">\n                                &nbsp;\n                                <p style=\"font-size:.2rem\">").concat(data.kg == 0 ? '关' : '开', "</p>\n                                <span>\u7BB1\u95E8\u5F00\u5173</span>\n                            </div>\n                            <div class=\"").concat(data.envirwarm < 45 ? 'electic-temperature' : 'electic-leakage', "\">\n                                ").concat(data.envirwarm, "\n                                <p>\u2103</p>\n                                <span>\u7535\u7BB1\u6E29\u5EA6</span>\n                            </div>\n                            <div class=").concat(data.current < 150 ? 'electic-temperature' : 'electic-leakage', ">\n                                ").concat(data.current, "\n                                <p>kwh</p>\n                                <span>\u7535\u7BB1\u6F0F\u7535</span>\n                            </div>\n                        </div>\n                    </div>\n                </div>")); // 初始化用电管理滚动
 
       var swiper2 = new Swiper('#swiper2', {
         spaceBetween: 30
@@ -262,7 +262,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49422" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

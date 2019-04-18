@@ -213,7 +213,6 @@ body {
 }
 .main .dust-box .environment .PM .subPM1 {
   flex: 1;
-  background-image: url('green-excellentCircle.4c74846e.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -242,14 +241,12 @@ body {
   border-radius: .21rem;
   margin: 0 auto;
   margin-top: .06rem;
-  background-image: url('green-excellent.68169359.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
 }
 .main .dust-box .environment .PM .subPM2 {
   flex: 1;
-  background-image: url('green-excellentCircle.4c74846e.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -278,10 +275,45 @@ body {
   border-radius: .21rem;
   margin: 0 auto;
   margin-top: .06rem;
-  background-image: url('green-excellent.68169359.png');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+.main .dust-box .environment .PM .excellent {
+  background-image: url('green-excellentCircle.4c74846e.png');
+}
+.main .dust-box .environment .PM .excellent i {
+  background-image: url('green-excellent.68169359.png');
+}
+.main .dust-box .environment .PM .good {
+  background-image: url('green-goodCircle.110263fa.png');
+}
+.main .dust-box .environment .PM .good i {
+  background-image: url('green-good.54d901ea.png');
+}
+.main .dust-box .environment .PM .mild {
+  background-image: url('green-mildCircle.944b76a4.png');
+}
+.main .dust-box .environment .PM .mild i {
+  background-image: url('green-mild.71c35b67.png');
+}
+.main .dust-box .environment .PM .moderate {
+  background-image: url('green-moderateCircle.448c3411.png');
+}
+.main .dust-box .environment .PM .moderate i {
+  background-image: url('green-moderate.89df17cb.png');
+}
+.main .dust-box .environment .PM .serious {
+  background-image: url('green-seriousCircle.bcadfdf3.png');
+}
+.main .dust-box .environment .PM .serious i {
+  background-image: url('green-serious.722dbb53.png');
+}
+.main .dust-box .environment .PM .severe {
+  background-image: url('green-severeCircle.77fa0339.png');
+}
+.main .dust-box .environment .PM .severe i {
+  background-image: url('green-severe.cc8a3cc8.png');
 }
 .main .dust-box .environment .pollute {
   width: 3.305rem;

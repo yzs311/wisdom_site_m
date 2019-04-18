@@ -38,11 +38,11 @@ $(function(){
         let value = $(this).val()
         $.ajax({
             type: "GET",
-            url: "http://lz.hj-tec.com/lz/hire/localtionList",
+            url: "http://39.108.103.150:8989/lz/hire/localtionList",
             data: {id:pid,string:value},
             dataType: "json",
             success: function (data) {
-                // console.log(data)
+                console.log(data)
                 let html = ''
                 if (data.length > 0) {
                     for (let i = 0; i < data.length; i++) {
@@ -92,184 +92,188 @@ $(function(){
         $('.history-box').css('display','none')
         $.ajax({
             type: "GET",
-            url: "http://lz.hj-tec.com/lz/hire/localtionList",
+            url: "http://39.108.103.150:8989/lz/hire/localtionList",
             data: {id:pid,string:name},
             dataType: "json",
             // async: false,
             success: function (data) {
-                // console.log(data)
-                let temp = []
-                let temp2 = []
-                temp.push(data[0].areaList[0].xloc)
-                temp.push(data[0].areaList[0].yloc)
-                temp2.push(data[0].localtionList[0].xloc)
-                temp2.push(data[0].localtionList[0].yloc)
-                $('.data-box').css('display','block')
-                $('.search-data').css('display','none')
-                marker = new AMap.Marker({
-                    position: temp2,   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
-                })
-                map.add(marker)
-                circle = new AMap.Circle({
-                    center: temp, // 圆心位置
-                    radius: data[0].areaList[0].radius,         // 圆半径
-                    fillColor: 'none',   // 圆形填充颜色
-                    fillOpacity: 0,      // 填充色透明度
-                    strokeColor: '#3979fe', // 描边颜色
-                    strokeWeight: 2,     // 描边宽度
-                })
-                map.add(circle)
-                map.setZoomAndCenter(13, temp)
-                $('#dataBox').html(
-                    `<div class="top-box">
-                        <div class="list-box">
-                            <ul>
-                                <li class="name">
-                                    姓名：${data[0].hname}
-                                </li>
-                                <li>
-                                    电话：${data[0].phone}
-                                </li>
-                                <li>
-                                    所属公司：${data[0].laowu}
-                                </li>
-                                <li>
-                                    设备编号：${data[0].imei}
-                                </li>
-                                <li>
-                                    定位时间：${data[0].localtionList[0].createDate}
-                                </li>
-                                <li>
-                                    定位地址：${data[0].localtionList[0].address}
-                                </li>
-                            </ul>
+                console.log(data)
+                if (data[0].localtionList){
+                    let temp = []
+                    let temp2 = []
+                    temp.push(data[0].areaList[0].xloc)
+                    temp.push(data[0].areaList[0].yloc)
+                    temp2.push(data[0].localtionList[0].xloc)
+                    temp2.push(data[0].localtionList[0].yloc)
+                    $('.data-box').css('display','block')
+                    $('.search-data').css('display','none')
+                    marker = new AMap.Marker({
+                        position: temp2,   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+                    })
+                    map.add(marker)
+                    circle = new AMap.Circle({
+                        center: temp, // 圆心位置
+                        radius: data[0].areaList[0].radius,         // 圆半径
+                        fillColor: 'none',   // 圆形填充颜色
+                        fillOpacity: 0,      // 填充色透明度
+                        strokeColor: '#3979fe', // 描边颜色
+                        strokeWeight: 2,     // 描边宽度
+                    })
+                    map.add(circle)
+                    map.setZoomAndCenter(13, temp)
+                    $('#dataBox').html(
+                        `<div class="top-box">
+                            <div class="list-box">
+                                <ul>
+                                    <li class="name">
+                                        姓名：${data[0].hname}
+                                    </li>
+                                    <li>
+                                        电话：${data[0].phone}
+                                    </li>
+                                    <li>
+                                        所属公司：${data[0].laowu}
+                                    </li>
+                                    <li>
+                                        设备编号：${data[0].imei}
+                                    </li>
+                                    <li>
+                                        定位时间：${data[0].localtionList[0].createDate}
+                                    </li>
+                                    <li>
+                                        定位地址：${data[0].localtionList[0].address}
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="bottom-box">
-                        <div class="electric">
-                            电量：${data[0].localtionList[0].bat}%
-                        </div>
-                        <div class="refresh">
-                            刷新定位
-                        </div>
-                        <div class="switchover" id="history" >
-                            历史轨迹
-                        </div>
-                    </div>`
-                )
-                let calendar = new datePicker();
-                calendar.init({
-                    'trigger': '#history', /*按钮选择器，用于触发弹出插件*/
-                    'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
-                    'minDate':'1900-1-1',/*最小日期*/
-                    'maxDate':'2100-12-31',/*最大日期*/
-                    'onSubmit':function(){/*确认时触发事件*/
-                        let theSelectData=calendar.value;
-                        // console.log(name)
-                        $.ajax({
-                            type: "GET",
-                            url: "http://lz.hj-tec.com/lz/hire/localtionList",
-                            data: {id:pid,string:name,createDate:theSelectData},
-                            dataType: "json",
-                            success: function (data) {
-                                // console.log(data)
-                                $('.data-box').css('display','none')
-                                $('.history-box').css('display','block')
-                                let temp = []
-                                let temp2 = []
-                                let temp3 = []
-                                temp.push(data[0].areaList[0].xloc)
-                                temp.push(data[0].areaList[0].yloc)
-                                for (let i = 0; i < data[0].localtionList.length; i++) {
-                                    temp2 = []
-                                    temp2.push(data[0].localtionList[data[0].localtionList.length-1-i].xloc)
-                                    temp2.push(data[0].localtionList[data[0].localtionList.length-1-i].yloc)
-                                    temp3.push(temp2)
-                                }
-                                polyline = new AMap.Polyline({
-                                    path: temp3,
-                                    lineJoin: 'round', //折线拐点样式
-                                    showDir: true, //移动方向
-                                    strokeWeight: 3, //线条宽度
-                                    strokeColor: '#3366ff', //线条颜色
-                                })
-                                map.add(polyline)
-                                map.remove(marker)
-                                map.setZoomAndCenter(13, temp)
+                        <div class="bottom-box">
+                            <div class="electric">
+                                电量：${data[0].localtionList[0].bat}%
+                            </div>
+                            <div class="refresh">
+                                刷新定位
+                            </div>
+                            <div class="switchover" id="history" >
+                                历史轨迹
+                            </div>
+                        </div>`
+                    )
+                    let calendar = new datePicker();
+                    calendar.init({
+                        'trigger': '#history', /*按钮选择器，用于触发弹出插件*/
+                        'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                        'minDate':'1900-1-1',/*最小日期*/
+                        'maxDate':'2100-12-31',/*最大日期*/
+                        'onSubmit':function(){/*确认时触发事件*/
+                            let theSelectData=calendar.value;
+                            // console.log(name)
+                            $.ajax({
+                                type: "GET",
+                                url: "http://39.108.103.150:8989/lz/hire/localtionList",
+                                data: {id:pid,string:name,createDate:theSelectData},
+                                dataType: "json",
+                                success: function (data) {
+                                    // console.log(data)
+                                    $('.data-box').css('display','none')
+                                    $('.history-box').css('display','block')
+                                    let temp = []
+                                    let temp2 = []
+                                    let temp3 = []
+                                    temp.push(data[0].areaList[0].xloc)
+                                    temp.push(data[0].areaList[0].yloc)
+                                    for (let i = 0; i < data[0].localtionList.length; i++) {
+                                        temp2 = []
+                                        temp2.push(data[0].localtionList[data[0].localtionList.length-1-i].xloc)
+                                        temp2.push(data[0].localtionList[data[0].localtionList.length-1-i].yloc)
+                                        temp3.push(temp2)
+                                    }
+                                    polyline = new AMap.Polyline({
+                                        path: temp3,
+                                        lineJoin: 'round', //折线拐点样式
+                                        showDir: true, //移动方向
+                                        strokeWeight: 3, //线条宽度
+                                        strokeColor: '#3366ff', //线条颜色
+                                    })
+                                    map.add(polyline)
+                                    map.remove(marker)
+                                    map.setZoomAndCenter(13, temp)
 
-                                $('#historyBox').html(
-                                    `<div class="top-box" id="historyTop">
-                                        <div class="pull-up"></div>
-                                        <div class="list-box">
-                                            <ul>
-                                                <li class="name">
-                                                    姓名：${data[0].hname}
-                                                </li>
-                                                <li>
-                                                    电话：${data[0].phone}
-                                                </li>
-                                                <li>
-                                                    所属公司：${data[0].laowu}
-                                                </li>
-                                                <li>
-                                                    设备编号：${data[0].imei}
-                                                </li>
-                                            </ul>
+                                    $('#historyBox').html(
+                                        `<div class="top-box" id="historyTop">
+                                            <div class="pull-up"></div>
+                                            <div class="list-box">
+                                                <ul>
+                                                    <li class="name">
+                                                        姓名：${data[0].hname}
+                                                    </li>
+                                                    <li>
+                                                        电话：${data[0].phone}
+                                                    </li>
+                                                    <li>
+                                                        所属公司：${data[0].laowu}
+                                                    </li>
+                                                    <li>
+                                                        设备编号：${data[0].imei}
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="middle-box" id="historyMiddle">
-                                        <div class="enter">
-                                            <div class="img-box"></div>
-                                            <ul>
-                                                <li>
-                                                    设备电量：${data[0].localtionList[0].bat}%
-                                                </li>
-                                                <li>
-                                                    时间：${data[0].localtionList[0].createDate}
-                                                    <br>
-                                                    
-                                                </li>
-                                                <li>
-                                                    位置：${data[0].localtionList[0].address}
-                                                </li>
-                                            </ul>
+                                        <div class="middle-box" id="historyMiddle">
+                                            <div class="enter">
+                                                <div class="img-box"></div>
+                                                <ul>
+                                                    <li>
+                                                        设备电量：${data[0].localtionList[0].bat}%
+                                                    </li>
+                                                    <li>
+                                                        时间：${data[0].localtionList[0].createDate}
+                                                        <br>
+
+                                                    </li>
+                                                    <li>
+                                                        位置：${data[0].localtionList[0].address}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="come">
+                                                <div class="img-box"></div>
+                                                <ul>
+                                                    <li>
+                                                        设备电量：${data[0].localtionList[data[0].localtionList.length-1].bat}%
+                                                    </li>
+                                                    <li>
+                                                        时间：${data[0].localtionList[data[0].localtionList.length-1].createDate}
+                                                        <br>
+
+                                                    </li>
+                                                    <li>
+                                                        位置：${data[0].localtionList[data[0].localtionList.length-1].address}
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                        <div class="come">
-                                            <div class="img-box"></div>
-                                            <ul>
-                                                <li>
-                                                    设备电量：${data[0].localtionList[data[0].localtionList.length-1].bat}%
-                                                </li>
-                                                <li>
-                                                    时间：${data[0].localtionList[data[0].localtionList.length-1].createDate}
-                                                    <br>
-                                                    
-                                                </li>
-                                                <li>
-                                                    位置：${data[0].localtionList[data[0].localtionList.length-1].address}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-box">
-                                        <div class="electric">
-                                            电量：${data[0].localtionList[0].bat}%
-                                        </div>
-                                        <div class="refresh">
-                                            刷新定位
-                                        </div>
-                                        <div class="switchover" id="particular">
-                                            个人详情
-                                        </div>
-                                    </div>`
-                                )
-                            }
-                        })
-                    },
-                    'onClose':function(){/*取消时触发事件*/
-                        // console.log(`123`)
-                    }
-                })
+                                        <div class="bottom-box">
+                                            <div class="electric">
+                                                电量：${data[0].localtionList[0].bat}%
+                                            </div>
+                                            <div class="refresh">
+                                                刷新定位
+                                            </div>
+                                            <div class="switchover" id="particular">
+                                                个人详情
+                                            </div>
+                                        </div>`
+                                    )
+                                }
+                            })
+                        },
+                        'onClose':function(){/*取消时触发事件*/
+                            // console.log(`123`)
+                        }
+                    })
+                } else {
+                    alert('此设备已关机！')
+                }
             }
         })
     })
@@ -304,7 +308,7 @@ $(function(){
     // 获取工区数据
     $.ajax({
         type: "GET",
-        url: "http://lz.hj-tec.com/lz/project/listzh",
+        url: "http://39.108.103.150:8989/lz/project/listzh",
         data: {id:pid},
         dataType: "json",
         success: function(data) {
@@ -338,7 +342,7 @@ $(function(){
                 let tempHtml = ''
                 for (let j = 0; j < data.areaList[i].hireList.length; j++) {
                     tempHtml += 
-                    `<div class="name">
+                    `<div class="name" data-name=${data.areaList[i].hireList[j].hname}>
                         <span>${data.areaList[i].hireList[j].hname}</span>
                     </div>`
                 }
@@ -388,6 +392,207 @@ $(function(){
                         $(`#subProject${i} .black-v`).removeClass('rotate')
                         subProject = 1
                     }
+                })
+
+                // 人员点击事件
+                $('.name').on('click',function (event) {
+                    event.stopPropagation()
+                    // console.log($(this).data('name'))
+                    let name = $(this).data('name')
+                    $('.history-box').css('display','none')
+                    $.ajax({
+                        type: "GET",
+                        url: "http://39.108.103.150:8989/lz/hire/localtionList",
+                        data: {id:pid,string:name},
+                        dataType: "json",
+                        // async: false,
+                        success: function (data) {
+                            // console.log(data)
+                            if (data[0].localtionList){
+                                $('.side-box').animate({
+                                    left: '-3.2rem'
+                                })
+                                $('.search').animate({
+                                    left: '50%'
+                                })
+                                side = 0
+                                let temp = []
+                                let temp2 = []
+                                temp.push(data[0].areaList[0].xloc)
+                                temp.push(data[0].areaList[0].yloc)
+                                temp2.push(data[0].localtionList[0].xloc)
+                                temp2.push(data[0].localtionList[0].yloc)
+                                $('.data-box').css('display','block')
+                                $('.search-data').css('display','none')
+                                marker = new AMap.Marker({
+                                    position: temp2,   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+                                })
+                                map.add(marker)
+                                circle = new AMap.Circle({
+                                    center: temp, // 圆心位置
+                                    radius: data[0].areaList[0].radius,         // 圆半径
+                                    fillColor: 'none',   // 圆形填充颜色
+                                    fillOpacity: 0,      // 填充色透明度
+                                    strokeColor: '#3979fe', // 描边颜色
+                                    strokeWeight: 2,     // 描边宽度
+                                })
+                                map.add(circle)
+                                map.setZoomAndCenter(13, temp)
+                                $('#dataBox').html(
+                                    `<div class="top-box">
+                                        <div class="list-box">
+                                            <ul>
+                                                <li class="name">
+                                                    姓名：${data[0].hname}
+                                                </li>
+                                                <li>
+                                                    电话：${data[0].phone}
+                                                </li>
+                                                <li>
+                                                    所属公司：${data[0].laowu}
+                                                </li>
+                                                <li>
+                                                    设备编号：${data[0].imei}
+                                                </li>
+                                                <li>
+                                                    定位时间：${data[0].localtionList[0].createDate}
+                                                </li>
+                                                <li>
+                                                    定位地址：${data[0].localtionList[0].address}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="bottom-box">
+                                        <div class="electric">
+                                            电量：${data[0].localtionList[0].bat}%
+                                        </div>
+                                        <div class="refresh">
+                                            刷新定位
+                                        </div>
+                                        <div class="switchover" id="history" >
+                                            历史轨迹
+                                        </div>
+                                    </div>`
+                                )
+                                let calendar = new datePicker();
+                                calendar.init({
+                                    'trigger': '#history', /*按钮选择器，用于触发弹出插件*/
+                                    'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                                    'minDate':'1900-1-1',/*最小日期*/
+                                    'maxDate':'2100-12-31',/*最大日期*/
+                                    'onSubmit':function(){/*确认时触发事件*/
+                                        let theSelectData=calendar.value;
+                                        // console.log(name)
+                                        $.ajax({
+                                            type: "GET",
+                                            url: "http://39.108.103.150:8989/lz/hire/localtionList",
+                                            data: {id:pid,string:name,createDate:theSelectData},
+                                            dataType: "json",
+                                            success: function (data) {
+                                                // console.log(data)
+                                                $('.data-box').css('display','none')
+                                                $('.history-box').css('display','block')
+                                                let temp = []
+                                                let temp2 = []
+                                                let temp3 = []
+                                                temp.push(data[0].areaList[0].xloc)
+                                                temp.push(data[0].areaList[0].yloc)
+                                                for (let i = 0; i < data[0].localtionList.length; i++) {
+                                                    temp2 = []
+                                                    temp2.push(data[0].localtionList[data[0].localtionList.length-1-i].xloc)
+                                                    temp2.push(data[0].localtionList[data[0].localtionList.length-1-i].yloc)
+                                                    temp3.push(temp2)
+                                                }
+                                                polyline = new AMap.Polyline({
+                                                    path: temp3,
+                                                    lineJoin: 'round', //折线拐点样式
+                                                    showDir: true, //移动方向
+                                                    strokeWeight: 3, //线条宽度
+                                                    strokeColor: '#3366ff', //线条颜色
+                                                })
+                                                map.add(polyline)
+                                                map.remove(marker)
+                                                map.setZoomAndCenter(13, temp)
+                                            
+                                                $('#historyBox').html(
+                                                    `<div class="top-box" id="historyTop">
+                                                        <div class="pull-up"></div>
+                                                        <div class="list-box">
+                                                            <ul>
+                                                                <li class="name">
+                                                                    姓名：${data[0].hname}
+                                                                </li>
+                                                                <li>
+                                                                    电话：${data[0].phone}
+                                                                </li>
+                                                                <li>
+                                                                    所属公司：${data[0].laowu}
+                                                                </li>
+                                                                <li>
+                                                                    设备编号：${data[0].imei}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="middle-box" id="historyMiddle">
+                                                        <div class="enter">
+                                                            <div class="img-box"></div>
+                                                            <ul>
+                                                                <li>
+                                                                    设备电量：${data[0].localtionList[0].bat}%
+                                                                </li>
+                                                                <li>
+                                                                    时间：${data[0].localtionList[0].createDate}
+                                                                    <br>
+                                                
+                                                                </li>
+                                                                <li>
+                                                                    位置：${data[0].localtionList[0].address}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                        <div class="come">
+                                                            <div class="img-box"></div>
+                                                            <ul>
+                                                                <li>
+                                                                    设备电量：${data[0].localtionList[data[0].localtionList.length-1].bat}%
+                                                                </li>
+                                                                <li>
+                                                                    时间：${data[0].localtionList[data[0].localtionList.length-1].createDate}
+                                                                    <br>
+                                                
+                                                                </li>
+                                                                <li>
+                                                                    位置：${data[0].localtionList[data[0].localtionList.length-1].address}
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="bottom-box">
+                                                        <div class="electric">
+                                                            电量：${data[0].localtionList[0].bat}%
+                                                        </div>
+                                                        <div class="refresh">
+                                                            刷新定位
+                                                        </div>
+                                                        <div class="switchover" id="particular">
+                                                            个人详情
+                                                        </div>
+                                                    </div>`
+                                                )
+                                            }
+                                        })
+                                    },
+                                    'onClose':function(){/*取消时触发事件*/
+                                        // console.log(`123`)
+                                    }
+                                })
+                            } else {
+                                alert('此设备已关机！')
+                            }
+                        }
+                    })
                 })
             }
         }

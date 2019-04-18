@@ -176,8 +176,12 @@ input[type=search] {
   left: -0.22rem;
   top: 0;
 }
-.main .particulars ul {
+.main .particulars .no-scroll {
   margin-top: .08rem;
+}
+.main .particulars .scroll-box {
+  height: 2.24rem;
+  overflow: hidden;
 }
 .main .particulars ul li {
   color: #7f9ea8;

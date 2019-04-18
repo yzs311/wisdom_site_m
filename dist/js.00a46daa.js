@@ -412,7 +412,7 @@ $(function () {
     //         console.log(data)
     //     }
     // })
-    axios.post('http://lz.hj-tec.com/lz/wisdom/wisdomLogin', {
+    axios.post('http://39.108.103.150:8989/lz/wisdom/wisdomLogin', {
       account: $("#user").val(),
       password: hex_md5($("#password").val())
     }).then(function (res) {
@@ -455,7 +455,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49518" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49422" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

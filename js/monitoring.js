@@ -3,7 +3,7 @@ $(function(){
 
     $.ajax({
         type: "GET",
-        url: "http://lz.hj-tec.com/lz/video/getProjectVideoArea",
+        url: "http://39.108.103.150:8989/lz/video/getProjectVideoArea",
         data: {pid:pid},
         dataType: "json",
         success: function (data) {

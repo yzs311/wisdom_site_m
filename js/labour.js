@@ -5,7 +5,7 @@ $(function(){
     // 获取合同签订数据
     $.ajax({
         type: "GET",
-        url: "http://lz.hj-tec.com/lz/get/getDataCount",
+        url: "http://39.108.103.150:8989/lz/get/getDataCount",
         data: {pid:pid},
         dataType: "json",
         success: function(data){
@@ -136,7 +136,7 @@ $(function(){
     // 获取工人出勤模块
     $.ajax({
         type: "get",
-        url: "http://lz.hj-tec.com/lz/get/getKQCount",
+        url: "http://39.108.103.150:8989/lz/get/getKQCount",
         data: {pid:pid},
         dataType: "json",
         success: function(data){
