@@ -260,6 +260,12 @@ body {
   border-radius: .09rem;
   background-color: #ff2d55;
 }
+#main .side-box .project .sub-project .name-box .name .online {
+  color: #4cd964;
+}
+#main .side-box .project .sub-project .name-box .name .offline {
+  color: #ff2d55;
+}
 #main .data-box {
   display: none;
   position: absolute;

@@ -344,6 +344,7 @@ $(function(){
                     tempHtml += 
                     `<div class="name" data-name=${data.areaList[i].hireList[j].hname}>
                         <span>${data.areaList[i].hireList[j].hname}</span>
+                        <span class=${data.areaList[i].hireList[j].xloc!=null?'online':'offline'}>${data.areaList[i].hireList[j].xloc!=null?'在线':'不在线'}</span>
                     </div>`
                 }
                 $(`#subProject${i} .name-box`).html(tempHtml)

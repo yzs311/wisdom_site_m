@@ -354,7 +354,7 @@ $(function () {
         var tempHtml = '';
 
         for (var j = 0; j < data.areaList[_i].hireList.length; j++) {
-          tempHtml += "<div class=\"name\" data-name=".concat(data.areaList[_i].hireList[j].hname, ">\n                        <span>").concat(data.areaList[_i].hireList[j].hname, "</span>\n                    </div>");
+          tempHtml += "<div class=\"name\" data-name=".concat(data.areaList[_i].hireList[j].hname, ">\n                        <span>").concat(data.areaList[_i].hireList[j].hname, "</span>\n                        <span class=").concat(data.areaList[_i].hireList[j].xloc != null ? 'online' : 'offline', ">").concat(data.areaList[_i].hireList[j].xloc != null ? '在线' : '不在线', "</span>\n                    </div>");
         }
 
         $("#subProject".concat(_i, " .name-box")).html(tempHtml); // console.log( $(`#subProject${i} .name-box`).html())
@@ -569,7 +569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49422" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49556" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
