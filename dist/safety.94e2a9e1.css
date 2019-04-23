@@ -238,11 +238,32 @@ input[type=search] {
   width: 50%;
   margin-top: .3rem;
 }
-.main .content .towerCrane .slide-box .data .bottom-data ul li img {
+.main .content .towerCrane .slide-box .data .bottom-data ul li .icon-box {
   float: left;
   width: .26rem;
   height: .26rem;
   margin-left: .43rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .weight {
+  background-image: url('safety-weight.9f108768.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .range {
+  background-image: url('safety-range.64eae01c.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .altitude {
+  background-image: url('safety-altitude.8a560418.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .rotation {
+  background-image: url('safety-rotation.cb46abcd.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .windSpeed {
+  background-image: url('safety-windSpeed.02c0d976.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .dipAngle {
+  background-image: url('safety-dipAngle.73de1f56.png');
 }
 .main .content .towerCrane .slide-box .data .bottom-data ul li .li-data {
   float: left;

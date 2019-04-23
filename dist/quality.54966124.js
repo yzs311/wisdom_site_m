@@ -158,11 +158,19 @@ $(function () {
       $('.list-centent').css('display', 'block');
       $('.screen-box').css('display', 'none');
       $('.fixed-box').css('display', 'block');
+      $('.review-list').css('display', 'none');
     } else if ($(this).html() == '筛选') {
       $(this).addClass('active').siblings().removeClass('active');
       $('.list-centent').css('display', 'none');
       $('.screen-box').css('display', 'block');
       $('.fixed-box').css('display', 'none');
+      $('.review-list').css('display', 'none');
+    } else if ($(this).html() == '待复查') {
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.list-centent').css('display', 'none');
+      $('.screen-box').css('display', 'none');
+      $('.fixed-box').css('display', 'block');
+      $('.review-list').css('display', 'block');
     }
 
     if ($(this).html() == '待办') {
@@ -241,7 +249,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49556" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49579" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

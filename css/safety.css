@@ -238,11 +238,32 @@ input[type=search] {
   width: 50%;
   margin-top: .3rem;
 }
-.main .content .towerCrane .slide-box .data .bottom-data ul li img {
+.main .content .towerCrane .slide-box .data .bottom-data ul li .icon-box {
   float: left;
   width: .26rem;
   height: .26rem;
   margin-left: .43rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .weight {
+  background-image: url('../images/safety-weight.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .range {
+  background-image: url('../images/safety-range.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .altitude {
+  background-image: url('../images/safety-altitude.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .rotation {
+  background-image: url('../images/safety-rotation.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .windSpeed {
+  background-image: url('../images/safety-windSpeed.png');
+}
+.main .content .towerCrane .slide-box .data .bottom-data ul li .dipAngle {
+  background-image: url('../images/safety-dipAngle.png');
 }
 .main .content .towerCrane .slide-box .data .bottom-data ul li .li-data {
   float: left;

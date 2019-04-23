@@ -227,12 +227,15 @@ input[type=search] {
   background-color: #fc5d5d;
 }
 .main .abarbeitung-button {
+  width: 100%;
   height: .6rem;
   font-size: .2rem;
   text-align: center;
   line-height: .6rem;
   margin-top: .22rem;
   background-color: #3375fe;
+  position: fixed;
+  bottom: 0;
 }
 .main .review-box {
   width: 100%;

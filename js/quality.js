@@ -55,12 +55,21 @@ $(function(){
             $('.list-centent').css('display','block')
             $('.screen-box').css('display','none')
             $('.fixed-box').css('display','block')
+            $('.review-list').css('display','none')
         } else if ($(this).html() == '筛选') {
             $(this).addClass('active').siblings().removeClass('active')
             $('.list-centent').css('display','none')
             $('.screen-box').css('display','block')
             $('.fixed-box').css('display','none')
+            $('.review-list').css('display','none')
+        } else if ($(this).html() == '待复查') {
+            $(this).addClass('active').siblings().removeClass('active')
+            $('.list-centent').css('display','none')
+            $('.screen-box').css('display','none')
+            $('.fixed-box').css('display','block')
+            $('.review-list').css('display','block')
         }
+
         if ($(this).html() == '待办') {
             $(this).addClass('active').siblings().removeClass('active')
             $('.list-centent').css('display','block')

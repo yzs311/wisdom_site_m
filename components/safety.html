@@ -43,98 +43,8 @@
         <div class="content">
             <!-- 塔吊数据 -->
             <div class="towerCrane swiper-container" id="swiper2">
-                <div class="swiper-wrapper">
-                    <div class="slide-box swiper-slide">
-                        <div class="information">
-                            <div class="information-left normal">
-                                正常运行
-                            </div>
-                            <div class="information-middle">
-                                <div class="name">
-                                    今日工作
-                                    <span>段裕德</span>
-                                </div>
-                                <div class="time">
-                                    上工时间
-                                    <span>07 : 30</span>
-                                </div>
-                            </div>
-                            <div class="information-right">
-                                <img src="../images/safety-pic.png" alt="">
-                            </div>
-                        </div>
-                        <div class="data">
-                            <div class="name">
-                                塔吊一号机
-                            </div>
-                            <div class="top-data">
-                                <div class="left-box">
-                                    <p>起重</p>
-                                    <p>--t</p>
-                                </div>
-                                <div class="middle-box">
-                                    --%
-                                    <p>力距</p>
-                                </div>
-                                <div class="right-box">
-                                    <p>倍率</p>
-                                    <p>--倍</p>
-                                </div>
-                            </div>
-                            <div class="bottom-data">
-                                <ul>
-                                    <li style="margin-top: 0;">
-                                        <img src="../images/safety-weight.png" alt="">
-                                        <div class="li-data">
-                                            <p>重量</p>
-                                            <p>--t</p>
-                                        </div>
-                                    </li>
-                                    <li style="margin-top: 0;">
-                                        <img src="../images/safety-range.png" alt="">
-                                        <div class="li-data">
-                                            <p>幅度</p>
-                                            <p>--m</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="../images/safety-altitude.png" alt="">
-                                        <div class="li-data">
-                                            <p>高度</p>
-                                            <p>--m</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="../images/safety-rotation.png" alt="">
-                                        <div class="li-data">
-                                            <p>回转</p>
-                                            <p>--°</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="../images/safety-windSpeed.png" alt="">
-                                        <div class="li-data">
-                                            <p>风速</p>
-                                            <p>--m</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="../images/safety-dipAngle.png" alt="">
-                                        <div class="li-data">
-                                            <p>倾角</p>
-                                            <p>X--°</p>
-                                            <p>Y--°</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="service">
-                                    检修倒计时 : 
-                                    <span class="normal">90天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide-box swiper-slide">
+                <div class="swiper-wrapper" id="towerCrane">
+                    <!-- <div class="slide-box swiper-slide">
                         <div class="last-bg"></div>
                         <div class="next-bg"></div>
                         <div class="information">
@@ -225,61 +135,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- 升降机数据 -->
             <div class="elevator swiper-container" id="swiper3" style="display:none">
-                <div class="swiper-wrapper">
-                    <div class="slide-box swiper-slide">
-                        <div class="information">
-                            <div class="information-left normal">
-                                正常运行
-                            </div>
-                            <div class="information-middle">
-                                <div class="name">
-                                    今日工作
-                                    <span>段裕德</span>
-                                </div>
-                                <div class="time">
-                                    上工时间
-                                    <span>07 : 30</span>
-                                </div>
-                            </div>
-                            <div class="information-right">
-                                <img src="../images/safety-pic.png" alt="">
-                            </div>
-                        </div>
-                        <div class="data">
-                            <div class="name">
-                                升降机一号机
-                            </div>
-                            <div class="data-box">
-                                <ul>
-                                    <li class="anomaly red-circle">
-                                        --t
-                                        <span>载重</span>
-                                    </li>
-                                    <li class="normal">
-                                        --m
-                                        <span>高度</span>
-                                    </li>
-                                    <li class="normal">
-                                        正常
-                                        <span>防坠在位监测</span>
-                                    </li>
-                                    <li class="normal">
-                                        正常
-                                        <span>上下限位监测</span>
-                                    </li>
-                                </ul>
-                                <div class="service">
-                                    检修倒计时 : 
-                                    <span class="normal">90天</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="swiper-wrapper" id="elevator">
                     <div class="slide-box swiper-slide">
                         <div class="information">
                             <div class="information-left normal">
@@ -661,6 +522,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->

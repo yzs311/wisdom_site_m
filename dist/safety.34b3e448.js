@@ -106,17 +106,15 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/safety.js":[function(require,module,exports) {
 $(function () {
-  // 初始化导航栏滚动
+  // 获取项目id
+  var pid = localStorage.getItem('pid'); // 初始化导航栏滚动
+
   var swiper1 = new Swiper('#swiper1', {
     slidesPerView: 3,
     freeMode: true,
     scrollbar: {
       el: '.swiper-scrollbar'
     }
-  }); // 初始化设备信息滚动
-
-  var swiper2 = new Swiper('#swiper2', {
-    spaceBetween: 30
   }); // const swiper3 = new Swiper('#swiper3')
   // 模块切换点击事件
   // 切换到塔吊模块
@@ -226,7 +224,33 @@ $(function () {
     });
   }); // 启动龙门吊实时数据滚动
 
-  scrollStart('gantryBox1', 'gantryBox1-1', 'gantryBox1-2');
+  scrollStart('gantryBox1', 'gantryBox1-1', 'gantryBox1-2'); // 获取塔吊数据
+
+  axios.get("http://39.108.103.150:8989/lz/deye/getCraneData?pid=".concat(pid)).then(function (res) {
+    console.log(res.data); // 将塔吊的数据渲染到页面中
+
+    var html = '';
+
+    for (var i = 0; i < res.data.length; i++) {
+      html += "<div class=\"slide-box swiper-slide\">\n                        <div class=\"information\">\n                            <div class=\"information-left ".concat(res.data[i].MotorStatus != 0 ? 'normal' : 'anomaly', "\">\n                                ").concat(res.data[i].MotorStatus != 0 ? '正常运行' : '异常运行', "\n                            </div>\n                            <div class=\"information-middle\">\n                                <div class=\"name\">\n                                    \u4ECA\u65E5\u5DE5\u4F5C\n                                    <span>").concat(res.data[i].name, "</span>\n                                </div>\n                                <div class=\"time\">\n                                    \u4E0A\u5DE5\u65F6\u95F4\n                                    <span>").concat(res.data[i].startTime != null ? res.data[i].startTime.split(' ')[1] : '', "</span>\n                                </div>\n                            </div>\n                            <div class=\"information-right\">\n                                <img src=\"").concat(res.data[i].image, "\" alt=\"\">\n                            </div>\n                        </div>\n                        <div class=\"data\">\n                            <div class=\"name\">\n                            ").concat(res.data[i].dname, "\n                            </div>\n                            <div class=\"top-data\">\n                                <div class=\"left-box\">\n                                    <p>\u8D77\u91CD</p>\n                                    <p>").concat(res.data[i].ratedWeight, "t</p>\n                                </div>\n                                <div class=\"middle-box\">\n                                ").concat(res.data[i].moment, "%\n                                    <p>\u529B\u8DDD</p>\n                                </div>\n                                <div class=\"right-box\">\n                                    <p>\u500D\u7387</p>\n                                    <p>").concat(res.data[i].multiple, "\u500D</p>\n                                </div>\n                            </div>\n                            <div class=\"bottom-data\">\n                                <ul>\n                                    <li style=\"margin-top: 0;\">\n                                        <div class=\"icon-box weight\"></div>\n                                        <div class=\"li-data\">\n                                            <p>\u91CD\u91CF</p>\n                                            <p>").concat(res.data[i].weight, "t</p>\n                                        </div>\n                                    </li>\n                                    <li style=\"margin-top: 0;\">\n                                        <div class=\"icon-box range\"></div>\n                                        <div class=\"li-data\">\n                                            <p>\u5E45\u5EA6</p>\n                                            <p>").concat(res.data[i].rrange, "m</p>\n                                        </div>\n                                    </li>\n                                    <li>\n                                        <div class=\"icon-box altitude\"></div>\n                                        <div class=\"li-data\">\n                                            <p>\u9AD8\u5EA6</p>\n                                            <p>").concat(res.data[i].height, "m</p>\n                                        </div>\n                                    </li>\n                                    <li>\n                                        <div class=\"icon-box rotation\"></div>\n                                        <div class=\"li-data\">\n                                            <p>\u56DE\u8F6C</p>\n                                            <p>").concat(res.data[i].angle, "\xB0</p>\n                                        </div>\n                                    </li>\n                                    <li>\n                                        <div class=\"icon-box windSpeed\"></div>\n                                        <div class=\"li-data\">\n                                            <p>\u98CE\u901F</p>\n                                            <p>").concat(res.data[i].windSpeed, "m</p>\n                                        </div>\n                                    </li>\n                                    <li>\n                                        <div class=\"icon-box dipAngle\"></div>\n                                        <div class=\"li-data\">\n                                            <p>\u503E\u89D2</p>\n                                            <p>").concat(res.data[i].obliguity, "\xB0</p>\n                                        </div>\n                                    </li>\n                                </ul>\n                                <div class=\"service\">\n                                    \u68C0\u4FEE\u5012\u8BA1\u65F6 : \n                                    <span class=\"normal\">").concat(res.data[i].ts, "\u5929</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>");
+    }
+
+    $('#towerCrane').html(html); // 初始化塔吊滚动
+
+    var swiper2 = new Swiper('#swiper2', {
+      spaceBetween: 30
+    });
+  }); // 获取升降机数据
+
+  axios.get("http://39.108.103.150:8989/lz/deye/getElevatorData?pid=".concat(pid)).then(function (res) {
+    var html = '';
+
+    for (var i = 0; i < res.data.length; i++) {
+      html += "<div class=\"slide-box swiper-slide\">\n                        <div class=\"information\">\n                            <div class=\"information-left normal\">\n                                \u6B63\u5E38\u8FD0\u884C\n                            </div>\n                            <div class=\"information-middle\">\n                                <div class=\"name\">\n                                    \u4ECA\u65E5\u5DE5\u4F5C\n                                    <span>".concat(res.data[0].name, "</span>\n                                </div>\n                                <div class=\"time\">\n                                    \u4E0A\u5DE5\u65F6\u95F4\n                                    <span>").concat(res.data[i].startTime != null ? res.data[i].startTime.split(' ')[1] : '', "</span>\n                                </div>\n                            </div>\n                            <div class=\"information-right\">\n                                <img src=\"").concat(res.data[0].image, "\" alt=\"\">\n                            </div>\n                        </div>\n                        <div class=\"data\">\n                            <div class=\"name\">\n                                ").concat(res.data[0].dname, "\n                            </div>\n                            <div class=\"data-box\">\n                                <ul>\n                                    <li class=\"normal green-circle\">\n                                        ").concat(res.data[0].weight, "t\n                                        <span>\u8F7D\u91CD</span>\n                                    </li>\n                                    <li class=\"normal\">\n                                        ").concat(res.data[0].height, "m\n                                        <span>\u9AD8\u5EA6</span>\n                                    </li>\n                                    <li class=\"normal\">\n                                        ").concat(res.data[0].fallAlarm == 0 ? '正常' : '异常', "\n                                        <span>\u9632\u5760\u5728\u4F4D\u76D1\u6D4B</span>\n                                    </li>\n                                    <li class=\"normal\">\n                                        ").concat(res.data[0].bottomAlarm == 0 ? '正常' : '异常', "\n                                        <span>\u4E0A\u4E0B\u9650\u4F4D\u76D1\u6D4B</span>\n                                    </li>\n                                </ul>\n                                <div class=\"service\">\n                                    \u68C0\u4FEE\u5012\u8BA1\u65F6 : \n                                    <span class=\"normal\">").concat(res.data[0].ts, "\u5929</span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>");
+    }
+
+    $('#elevator').html(html);
+  });
 });
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -255,7 +279,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49556" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49579" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

@@ -220,6 +220,99 @@ body {
 .main .list .list-centent ul li:last-child .bottom {
   border: none;
 }
+.main .list .review-list {
+  box-sizing: border-box;
+  padding-left: .1rem;
+  padding-right: .1rem;
+}
+.main .list .review-list ul li {
+  margin-top: .13rem;
+}
+.main .list .review-list ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.main .list .review-list ul li a .title {
+  height: .15rem;
+  display: flex;
+  justify-content: space-between;
+}
+.main .list .review-list ul li a .title .title-name {
+  font-size: .15rem;
+}
+.main .list .review-list ul li a .title .title-state {
+  color: #8d8e94;
+  font-size: .12rem;
+}
+.main .list .review-list ul li a .middle {
+  margin-top: .1rem;
+  font-size: .12rem;
+}
+.main .list .review-list ul li a .middle > div {
+  line-height: .22rem;
+}
+.main .list .review-list ul li a .middle > div .name {
+  display: inline-block;
+  width: .5rem;
+  color: #8d8e94;
+}
+.main .list .review-list ul li a .middle > div .message {
+  margin-left: .15rem;
+}
+.main .list .review-list ul li a .middle .img-box {
+  width: .6rem;
+  height: .6rem;
+  margin-top: .05rem;
+  background-image: url('../images/temp4.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main .list .review-list ul li a .middle .bottom {
+  box-sizing: border-box;
+  line-height: .34rem;
+  border-bottom: .01rem solid #0f1f53;
+}
+.main .list .review-list ul li a .middle .bottom .slight {
+  float: left;
+  width: .25rem;
+  height: .34rem;
+  background-image: url('../images/quality-slight.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .list .review-list ul li a .middle .bottom .ordinary {
+  float: left;
+  width: .25rem;
+  height: .34rem;
+  background-image: url('../images/quality-ordinary.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .list .review-list ul li a .middle .bottom .severity {
+  float: left;
+  width: .25rem;
+  height: .34rem;
+  background-image: url('../images/quality-severity.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .list .review-list ul li a .middle .bottom .name {
+  display: inline;
+  margin-left: .1rem;
+}
+.main .list .review-list ul li a .middle .bottom .message {
+  margin-left: .1rem;
+}
+.main .list .review-list ul li a .middle .bottom .time {
+  float: right;
+}
+.main .list .review-list ul li:last-child .bottom {
+  border: none;
+}
 .main .list .screen-box {
   box-sizing: border-box;
   padding-left: .175rem;
