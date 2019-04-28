@@ -97,8 +97,9 @@ $(function(){
             dataType: "json",
             // async: false,
             success: function (data) {
-                console.log(data)
-                if (data[0].localtionList){
+                // console.log(data)
+                if (data.length > 0) {
+                    if (data[0].localtionList.length > 0){
                     let temp = []
                     let temp2 = []
                     temp.push(data[0].areaList[0].xloc)
@@ -158,7 +159,7 @@ $(function(){
                             </div>
                         </div>`
                     )
-                    let calendar = new datePicker();
+                    let calendar = new datePicker()
                     calendar.init({
                         'trigger': '#history', /*按钮选择器，用于触发弹出插件*/
                         'type': 'date',/*模式：date日期；datetime日期时间；time时间；ym年月；*/
@@ -271,6 +272,9 @@ $(function(){
                             // console.log(`123`)
                         }
                     })
+                    } else {
+                        alert('此设备已关机！')
+                    }
                 } else {
                     alert('此设备已关机！')
                 }
@@ -409,7 +413,8 @@ $(function(){
                         // async: false,
                         success: function (data) {
                             // console.log(data)
-                            if (data[0].localtionList){
+                            if (data.length > 0) {
+                                if (data[0].localtionList.length > 0){
                                 $('.side-box').animate({
                                     left: '-3.2rem'
                                 })
@@ -589,6 +594,9 @@ $(function(){
                                         // console.log(`123`)
                                     }
                                 })
+                                } else {
+                                    alert('此设备已关机！')
+                                }
                             } else {
                                 alert('此设备已关机！')
                             }

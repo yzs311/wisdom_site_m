@@ -52,9 +52,10 @@ input[type=search] {
 }
 .main {
   width: 100%;
+  min-height: 100%;
   color: #fff;
   padding-top: .225rem;
-  padding-bottom: .6rem;
+  padding-bottom: .82rem;
   box-sizing: border-box;
   background-color: #010118;
   position: relative;
@@ -129,10 +130,10 @@ input[type=search] {
 }
 .main .centent-box .pic-box {
   padding-left: .15rem;
+  height: .65rem;
 }
 .main .centent-box .pic-box img {
   width: .65rem;
-  height: .65rem;
 }
 .main .centent-box .name {
   color: #a4a5a9;
@@ -277,12 +278,24 @@ input[type=search] {
 .main .review-box .popup-box .pic {
   margin-top: .15rem;
   padding-left: .15rem;
+  height: .65rem;
 }
 .main .review-box .popup-box .pic img {
   box-sizing: border-box;
   margin-bottom: .13rem;
   display: block;
   width: .65rem;
+}
+.main .review-box .popup-box .pic .uploading {
+  box-sizing: border-box;
+  margin-bottom: .13rem;
+  padding-left: .06rem;
+  display: block;
+  width: .71rem;
+  height: .65rem;
+  color: #fff;
+  text-align: center;
+  line-height: .65rem;
 }
 .main .review-box .popup-box .border-top {
   margin-top: .15rem;
@@ -300,7 +313,7 @@ input[type=search] {
   height: .49rem;
   display: flex;
 }
-.main .review-box .popup-box .option-box .cancel {
+.main .review-box .popup-box .option-box .review-cancel {
   font-size: .15rem;
   color: #3375fe;
   flex: 1;
@@ -313,7 +326,103 @@ input[type=search] {
   background-color: #0f1f4f;
   margin-top: .05rem;
 }
-.main .review-box .popup-box .option-box .affirm {
+.main .review-box .popup-box .option-box .review-affirm {
+  display: inline-block;
+  font-size: .15rem;
+  color: #3375fe;
+  flex: 1;
+  text-align: center;
+  line-height: .5rem;
+}
+.main .abarbeitung-box {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 90;
+  top: 0;
+  left: 0;
+}
+.main .abarbeitung-box .popup-box {
+  width: 3.3rem;
+  height: 3.2rem;
+  margin: 0 auto;
+  margin-top: 40%;
+  background-image: url('../images/qualityParticulars-bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .abarbeitung-box .popup-box .title {
+  box-sizing: border-box;
+  font-size: .15rem;
+  padding-left: .15rem;
+  padding-top: .15rem;
+}
+.main .abarbeitung-box .popup-box textarea {
+  margin-top: .15rem;
+  box-sizing: border-box;
+  padding-left: .15rem;
+  padding-right: .15rem;
+  color: #fff;
+  border: 0;
+  outline: none;
+  display: block;
+  width: 3.3rem;
+  background-color: rgba(0, 0, 0, 0);
+}
+.main .abarbeitung-box .popup-box .pic {
+  margin-top: .15rem;
+  padding-left: .15rem;
+  height: .65rem;
+}
+.main .abarbeitung-box .popup-box .pic img {
+  box-sizing: border-box;
+  margin-bottom: .13rem;
+  display: block;
+  width: .65rem;
+}
+.main .abarbeitung-box .popup-box .pic .uploading {
+  box-sizing: border-box;
+  margin-bottom: .13rem;
+  padding-left: .06rem;
+  display: block;
+  width: .71rem;
+  height: .65rem;
+  color: #fff;
+  text-align: center;
+  line-height: .65rem;
+}
+.main .abarbeitung-box .popup-box .border-top {
+  margin-top: .15rem;
+  box-sizing: border-box;
+  padding-left: .075rem;
+  padding-right: .075rem;
+  width: 3.3rem;
+  height: .01rem;
+}
+.main .abarbeitung-box .popup-box .border-top .fill {
+  height: .01rem;
+  background-color: #0f1f4f;
+}
+.main .abarbeitung-box .popup-box .option-box {
+  height: .49rem;
+  display: flex;
+}
+.main .abarbeitung-box .popup-box .option-box .abarbeitung-cancel {
+  font-size: .15rem;
+  color: #3375fe;
+  flex: 1;
+  text-align: center;
+  line-height: .5rem;
+}
+.main .abarbeitung-box .popup-box .option-box .vertical {
+  width: .01rem;
+  height: .375rem;
+  background-color: #0f1f4f;
+  margin-top: .05rem;
+}
+.main .abarbeitung-box .popup-box .option-box .abarbeitung-affirm {
   display: inline-block;
   font-size: .15rem;
   color: #3375fe;

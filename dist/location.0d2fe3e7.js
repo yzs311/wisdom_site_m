@@ -191,109 +191,112 @@ $(function () {
       dataType: "json",
       // async: false,
       success: function success(data) {
-        console.log(data);
+        // console.log(data)
+        if (data.length > 0) {
+          if (data[0].localtionList.length > 0) {
+            var _temp = [];
+            var temp2 = [];
 
-        if (data[0].localtionList) {
-          var _temp = [];
-          var temp2 = [];
+            _temp.push(data[0].areaList[0].xloc);
 
-          _temp.push(data[0].areaList[0].xloc);
+            _temp.push(data[0].areaList[0].yloc);
 
-          _temp.push(data[0].areaList[0].yloc);
+            temp2.push(data[0].localtionList[0].xloc);
+            temp2.push(data[0].localtionList[0].yloc);
+            $('.data-box').css('display', 'block');
+            $('.search-data').css('display', 'none');
+            marker = new AMap.Marker({
+              position: temp2 // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
 
-          temp2.push(data[0].localtionList[0].xloc);
-          temp2.push(data[0].localtionList[0].yloc);
-          $('.data-box').css('display', 'block');
-          $('.search-data').css('display', 'none');
-          marker = new AMap.Marker({
-            position: temp2 // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+            });
+            map.add(marker);
+            circle = new AMap.Circle({
+              center: _temp,
+              // 圆心位置
+              radius: data[0].areaList[0].radius,
+              // 圆半径
+              fillColor: 'none',
+              // 圆形填充颜色
+              fillOpacity: 0,
+              // 填充色透明度
+              strokeColor: '#3979fe',
+              // 描边颜色
+              strokeWeight: 2 // 描边宽度
 
-          });
-          map.add(marker);
-          circle = new AMap.Circle({
-            center: _temp,
-            // 圆心位置
-            radius: data[0].areaList[0].radius,
-            // 圆半径
-            fillColor: 'none',
-            // 圆形填充颜色
-            fillOpacity: 0,
-            // 填充色透明度
-            strokeColor: '#3979fe',
-            // 描边颜色
-            strokeWeight: 2 // 描边宽度
+            });
+            map.add(circle);
+            map.setZoomAndCenter(13, _temp);
+            $('#dataBox').html("<div class=\"top-box\">\n                            <div class=\"list-box\">\n                                <ul>\n                                    <li class=\"name\">\n                                        \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                    </li>\n                                    <li>\n                                        \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                    </li>\n                                    <li>\n                                        \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                    </li>\n                                    <li>\n                                        \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                    </li>\n                                    <li>\n                                        \u5B9A\u4F4D\u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                    </li>\n                                    <li>\n                                        \u5B9A\u4F4D\u5730\u5740\uFF1A").concat(data[0].localtionList[0].address, "\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                        <div class=\"bottom-box\">\n                            <div class=\"electric\">\n                                \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                            </div>\n                            <div class=\"refresh\">\n                                \u5237\u65B0\u5B9A\u4F4D\n                            </div>\n                            <div class=\"switchover\" id=\"history\" >\n                                \u5386\u53F2\u8F68\u8FF9\n                            </div>\n                        </div>"));
+            var calendar = new datePicker();
+            calendar.init({
+              'trigger': '#history',
 
-          });
-          map.add(circle);
-          map.setZoomAndCenter(13, _temp);
-          $('#dataBox').html("<div class=\"top-box\">\n                            <div class=\"list-box\">\n                                <ul>\n                                    <li class=\"name\">\n                                        \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                    </li>\n                                    <li>\n                                        \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                    </li>\n                                    <li>\n                                        \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                    </li>\n                                    <li>\n                                        \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                    </li>\n                                    <li>\n                                        \u5B9A\u4F4D\u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                    </li>\n                                    <li>\n                                        \u5B9A\u4F4D\u5730\u5740\uFF1A").concat(data[0].localtionList[0].address, "\n                                    </li>\n                                </ul>\n                            </div>\n                        </div>\n                        <div class=\"bottom-box\">\n                            <div class=\"electric\">\n                                \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                            </div>\n                            <div class=\"refresh\">\n                                \u5237\u65B0\u5B9A\u4F4D\n                            </div>\n                            <div class=\"switchover\" id=\"history\" >\n                                \u5386\u53F2\u8F68\u8FF9\n                            </div>\n                        </div>"));
-          var calendar = new datePicker();
-          calendar.init({
-            'trigger': '#history',
+              /*按钮选择器，用于触发弹出插件*/
+              'type': 'date',
 
-            /*按钮选择器，用于触发弹出插件*/
-            'type': 'date',
+              /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+              'minDate': '1900-1-1',
 
-            /*模式：date日期；datetime日期时间；time时间；ym年月；*/
-            'minDate': '1900-1-1',
+              /*最小日期*/
+              'maxDate': '2100-12-31',
 
-            /*最小日期*/
-            'maxDate': '2100-12-31',
+              /*最大日期*/
+              'onSubmit': function onSubmit() {
+                /*确认时触发事件*/
+                var theSelectData = calendar.value; // console.log(name)
 
-            /*最大日期*/
-            'onSubmit': function onSubmit() {
-              /*确认时触发事件*/
-              var theSelectData = calendar.value; // console.log(name)
+                $.ajax({
+                  type: "GET",
+                  url: "http://39.108.103.150:8989/lz/hire/localtionList",
+                  data: {
+                    id: pid,
+                    string: name,
+                    createDate: theSelectData
+                  },
+                  dataType: "json",
+                  success: function success(data) {
+                    // console.log(data)
+                    $('.data-box').css('display', 'none');
+                    $('.history-box').css('display', 'block');
+                    var temp = [];
+                    var temp2 = [];
+                    var temp3 = [];
+                    temp.push(data[0].areaList[0].xloc);
+                    temp.push(data[0].areaList[0].yloc);
 
-              $.ajax({
-                type: "GET",
-                url: "http://39.108.103.150:8989/lz/hire/localtionList",
-                data: {
-                  id: pid,
-                  string: name,
-                  createDate: theSelectData
-                },
-                dataType: "json",
-                success: function success(data) {
-                  // console.log(data)
-                  $('.data-box').css('display', 'none');
-                  $('.history-box').css('display', 'block');
-                  var temp = [];
-                  var temp2 = [];
-                  var temp3 = [];
-                  temp.push(data[0].areaList[0].xloc);
-                  temp.push(data[0].areaList[0].yloc);
+                    for (var i = 0; i < data[0].localtionList.length; i++) {
+                      temp2 = [];
+                      temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - i].xloc);
+                      temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - i].yloc);
+                      temp3.push(temp2);
+                    }
 
-                  for (var i = 0; i < data[0].localtionList.length; i++) {
-                    temp2 = [];
-                    temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - i].xloc);
-                    temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - i].yloc);
-                    temp3.push(temp2);
+                    polyline = new AMap.Polyline({
+                      path: temp3,
+                      lineJoin: 'round',
+                      //折线拐点样式
+                      showDir: true,
+                      //移动方向
+                      strokeWeight: 3,
+                      //线条宽度
+                      strokeColor: '#3366ff' //线条颜色
+
+                    });
+                    map.add(polyline);
+                    map.remove(marker);
+                    map.setZoomAndCenter(13, temp);
+                    $('#historyBox').html("<div class=\"top-box\" id=\"historyTop\">\n                                            <div class=\"pull-up\"></div>\n                                            <div class=\"list-box\">\n                                                <ul>\n                                                    <li class=\"name\">\n                                                        \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                    </li>\n                                                    <li>\n                                                        \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                    </li>\n                                                    <li>\n                                                        \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                    </li>\n                                                    <li>\n                                                        \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                    </li>\n                                                </ul>\n                                            </div>\n                                        </div>\n                                        <div class=\"middle-box\" id=\"historyMiddle\">\n                                            <div class=\"enter\">\n                                                <div class=\"img-box\"></div>\n                                                <ul>\n                                                    <li>\n                                                        \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                    </li>\n                                                    <li>\n                                                        \u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                        <br>\n\n                                                    </li>\n                                                    <li>\n                                                        \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[0].address, "\n                                                    </li>\n                                                </ul>\n                                            </div>\n                                            <div class=\"come\">\n                                                <div class=\"img-box\"></div>\n                                                <ul>\n                                                    <li>\n                                                        \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].bat, "%\n                                                    </li>\n                                                    <li>\n                                                        \u65F6\u95F4\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].createDate, "\n                                                        <br>\n\n                                                    </li>\n                                                    <li>\n                                                        \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].address, "\n                                                    </li>\n                                                </ul>\n                                            </div>\n                                        </div>\n                                        <div class=\"bottom-box\">\n                                            <div class=\"electric\">\n                                                \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                            </div>\n                                            <div class=\"refresh\">\n                                                \u5237\u65B0\u5B9A\u4F4D\n                                            </div>\n                                            <div class=\"switchover\" id=\"particular\">\n                                                \u4E2A\u4EBA\u8BE6\u60C5\n                                            </div>\n                                        </div>"));
                   }
-
-                  polyline = new AMap.Polyline({
-                    path: temp3,
-                    lineJoin: 'round',
-                    //折线拐点样式
-                    showDir: true,
-                    //移动方向
-                    strokeWeight: 3,
-                    //线条宽度
-                    strokeColor: '#3366ff' //线条颜色
-
-                  });
-                  map.add(polyline);
-                  map.remove(marker);
-                  map.setZoomAndCenter(13, temp);
-                  $('#historyBox').html("<div class=\"top-box\" id=\"historyTop\">\n                                            <div class=\"pull-up\"></div>\n                                            <div class=\"list-box\">\n                                                <ul>\n                                                    <li class=\"name\">\n                                                        \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                    </li>\n                                                    <li>\n                                                        \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                    </li>\n                                                    <li>\n                                                        \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                    </li>\n                                                    <li>\n                                                        \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                    </li>\n                                                </ul>\n                                            </div>\n                                        </div>\n                                        <div class=\"middle-box\" id=\"historyMiddle\">\n                                            <div class=\"enter\">\n                                                <div class=\"img-box\"></div>\n                                                <ul>\n                                                    <li>\n                                                        \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                    </li>\n                                                    <li>\n                                                        \u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                        <br>\n\n                                                    </li>\n                                                    <li>\n                                                        \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[0].address, "\n                                                    </li>\n                                                </ul>\n                                            </div>\n                                            <div class=\"come\">\n                                                <div class=\"img-box\"></div>\n                                                <ul>\n                                                    <li>\n                                                        \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].bat, "%\n                                                    </li>\n                                                    <li>\n                                                        \u65F6\u95F4\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].createDate, "\n                                                        <br>\n\n                                                    </li>\n                                                    <li>\n                                                        \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].address, "\n                                                    </li>\n                                                </ul>\n                                            </div>\n                                        </div>\n                                        <div class=\"bottom-box\">\n                                            <div class=\"electric\">\n                                                \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                            </div>\n                                            <div class=\"refresh\">\n                                                \u5237\u65B0\u5B9A\u4F4D\n                                            </div>\n                                            <div class=\"switchover\" id=\"particular\">\n                                                \u4E2A\u4EBA\u8BE6\u60C5\n                                            </div>\n                                        </div>"));
-                }
-              });
-            },
-            'onClose': function onClose() {
-              /*取消时触发事件*/
-              // console.log(`123`)
-            }
-          });
+                });
+              },
+              'onClose': function onClose() {
+                /*取消时触发事件*/
+                // console.log(`123`)
+              }
+            });
+          } else {
+            alert('此设备已关机！');
+          }
         } else {
           alert('此设备已关机！');
         }
@@ -420,114 +423,118 @@ $(function () {
             // async: false,
             success: function success(data) {
               // console.log(data)
-              if (data[0].localtionList) {
-                $('.side-box').animate({
-                  left: '-3.2rem'
-                });
-                $('.search').animate({
-                  left: '50%'
-                });
-                side = 0;
-                var _temp2 = [];
-                var temp2 = [];
+              if (data.length > 0) {
+                if (data[0].localtionList.length > 0) {
+                  $('.side-box').animate({
+                    left: '-3.2rem'
+                  });
+                  $('.search').animate({
+                    left: '50%'
+                  });
+                  side = 0;
+                  var _temp2 = [];
+                  var temp2 = [];
 
-                _temp2.push(data[0].areaList[0].xloc);
+                  _temp2.push(data[0].areaList[0].xloc);
 
-                _temp2.push(data[0].areaList[0].yloc);
+                  _temp2.push(data[0].areaList[0].yloc);
 
-                temp2.push(data[0].localtionList[0].xloc);
-                temp2.push(data[0].localtionList[0].yloc);
-                $('.data-box').css('display', 'block');
-                $('.search-data').css('display', 'none');
-                marker = new AMap.Marker({
-                  position: temp2 // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+                  temp2.push(data[0].localtionList[0].xloc);
+                  temp2.push(data[0].localtionList[0].yloc);
+                  $('.data-box').css('display', 'block');
+                  $('.search-data').css('display', 'none');
+                  marker = new AMap.Marker({
+                    position: temp2 // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
 
-                });
-                map.add(marker);
-                circle = new AMap.Circle({
-                  center: _temp2,
-                  // 圆心位置
-                  radius: data[0].areaList[0].radius,
-                  // 圆半径
-                  fillColor: 'none',
-                  // 圆形填充颜色
-                  fillOpacity: 0,
-                  // 填充色透明度
-                  strokeColor: '#3979fe',
-                  // 描边颜色
-                  strokeWeight: 2 // 描边宽度
+                  });
+                  map.add(marker);
+                  circle = new AMap.Circle({
+                    center: _temp2,
+                    // 圆心位置
+                    radius: data[0].areaList[0].radius,
+                    // 圆半径
+                    fillColor: 'none',
+                    // 圆形填充颜色
+                    fillOpacity: 0,
+                    // 填充色透明度
+                    strokeColor: '#3979fe',
+                    // 描边颜色
+                    strokeWeight: 2 // 描边宽度
 
-                });
-                map.add(circle);
-                map.setZoomAndCenter(13, _temp2);
-                $('#dataBox').html("<div class=\"top-box\">\n                                        <div class=\"list-box\">\n                                            <ul>\n                                                <li class=\"name\">\n                                                    \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                </li>\n                                                <li>\n                                                    \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                </li>\n                                                <li>\n                                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                </li>\n                                                <li>\n                                                    \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                </li>\n                                                <li>\n                                                    \u5B9A\u4F4D\u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                </li>\n                                                <li>\n                                                    \u5B9A\u4F4D\u5730\u5740\uFF1A").concat(data[0].localtionList[0].address, "\n                                                </li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                    <div class=\"bottom-box\">\n                                        <div class=\"electric\">\n                                            \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                        </div>\n                                        <div class=\"refresh\">\n                                            \u5237\u65B0\u5B9A\u4F4D\n                                        </div>\n                                        <div class=\"switchover\" id=\"history\" >\n                                            \u5386\u53F2\u8F68\u8FF9\n                                        </div>\n                                    </div>"));
-                var calendar = new datePicker();
-                calendar.init({
-                  'trigger': '#history',
+                  });
+                  map.add(circle);
+                  map.setZoomAndCenter(13, _temp2);
+                  $('#dataBox').html("<div class=\"top-box\">\n                                        <div class=\"list-box\">\n                                            <ul>\n                                                <li class=\"name\">\n                                                    \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                </li>\n                                                <li>\n                                                    \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                </li>\n                                                <li>\n                                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                </li>\n                                                <li>\n                                                    \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                </li>\n                                                <li>\n                                                    \u5B9A\u4F4D\u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                </li>\n                                                <li>\n                                                    \u5B9A\u4F4D\u5730\u5740\uFF1A").concat(data[0].localtionList[0].address, "\n                                                </li>\n                                            </ul>\n                                        </div>\n                                    </div>\n                                    <div class=\"bottom-box\">\n                                        <div class=\"electric\">\n                                            \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                        </div>\n                                        <div class=\"refresh\">\n                                            \u5237\u65B0\u5B9A\u4F4D\n                                        </div>\n                                        <div class=\"switchover\" id=\"history\" >\n                                            \u5386\u53F2\u8F68\u8FF9\n                                        </div>\n                                    </div>"));
+                  var calendar = new datePicker();
+                  calendar.init({
+                    'trigger': '#history',
 
-                  /*按钮选择器，用于触发弹出插件*/
-                  'type': 'date',
+                    /*按钮选择器，用于触发弹出插件*/
+                    'type': 'date',
 
-                  /*模式：date日期；datetime日期时间；time时间；ym年月；*/
-                  'minDate': '1900-1-1',
+                    /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+                    'minDate': '1900-1-1',
 
-                  /*最小日期*/
-                  'maxDate': '2100-12-31',
+                    /*最小日期*/
+                    'maxDate': '2100-12-31',
 
-                  /*最大日期*/
-                  'onSubmit': function onSubmit() {
-                    /*确认时触发事件*/
-                    var theSelectData = calendar.value; // console.log(name)
+                    /*最大日期*/
+                    'onSubmit': function onSubmit() {
+                      /*确认时触发事件*/
+                      var theSelectData = calendar.value; // console.log(name)
 
-                    $.ajax({
-                      type: "GET",
-                      url: "http://39.108.103.150:8989/lz/hire/localtionList",
-                      data: {
-                        id: pid,
-                        string: name,
-                        createDate: theSelectData
-                      },
-                      dataType: "json",
-                      success: function success(data) {
-                        // console.log(data)
-                        $('.data-box').css('display', 'none');
-                        $('.history-box').css('display', 'block');
-                        var temp = [];
-                        var temp2 = [];
-                        var temp3 = [];
-                        temp.push(data[0].areaList[0].xloc);
-                        temp.push(data[0].areaList[0].yloc);
+                      $.ajax({
+                        type: "GET",
+                        url: "http://39.108.103.150:8989/lz/hire/localtionList",
+                        data: {
+                          id: pid,
+                          string: name,
+                          createDate: theSelectData
+                        },
+                        dataType: "json",
+                        success: function success(data) {
+                          // console.log(data)
+                          $('.data-box').css('display', 'none');
+                          $('.history-box').css('display', 'block');
+                          var temp = [];
+                          var temp2 = [];
+                          var temp3 = [];
+                          temp.push(data[0].areaList[0].xloc);
+                          temp.push(data[0].areaList[0].yloc);
 
-                        for (var _i2 = 0; _i2 < data[0].localtionList.length; _i2++) {
-                          temp2 = [];
-                          temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - _i2].xloc);
-                          temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - _i2].yloc);
-                          temp3.push(temp2);
+                          for (var _i2 = 0; _i2 < data[0].localtionList.length; _i2++) {
+                            temp2 = [];
+                            temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - _i2].xloc);
+                            temp2.push(data[0].localtionList[data[0].localtionList.length - 1 - _i2].yloc);
+                            temp3.push(temp2);
+                          }
+
+                          polyline = new AMap.Polyline({
+                            path: temp3,
+                            lineJoin: 'round',
+                            //折线拐点样式
+                            showDir: true,
+                            //移动方向
+                            strokeWeight: 3,
+                            //线条宽度
+                            strokeColor: '#3366ff' //线条颜色
+
+                          });
+                          map.add(polyline);
+                          map.remove(marker);
+                          map.setZoomAndCenter(13, temp);
+                          $('#historyBox').html("<div class=\"top-box\" id=\"historyTop\">\n                                                        <div class=\"pull-up\"></div>\n                                                        <div class=\"list-box\">\n                                                            <ul>\n                                                                <li class=\"name\">\n                                                                    \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                                </li>\n                                                                <li>\n                                                                    \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                                </li>\n                                                                <li>\n                                                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                                </li>\n                                                                <li>\n                                                                    \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                                </li>\n                                                            </ul>\n                                                        </div>\n                                                    </div>\n                                                    <div class=\"middle-box\" id=\"historyMiddle\">\n                                                        <div class=\"enter\">\n                                                            <div class=\"img-box\"></div>\n                                                            <ul>\n                                                                <li>\n                                                                    \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                                </li>\n                                                                <li>\n                                                                    \u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                                    <br>\n                                                \n                                                                </li>\n                                                                <li>\n                                                                    \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[0].address, "\n                                                                </li>\n                                                            </ul>\n                                                        </div>\n                                                        <div class=\"come\">\n                                                            <div class=\"img-box\"></div>\n                                                            <ul>\n                                                                <li>\n                                                                    \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].bat, "%\n                                                                </li>\n                                                                <li>\n                                                                    \u65F6\u95F4\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].createDate, "\n                                                                    <br>\n                                                \n                                                                </li>\n                                                                <li>\n                                                                    \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].address, "\n                                                                </li>\n                                                            </ul>\n                                                        </div>\n                                                    </div>\n                                                    <div class=\"bottom-box\">\n                                                        <div class=\"electric\">\n                                                            \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                        </div>\n                                                        <div class=\"refresh\">\n                                                            \u5237\u65B0\u5B9A\u4F4D\n                                                        </div>\n                                                        <div class=\"switchover\" id=\"particular\">\n                                                            \u4E2A\u4EBA\u8BE6\u60C5\n                                                        </div>\n                                                    </div>"));
                         }
-
-                        polyline = new AMap.Polyline({
-                          path: temp3,
-                          lineJoin: 'round',
-                          //折线拐点样式
-                          showDir: true,
-                          //移动方向
-                          strokeWeight: 3,
-                          //线条宽度
-                          strokeColor: '#3366ff' //线条颜色
-
-                        });
-                        map.add(polyline);
-                        map.remove(marker);
-                        map.setZoomAndCenter(13, temp);
-                        $('#historyBox').html("<div class=\"top-box\" id=\"historyTop\">\n                                                        <div class=\"pull-up\"></div>\n                                                        <div class=\"list-box\">\n                                                            <ul>\n                                                                <li class=\"name\">\n                                                                    \u59D3\u540D\uFF1A".concat(data[0].hname, "\n                                                                </li>\n                                                                <li>\n                                                                    \u7535\u8BDD\uFF1A").concat(data[0].phone, "\n                                                                </li>\n                                                                <li>\n                                                                    \u6240\u5C5E\u516C\u53F8\uFF1A").concat(data[0].laowu, "\n                                                                </li>\n                                                                <li>\n                                                                    \u8BBE\u5907\u7F16\u53F7\uFF1A").concat(data[0].imei, "\n                                                                </li>\n                                                            </ul>\n                                                        </div>\n                                                    </div>\n                                                    <div class=\"middle-box\" id=\"historyMiddle\">\n                                                        <div class=\"enter\">\n                                                            <div class=\"img-box\"></div>\n                                                            <ul>\n                                                                <li>\n                                                                    \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                                </li>\n                                                                <li>\n                                                                    \u65F6\u95F4\uFF1A").concat(data[0].localtionList[0].createDate, "\n                                                                    <br>\n                                                \n                                                                </li>\n                                                                <li>\n                                                                    \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[0].address, "\n                                                                </li>\n                                                            </ul>\n                                                        </div>\n                                                        <div class=\"come\">\n                                                            <div class=\"img-box\"></div>\n                                                            <ul>\n                                                                <li>\n                                                                    \u8BBE\u5907\u7535\u91CF\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].bat, "%\n                                                                </li>\n                                                                <li>\n                                                                    \u65F6\u95F4\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].createDate, "\n                                                                    <br>\n                                                \n                                                                </li>\n                                                                <li>\n                                                                    \u4F4D\u7F6E\uFF1A").concat(data[0].localtionList[data[0].localtionList.length - 1].address, "\n                                                                </li>\n                                                            </ul>\n                                                        </div>\n                                                    </div>\n                                                    <div class=\"bottom-box\">\n                                                        <div class=\"electric\">\n                                                            \u7535\u91CF\uFF1A").concat(data[0].localtionList[0].bat, "%\n                                                        </div>\n                                                        <div class=\"refresh\">\n                                                            \u5237\u65B0\u5B9A\u4F4D\n                                                        </div>\n                                                        <div class=\"switchover\" id=\"particular\">\n                                                            \u4E2A\u4EBA\u8BE6\u60C5\n                                                        </div>\n                                                    </div>"));
-                      }
-                    });
-                  },
-                  'onClose': function onClose() {
-                    /*取消时触发事件*/
-                    // console.log(`123`)
-                  }
-                });
+                      });
+                    },
+                    'onClose': function onClose() {
+                      /*取消时触发事件*/
+                      // console.log(`123`)
+                    }
+                  });
+                } else {
+                  alert('此设备已关机！');
+                }
               } else {
                 alert('此设备已关机！');
               }
@@ -569,7 +576,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49590" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

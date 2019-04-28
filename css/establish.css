@@ -65,6 +65,7 @@ input[type=search] {
   overflow: hidden;
   border-radius: .03rem;
   border: .01rem solid #0f1f53;
+  position: relative;
 }
 .main .centent-box > div {
   box-sizing: border-box;
@@ -126,12 +127,54 @@ input[type=search] {
 .main .centent-box .position :-moz-placeholder {
   color: rgba(117, 117, 117, 0.8);
 }
+.main .centent-box .unit {
+  /* firefox 19+ */
+  /* Internet Explorer 10+ */
+  /* firefox 14-18 */
+}
+.main .centent-box .unit input {
+  width: 1.95rem;
+  line-height: .4rem;
+  padding-right: .06rem;
+  float: right;
+  color: #fff;
+  border: 0;
+  text-align: right;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+.main .centent-box .unit ::-webkit-input-placeholder {
+  color: rgba(117, 117, 117, 0.8);
+}
+.main .centent-box .unit ::-moz-placeholder {
+  color: rgba(117, 117, 117, 0.8);
+}
+.main .centent-box .unit :-ms-input-placeholder {
+  color: rgba(117, 117, 117, 0.8);
+}
+.main .centent-box .unit :-moz-placeholder {
+  color: rgba(117, 117, 117, 0.8);
+}
 .main .centent-box .pic img {
   box-sizing: border-box;
   margin-bottom: .13rem;
   padding-left: .06rem;
   display: block;
   width: .71rem;
+}
+.main .centent-box .pic input {
+  display: none;
+}
+.main .centent-box .pic .uploading {
+  box-sizing: border-box;
+  margin-bottom: .13rem;
+  padding-left: .06rem;
+  display: block;
+  width: .71rem;
+  height: .65rem;
+  color: #fff;
+  text-align: center;
+  line-height: .65rem;
 }
 .main .centent-box .describe {
   margin-bottom: .1rem;
@@ -224,4 +267,33 @@ input[type=search] {
   background-color: #3375fe;
   margin-top: .2rem;
   margin-bottom: .2rem;
+}
+.main .centent-box .unit-box {
+  box-sizing: border-box;
+  top: .3rem;
+  left: 50%;
+  transform: translate(-50%);
+  width: 3.3rem;
+  height: 6rem;
+  position: fixed;
+  border: .01rem solid #0f1f53;
+  border-radius: .03rem;
+  background-color: rgba(2, 5, 33, 0.9);
+  box-shadow: 0px 0px 40px #0f1f53 inset;
+  padding-top: .34rem;
+  padding-bottom: .34rem;
+  z-index: 100;
+  padding-left: .2rem;
+  padding-right: .2rem;
+  overflow: auto;
+}
+.main .centent-box .unit-box ul li {
+  font-size: .16rem;
+  height: .38rem;
+  line-height: .2rem;
+  overflow: hidden;
+  border-radius: .03rem;
+}
+.main .centent-box .unit-box ul li:not(:nth-child(1)) {
+  margin-top: .2rem;
 }

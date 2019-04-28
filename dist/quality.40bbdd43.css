@@ -64,6 +64,19 @@ body {
   background-color: #010118;
   position: relative;
 }
+.main .title-box {
+  width: 3.3rem;
+  height: .445rem;
+  font-size: .18rem;
+  font-weight: bolder;
+  margin: 0 auto;
+  text-align: center;
+  line-height: .445rem;
+  background-image: url('labour-titleBorder.c8e0fdaa.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .main .nav {
   width: 3.3rem;
   height: .67rem;
@@ -311,6 +324,99 @@ body {
   float: right;
 }
 .main .list .review-list ul li:last-child .bottom {
+  border: none;
+}
+.main .list .accomplish-list {
+  box-sizing: border-box;
+  padding-left: .1rem;
+  padding-right: .1rem;
+}
+.main .list .accomplish-list ul li {
+  margin-top: .13rem;
+}
+.main .list .accomplish-list ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.main .list .accomplish-list ul li a .title {
+  height: .15rem;
+  display: flex;
+  justify-content: space-between;
+}
+.main .list .accomplish-list ul li a .title .title-name {
+  font-size: .15rem;
+}
+.main .list .accomplish-list ul li a .title .title-state {
+  color: #8d8e94;
+  font-size: .12rem;
+}
+.main .list .accomplish-list ul li a .middle {
+  margin-top: .1rem;
+  font-size: .12rem;
+}
+.main .list .accomplish-list ul li a .middle > div {
+  line-height: .22rem;
+}
+.main .list .accomplish-list ul li a .middle > div .name {
+  display: inline-block;
+  width: .5rem;
+  color: #8d8e94;
+}
+.main .list .accomplish-list ul li a .middle > div .message {
+  margin-left: .15rem;
+}
+.main .list .accomplish-list ul li a .middle .img-box {
+  width: .6rem;
+  height: .6rem;
+  margin-top: .05rem;
+  background-image: url('temp4.4db56396.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main .list .accomplish-list ul li a .middle .bottom {
+  box-sizing: border-box;
+  line-height: .34rem;
+  border-bottom: .01rem solid #0f1f53;
+}
+.main .list .accomplish-list ul li a .middle .bottom .slight {
+  float: left;
+  width: .25rem;
+  height: .34rem;
+  background-image: url('quality-slight.4a625936.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .list .accomplish-list ul li a .middle .bottom .ordinary {
+  float: left;
+  width: .25rem;
+  height: .34rem;
+  background-image: url('quality-ordinary.8987b426.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .list .accomplish-list ul li a .middle .bottom .severity {
+  float: left;
+  width: .25rem;
+  height: .34rem;
+  background-image: url('quality-severity.eb7194b7.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.main .list .accomplish-list ul li a .middle .bottom .name {
+  display: inline;
+  margin-left: .1rem;
+}
+.main .list .accomplish-list ul li a .middle .bottom .message {
+  margin-left: .1rem;
+}
+.main .list .accomplish-list ul li a .middle .bottom .time {
+  float: right;
+}
+.main .list .accomplish-list ul li:last-child .bottom {
   border: none;
 }
 .main .list .screen-box {

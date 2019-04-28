@@ -106,7 +106,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/quality.js":[function(require,module,exports) {
 $(function () {
-  console.log("hello world"); // const height = $('body').height()
+  var pid = localStorage.getItem('pid'); // console.log(`hello world`)
+  // const height = $('body').height()
   // $('body').height(height)
   // console.log(3*0.1)
   // 初始化swiper
@@ -159,18 +160,28 @@ $(function () {
       $('.screen-box').css('display', 'none');
       $('.fixed-box').css('display', 'block');
       $('.review-list').css('display', 'none');
+      $('.accomplish-list').css('display', 'none');
     } else if ($(this).html() == '筛选') {
       $(this).addClass('active').siblings().removeClass('active');
       $('.list-centent').css('display', 'none');
       $('.screen-box').css('display', 'block');
       $('.fixed-box').css('display', 'none');
       $('.review-list').css('display', 'none');
+      $('.accomplish-list').css('display', 'none');
     } else if ($(this).html() == '待复查') {
       $(this).addClass('active').siblings().removeClass('active');
       $('.list-centent').css('display', 'none');
       $('.screen-box').css('display', 'none');
       $('.fixed-box').css('display', 'block');
       $('.review-list').css('display', 'block');
+      $('.accomplish-list').css('display', 'none');
+    } else if ($(this).html() == '已完成') {
+      $(this).addClass('active').siblings().removeClass('active');
+      $('.list-centent').css('display', 'none');
+      $('.screen-box').css('display', 'none');
+      $('.fixed-box').css('display', 'block');
+      $('.review-list').css('display', 'none');
+      $('.accomplish-list').css('display', 'block');
     }
 
     if ($(this).html() == '待办') {
@@ -220,7 +231,55 @@ $(function () {
     $('.work-area-box').css('display', 'none');
     $('.shade-box').css('display', 'none');
     $('.work-area .option-bar').html("".concat($(this).text(), "<i></i>"));
-  });
+  }); // 获取待整改整改单列表
+
+  function rectifyQueryPolling() {
+    axios.post("http://39.108.103.150:8989/lz/polling/queryPolling?examineUserId=".concat(pid, "&type=0")).then(function (res) {
+      console.log(res.data);
+      var html = '';
+
+      for (var i = 0; i < res.data.msg.length; i++) {
+        // console.log(res.data.msg[i])
+        html += "<li>\n                            <a href=\"./qualityParticulars.html?pollingId=".concat(res.data.msg[res.data.msg.length - 1 - i].pollingId, "&type=0&pollingDetailId=").concat(res.data.msg[res.data.msg.length - 1 - i].pollingDetailId, "\">\n                                <div class=\"title\">\n                                    <div class=\"title-name\">\n                                        ").concat(res.data.msg[res.data.msg.length - 1 - i].describex, "\n                                    </div>\n                                    <div class=\"title-state\" style=\"color:rgb(233, 162, 47)\">\n                                        \u5F85\u6574\u6539\n                                    </div>\n                                </div>\n                                <div class=\"middle\">\n                                    <div>\n                                        <span class=\"name\">\u68C0\u67E5\u533A\u57DF</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].place, "</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u6574\u6539\u8981\u6C42</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].rectification, "</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u68C0\u67E5\u4EBA</span>\n                                        <span class=\"message\">\u67D0\u67D0\u67D0</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u6574\u6539\u65F6\u9650</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].deadlineTime, "</span>\n                                    </div>\n                                    <div class=\"img-box\" style=\"background-image:url(").concat(res.data.msg[res.data.msg.length - 1 - i].fileUrl, ")\"></div>\n                                    <div class=\"bottom\">\n                                        <span class=\"").concat(res.data.msg[res.data.msg.length - 1 - i].rank == 1 ? 'slight' : res.data.msg[res.data.msg.length - 1 - i].rank == 2 ? 'ordinary' : 'severity', "\"></span>\n                                        <span class=\"name\">\u6574\u6539\u4EBA</span>\n                                        <span class=\"message\">\u67D0\u67D0\u67D0</span>\n                                        <div class=\"time\">").concat(res.data.msg[res.data.msg.length - 1 - i].createTime, "</div>\n                                    </div>\n                                </div>\n                            </a>\n                        </li>");
+      }
+
+      $('.list-centent ul').html(html);
+    });
+  } // 获取待审核整改单列表
+
+
+  function auditQueryPolling() {
+    axios.post("http://39.108.103.150:8989/lz/polling/queryPolling?examineUserId=".concat(pid, "&type=1")).then(function (res) {
+      console.log(res.data);
+      var html = '';
+
+      for (var i = 0; i < res.data.msg.length; i++) {
+        // console.log(res.data.msg[i])
+        html += "<li>\n                            <a href=\"./qualityParticulars.html?pollingId=".concat(res.data.msg[res.data.msg.length - 1 - i].pollingId, "&type=1&pollingDetailId=").concat(res.data.msg[res.data.msg.length - 1 - i].pollingDetailId, "\">\n                                <div class=\"title\">\n                                    <div class=\"title-name\">\n                                        ").concat(res.data.msg[res.data.msg.length - 1 - i].describex, "\n                                    </div>\n                                    <div class=\"title-state\" style=\"color:rgb(233, 162, 47)\">\n                                        \u5F85\u590D\u67E5\n                                    </div>\n                                </div>\n                                <div class=\"middle\">\n                                    <div>\n                                        <span class=\"name\">\u68C0\u67E5\u533A\u57DF</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].place, "</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u6574\u6539\u8981\u6C42</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].rectification, "</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u68C0\u67E5\u4EBA</span>\n                                        <span class=\"message\">\u67D0\u67D0\u67D0</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u6574\u6539\u65F6\u9650</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].deadlineTime, "</span>\n                                    </div>\n                                    <div class=\"img-box\" style=\"background-image:url(").concat(res.data.msg[res.data.msg.length - 1 - i].fileUrl, ")\"></div>\n                                    <div class=\"bottom\">\n                                        <span class=\"").concat(res.data.msg[res.data.msg.length - 1 - i].rank == 1 ? 'slight' : res.data.msg[res.data.msg.length - 1 - i].rank == 2 ? 'ordinary' : res.data.msg[res.data.msg.length - 1 - i].rank == 3 ? 'severity' : '', "\"></span>\n                                        <span class=\"name\">\u6574\u6539\u4EBA</span>\n                                        <span class=\"message\">\u67D0\u67D0\u67D0</span>\n                                        <div class=\"time\">").concat(res.data.msg[res.data.msg.length - 1 - i].createTime, "</div>\n                                    </div>\n                                </div>\n                            </a>\n                        </li>");
+      }
+
+      $('.review-list ul').html(html);
+    });
+  } // 获取已完成的整改单列表
+
+
+  function accomplishQueryPolling() {
+    axios.post("http://39.108.103.150:8989/lz/polling/queryPolling?examineUserId=".concat(pid, "&type=2")).then(function (res) {
+      console.log(res.data);
+      var html = '';
+
+      for (var i = 0; i < res.data.msg.length; i++) {
+        // console.log(res.data.msg[i])
+        html += "<li>\n                            <a href=\"./qualityParticulars.html?pollingId=".concat(res.data.msg[res.data.msg.length - 1 - i].pollingId, "&type=2&pollingDetailId=").concat(res.data.msg[res.data.msg.length - 1 - i].pollingDetailId, "\">\n                                <div class=\"title\">\n                                    <div class=\"title-name\">\n                                        ").concat(res.data.msg[res.data.msg.length - 1 - i].describex, "\n                                    </div>\n                                    <div class=\"title-state\" style=\"color:#4cd964\">\n                                        \u5DF2\u5B8C\u6210\n                                    </div>\n                                </div>\n                                <div class=\"middle\">\n                                    <div>\n                                        <span class=\"name\">\u68C0\u67E5\u533A\u57DF</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].place, "</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u6574\u6539\u8981\u6C42</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].rectification, "</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u68C0\u67E5\u4EBA</span>\n                                        <span class=\"message\">\u67D0\u67D0\u67D0</span>\n                                    </div>\n                                    <div>\n                                        <span class=\"name\">\u6574\u6539\u65F6\u9650</span>\n                                        <span class=\"message\">").concat(res.data.msg[res.data.msg.length - 1 - i].deadlineTime, "</span>\n                                    </div>\n                                    <div class=\"img-box\" style=\"background-image:url(").concat(res.data.msg[res.data.msg.length - 1 - i].fileUrl, ")\"></div>\n                                    <div class=\"bottom\">\n                                        <span class=\"").concat(res.data.msg[res.data.msg.length - 1 - i].rank == 1 ? 'slight' : res.data.msg[res.data.msg.length - 1 - i].rank == 2 ? 'ordinary' : res.data.msg[res.data.msg.length - 1 - i].rank == 3 ? 'severity' : '', "\"></span>\n                                        <span class=\"name\">\u6574\u6539\u4EBA</span>\n                                        <span class=\"message\">\u67D0\u67D0\u67D0</span>\n                                        <div class=\"time\">").concat(res.data.msg[res.data.msg.length - 1 - i].createTime, "</div>\n                                    </div>\n                                </div>\n                            </a>\n                        </li>");
+      }
+
+      $('.accomplish-list ul').html(html);
+    });
+  }
+
+  accomplishQueryPolling();
+  rectifyQueryPolling();
+  auditQueryPolling();
 });
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -249,7 +308,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49590" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

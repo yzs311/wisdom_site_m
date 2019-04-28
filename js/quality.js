@@ -1,5 +1,6 @@
 $(function(){
-    console.log(`hello world`)
+    let pid = localStorage.getItem('pid')
+    // console.log(`hello world`)
     // const height = $('body').height()
     // $('body').height(height)
 
@@ -56,18 +57,28 @@ $(function(){
             $('.screen-box').css('display','none')
             $('.fixed-box').css('display','block')
             $('.review-list').css('display','none')
+            $('.accomplish-list').css('display','none')
         } else if ($(this).html() == '筛选') {
             $(this).addClass('active').siblings().removeClass('active')
             $('.list-centent').css('display','none')
             $('.screen-box').css('display','block')
             $('.fixed-box').css('display','none')
             $('.review-list').css('display','none')
+            $('.accomplish-list').css('display','none')
         } else if ($(this).html() == '待复查') {
             $(this).addClass('active').siblings().removeClass('active')
             $('.list-centent').css('display','none')
             $('.screen-box').css('display','none')
             $('.fixed-box').css('display','block')
             $('.review-list').css('display','block')
+            $('.accomplish-list').css('display','none')
+        } else if ($(this).html() == '已完成') {
+            $(this).addClass('active').siblings().removeClass('active')
+            $('.list-centent').css('display','none')
+            $('.screen-box').css('display','none')
+            $('.fixed-box').css('display','block')
+            $('.review-list').css('display','none')
+            $('.accomplish-list').css('display','block')
         }
 
         if ($(this).html() == '待办') {
@@ -124,4 +135,163 @@ $(function(){
         $('.work-area .option-bar').html(`${$(this).text()}<i></i>`)
     })
 
+    // 获取待整改整改单列表
+    function rectifyQueryPolling () {
+        axios.post(`http://39.108.103.150:8989/lz/polling/queryPolling?examineUserId=${pid}&type=0`).then(
+            res => {
+                console.log(res.data)
+                let html = ''
+                for (let i = 0; i < res.data.msg.length; i++) {
+                    // console.log(res.data.msg[i])
+                    html += 
+                        `<li>
+                            <a href="./qualityParticulars.html?pollingId=${res.data.msg[res.data.msg.length-1-i].pollingId}&type=0&pollingDetailId=${res.data.msg[res.data.msg.length-1-i].pollingDetailId}">
+                                <div class="title">
+                                    <div class="title-name">
+                                        ${res.data.msg[res.data.msg.length-1-i].describex}
+                                    </div>
+                                    <div class="title-state" style="color:rgb(233, 162, 47)">
+                                        待整改
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        <span class="name">检查区域</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].place}</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">整改要求</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].rectification}</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">检查人</span>
+                                        <span class="message">某某某</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">整改时限</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].deadlineTime}</span>
+                                    </div>
+                                    <div class="img-box" style="background-image:url(${res.data.msg[res.data.msg.length-1-i].fileUrl})"></div>
+                                    <div class="bottom">
+                                        <span class="${res.data.msg[res.data.msg.length-1-i].rank==1?'slight':res.data.msg[res.data.msg.length-1-i].rank==2?'ordinary':'severity'}"></span>
+                                        <span class="name">整改人</span>
+                                        <span class="message">某某某</span>
+                                        <div class="time">${res.data.msg[res.data.msg.length-1-i].createTime}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>`
+                }
+                $('.list-centent ul').html(html)
+            }
+        )
+    }
+
+    // 获取待审核整改单列表
+    function auditQueryPolling () {
+        axios.post(`http://39.108.103.150:8989/lz/polling/queryPolling?examineUserId=${pid}&type=1`).then(
+            res => {
+                console.log(res.data)
+                let html = ''
+                for (let i = 0; i < res.data.msg.length; i++) {
+                    // console.log(res.data.msg[i])
+                    html += 
+                        `<li>
+                            <a href="./qualityParticulars.html?pollingId=${res.data.msg[res.data.msg.length-1-i].pollingId}&type=1&pollingDetailId=${res.data.msg[res.data.msg.length-1-i].pollingDetailId}">
+                                <div class="title">
+                                    <div class="title-name">
+                                        ${res.data.msg[res.data.msg.length-1-i].describex}
+                                    </div>
+                                    <div class="title-state" style="color:rgb(233, 162, 47)">
+                                        待复查
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        <span class="name">检查区域</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].place}</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">整改要求</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].rectification}</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">检查人</span>
+                                        <span class="message">某某某</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">整改时限</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].deadlineTime}</span>
+                                    </div>
+                                    <div class="img-box" style="background-image:url(${res.data.msg[res.data.msg.length-1-i].fileUrl})"></div>
+                                    <div class="bottom">
+                                        <span class="${res.data.msg[res.data.msg.length-1-i].rank==1?'slight':res.data.msg[res.data.msg.length-1-i].rank==2?'ordinary':res.data.msg[res.data.msg.length-1-i].rank==3?'severity':''}"></span>
+                                        <span class="name">整改人</span>
+                                        <span class="message">某某某</span>
+                                        <div class="time">${res.data.msg[res.data.msg.length-1-i].createTime}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>`
+                }
+                $('.review-list ul').html(html)
+            }
+        )
+    }
+
+    // 获取已完成的整改单列表
+    function accomplishQueryPolling () {
+        axios.post(`http://39.108.103.150:8989/lz/polling/queryPolling?examineUserId=${pid}&type=2`).then(
+            res => {
+                console.log(res.data)
+                let html = ''
+                for (let i = 0; i < res.data.msg.length; i++) {
+                    // console.log(res.data.msg[i])
+                    html += 
+                        `<li>
+                            <a href="./qualityParticulars.html?pollingId=${res.data.msg[res.data.msg.length-1-i].pollingId}&type=2&pollingDetailId=${res.data.msg[res.data.msg.length-1-i].pollingDetailId}">
+                                <div class="title">
+                                    <div class="title-name">
+                                        ${res.data.msg[res.data.msg.length-1-i].describex}
+                                    </div>
+                                    <div class="title-state" style="color:#4cd964">
+                                        已完成
+                                    </div>
+                                </div>
+                                <div class="middle">
+                                    <div>
+                                        <span class="name">检查区域</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].place}</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">整改要求</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].rectification}</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">检查人</span>
+                                        <span class="message">某某某</span>
+                                    </div>
+                                    <div>
+                                        <span class="name">整改时限</span>
+                                        <span class="message">${res.data.msg[res.data.msg.length-1-i].deadlineTime}</span>
+                                    </div>
+                                    <div class="img-box" style="background-image:url(${res.data.msg[res.data.msg.length-1-i].fileUrl})"></div>
+                                    <div class="bottom">
+                                        <span class="${res.data.msg[res.data.msg.length-1-i].rank==1?'slight':res.data.msg[res.data.msg.length-1-i].rank==2?'ordinary':res.data.msg[res.data.msg.length-1-i].rank==3?'severity':''}"></span>
+                                        <span class="name">整改人</span>
+                                        <span class="message">某某某</span>
+                                        <div class="time">${res.data.msg[res.data.msg.length-1-i].createTime}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>`
+                }
+                $('.accomplish-list ul').html(html)
+            }
+        )
+    }
+
+    accomplishQueryPolling()
+    rectifyQueryPolling()
+    auditQueryPolling()
 })

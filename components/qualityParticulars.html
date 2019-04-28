@@ -10,15 +10,12 @@
 <body>
     <!-- 巡检详情页面 -->
     <div class="main">
-        <div class="state-box orange-color">
-            <div class="state">
-                待整改
-            </div>
-            <div class="time">
-                创建时间： 2019-03-15 16：22
-            </div>
+        <div class="state-box ">
         </div>
         <div class="centent-box">
+            
+        </div>
+        <!-- <div class="centent-box">
             <div class="title">
                 地下室二层漏水
             </div>
@@ -145,15 +142,43 @@
                 <span>抄送人</span>
                 <span>某某某、某某某</span>
             </div>
-        </div>
-        <div class="review-button" style="display:none">
+        </div> -->
+        <div class="review-button">
             <div class="pass">通过</div>
             <div class="no-pass">不通过</div>
         </div>
-        <div class="abarbeitung-button" >
+        <div class="abarbeitung-button" style="display:none">
             整改
         </div>
         <div class="review-box" style="display:none">
+            <div class="popup-box">
+                <div class="title">
+                    现场照片
+                </div>
+                <textarea rows="7" placeholder="请输入复查意见......"></textarea>
+                <div class="title">
+                    现场照片
+                </div>
+                <div class="pic">
+                    <img src="../images/establish-addPic.png" alt="" class="review-addPic">
+                    <div class="review-uploading" style="display:none">正在上传...</div>
+                    <input type="file" id='image' accept="image/*" capture='camera' class="review-camera" style="display:none">
+                </div>
+                <div class="border-top">
+                    <div class="fill"></div>
+                </div>
+                <div class="option-box">
+                    <div class="review-cancel">
+                        取消
+                    </div>
+                    <div class="vertical"></div>
+                    <div class="review-affirm">
+                        确认
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="abarbeitung-box" style="display:none">
             <div class="popup-box">
                 <div class="title">
                     现场照片
@@ -163,26 +188,27 @@
                     现场照片
                 </div>
                 <div class="pic">
-                    <img src="../images/establish-addPic.png" alt="">
+                    <img src="../images/establish-addPic.png" alt="" class="addPic">
+                    <div class="uploading" style="display:none">正在上传...</div>
+                    <input type="file" id='image' accept="image/*" capture='camera' class="camera" id="camera" style="display:none">
                 </div>
                 <div class="border-top">
                     <div class="fill"></div>
                 </div>
                 <div class="option-box">
-                    <div class="cancel">
+                    <div class="abarbeitung-cancel">
                         取消
                     </div>
                     <div class="vertical"></div>
-                    <div class="affirm">
+                    <div class="abarbeitung-affirm">
                         确认
                     </div>
                 </div>
             </div>
         </div>
-        <div class="abarbeitung-box">
-
-        </div>
     </div>
+
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
 
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->

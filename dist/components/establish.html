@@ -13,11 +13,11 @@
     <div class="main">
         <div class="centent-box">
             <!-- 检查区域 -->
-            <div class="area">
+            <!-- <div class="area">
                 <div class="title">检查区域</div>
                 <i></i>
                 <div class="border-bottom"></div>
-            </div>
+            </div> -->
             <!-- 具体部位 -->
             <div class="position">
                 <div class="title">具体部位</div>
@@ -26,22 +26,31 @@
             </div>
             <!-- 责任分包单位 -->
             <div class="unit">
-                <div class="title">责任分包单位</div>
+                <div class="title">责任分包单位：</div>
+                <div style="width:1.8rem; overflow:hidden; display:inline-block; height: .12rem" class="text"></div>
+                <!-- <input type="text" placeholder="请填写责任分包单位"> -->
                 <i></i>
             </div>
             <div class="line"></div>
             <!-- 现场照片 -->
             <div class="pic">
                 <div class="title">现场照片</div>
-                <img src="/establish-addPic.39ae69d6.png" alt="">
+                <img src="/establish-addPic.39ae69d6.png" alt="" class="addPic">
+                <div class="uploading" style="display:none">正在上传...</div>
+                <input type="file" id="image" accept="image/*" capture="camera" class="camera">
+
+                <!-- <input type="file" id='image' accept="image/*" capture='accept'> -->
+                <!-- <div id="preview">
+                    <input type="file" accept="image/*" id="file" value="" />
+                </div> -->
             </div>
             <div class="line"></div>
             <!-- 安全隐患 -->
-            <div class="safety">
+            <!-- <div class="safety">
                 <div class="title">安全隐患</div>
                 <i></i>
                 <div class="border-bottom"></div>
-            </div>
+            </div> -->
             <!-- 问题描述 -->
             <div class="describe">
                 <div class="title">问题描述</div>
@@ -52,27 +61,28 @@
             <div class="rank">
                 <div class="title">问题级别</div>
                 <div class="button-box">
-                    <div class="slight active"></div>
-                    <div class="ordinary"></div>
-                    <div class="severity"></div>
+                    <div class="slight active" data-rank="1"></div>
+                    <div class="ordinary" data-rank="2"></div>
+                    <div class="severity" data-rank="3"></div>
                 </div>
             </div>
             <div class="line"></div>
             <!-- 整改人 -->
-            <div class="abarbeitung">
+            <!-- <div class="abarbeitung">
                 <div class="title">整改人</div>
                 <i></i>
                 <div class="border-bottom"></div>
-            </div>
+            </div> -->
             <!-- 复查人 -->
-            <div class="review">
+            <!-- <div class="review">
                 <div class="title">复查人</div>
                 <i></i>
             </div>
-            <div class="line"></div>
+            <div class="line"></div> -->
             <!-- 最后整改期限 -->
             <div class="deadline">
-                <div class="title">最后整改期限</div>
+                <div class="title">最后整改期限：</div>
+                <span></span>
                 <i></i>
             </div>
             <!-- 整改要求 -->
@@ -81,19 +91,29 @@
             </div>
             <div class="line"></div>
             <!-- 抄送人 -->
-            <div class="copy">
+            <!-- <div class="copy">
                 <div class="title">抄送人</div>
                 <i></i>
                 <ul>
                     <li>李敏刚 &nbsp;&nbsp;<span>×</span></li>
                 </ul>
-            </div>
-            <div class="line"></div>
+            </div> -->
+            <!-- <div class="line"></div> -->
             <div class="countersign">
                 确认
             </div>
+            <!-- 分包单位选项栏 -->
+            <div class="unit-box" style="display:none">
+                <ul>
+                    <!-- <li>方大幕墙</li> -->
+                </ul>
+            </div>
         </div>
     </div>
+
+    <script src="/datePicker.09a2f13a.js"></script>
+
+    <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.min.js"></script>
     
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->

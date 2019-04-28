@@ -15,6 +15,19 @@ body {
     box-sizing: border-box;
     background-color: #010118;
     position: relative;
+    .title-box {
+        width: 3.3rem;
+        height: .445rem;
+        font-size: .18rem;
+        font-weight: bolder;
+        margin: 0 auto;
+        text-align: center;
+        line-height: .445rem;
+        background-image: url('../images/labour-titleBorder.png');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
     .nav {
         width: 3.3rem;
         height: .67rem;
@@ -177,6 +190,103 @@ body {
             }
         }
         .review-list {
+            box-sizing: border-box;
+            padding-left: .1rem;
+            padding-right: .1rem;
+            ul {
+                li {
+                    margin-top: .13rem;
+                    a {
+                        color: #fff;
+                        text-decoration: none;
+                        .title {
+                        height: .15rem;
+                        display: flex;
+                        justify-content: space-between;
+                        .title-name {
+                            font-size: .15rem;
+                        }
+                        .title-state {
+                            color: #8d8e94;
+                            font-size: .12rem;
+                        }
+                        }
+                        .middle {
+                        margin-top: .1rem;
+                        font-size: .12rem;
+                        >div {
+                            line-height: .22rem;
+                            .name {
+                                display: inline-block;
+                                width: .5rem;
+                                color: #8d8e94;
+                            }
+                            .message {
+                                margin-left: .15rem;
+                            }
+                        }
+                        .img-box {
+                            width: .6rem;
+                            height: .6rem;
+                            margin-top: .05rem;
+                            background-image: url('../images/temp4.jpg');
+                            background-position: center center;
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                        }
+                        .bottom {
+                            box-sizing: border-box;
+                            line-height: .34rem;
+                            border-bottom: .01rem solid #0f1f53;
+                            .slight {
+                                float: left;
+                                width: .25rem;
+                                height: .34rem;
+                                background-image: url('../images/quality-slight.png');
+                                background-position: center center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            .ordinary {
+                                float: left;
+                                width: .25rem;
+                                height: .34rem;
+                                background-image: url('../images/quality-ordinary.png');
+                                background-position: center center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            .severity {
+                                float: left;
+                                width: .25rem;
+                                height: .34rem;
+                                background-image: url('../images/quality-severity.png');
+                                background-position: center center;
+                                background-repeat: no-repeat;
+                                background-size: contain;
+                            }
+                            .name {
+                                display: inline;
+                                margin-left: .1rem;
+                            }
+                            .message {
+                                margin-left: .1rem;
+                            }
+                            .time {
+                                float: right;
+                            }
+                        }
+                        }
+                    }
+                }
+                li:last-child {
+                    .bottom {
+                        border: none;
+                    }
+                }
+            }
+        }
+        .accomplish-list {
             box-sizing: border-box;
             padding-left: .1rem;
             padding-right: .1rem;

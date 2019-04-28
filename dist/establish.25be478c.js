@@ -106,7 +106,129 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"js/establish.js":[function(require,module,exports) {
 $(function () {
-  console.log('hello world');
+  // console.log('hello world')
+  var pid = localStorage.getItem('pid'); // 创建整改单需要上传的数据
+
+  var place = ''; // 具体位置
+
+  var unitId = ''; // 分包单位id
+
+  var fileUrl = ''; // 照片路径
+
+  var describex = ''; // 问题描述
+
+  var rank = 1; // 问题级别
+
+  var deadlineTime = ''; // 整改期限
+
+  var rectification = ''; // 整改要求
+  // 添加照片点击事件
+
+  $('.addPic').on('click', function () {
+    $('.camera').click();
+  }); // 照片上传
+
+  $(".camera").change(function (e) {
+    $('.addPic').css('display', 'none');
+    $('.uploading').css('display', 'block');
+    var headers = {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    };
+    var temp = e.target.files[0];
+    file = new FormData(); // 创建form对象
+
+    file.append('file', temp); // 通过append向form对象添加数据
+    // console.log(file.get('file')) //FormData私有类对象，访问不到，可以通过get判断值是否传进去
+
+    axios.post("http://39.108.103.150:8989/lz/file/upload?folderName=1", file, headers).then(function (res) {
+      // console.log(res.data.data[0].fileimgurl)
+      $('.addPic').attr('src', res.data.data[0].fileimgurl);
+      $('.addPic').css('display', 'block');
+      $('.uploading').css('display', 'none');
+      fileUrl = res.data.data[0].fileimgurl;
+    });
+  }); // 获取分包单位列表
+
+  function getQueryBuildCompanyInFo() {
+    axios.post("http://39.108.103.150:8989/lz/polling/queryBuildCompanyInFo?projectId=".concat(pid)).then(function (res) {
+      // console.log(res.data)
+      var html = '';
+
+      for (var i = 0; i < res.data.msg.length; i++) {
+        html += "<li data-unitid=\"".concat(res.data.msg[i].id, "\">").concat(res.data.msg[i].title, "</li>");
+      }
+
+      $('.unit-box ul').html(html); // 分包单位选项栏点击事件
+
+      $('.unit-box ul li').on('click', function (event) {
+        event.stopPropagation();
+        $('.unit-box').css('display', 'none'); // $('.shade-box').css('display','none')
+        // console.log($(this).data('unitid'))
+
+        unitId = $(this).data('unitid');
+        $('.unit .text').html("".concat($(this).text(), "<i></i>"));
+      });
+    });
+  }
+
+  getQueryBuildCompanyInFo(); // 设置整改期限
+
+  var calendar = new datePicker();
+  calendar.init({
+    'trigger': '.deadline',
+
+    /*按钮选择器，用于触发弹出插件*/
+    'type': 'date',
+
+    /*模式：date日期；datetime日期时间；time时间；ym年月；*/
+    'minDate': '1900-1-1',
+
+    /*最小日期*/
+    'maxDate': '2100-12-31',
+
+    /*最大日期*/
+    'onSubmit': function onSubmit() {
+      /*确认时触发事件*/
+      var theSelectData = calendar.value; // console.log(theSelectData)
+
+      $('.deadline span').html(theSelectData);
+      deadlineTime = theSelectData;
+    },
+    'onClose': function onClose() {
+      /*取消时触发事件*/
+      // console.log(`123`)
+    }
+  }); // 问题级别选择
+
+  $('.rank .button-box div').on('click', function () {
+    $(this).addClass('active').siblings().removeClass('active'); // console.log($(this).data('rank'))
+
+    rank = $(this).data('rank');
+  }); // 选择分包单位
+
+  $('.unit').on('click', function () {
+    $('.unit-box').css('display', 'block');
+  }); // 创建巡检单
+
+  $('.countersign').on('click', function () {
+    place = $('.position input').val(); // console.log(place)
+
+    describex = $('.describe textarea').val(); // console.log(describex)
+
+    rectification = $('.require textarea').val(); // console.log(rectification)
+
+    axios.post("http://39.108.103.150:8989/lz/polling/addPolling?place=".concat(place, "&describex=").concat(describex, "&rectification=").concat(rectification, "&unitId=").concat(unitId, "&fileUrl=").concat(fileUrl, "&rank=").concat(rank, "&deadlineTime=").concat(deadlineTime, "&projectId=").concat(pid)).then(function (res) {
+      console.log(res.data);
+
+      if (res.data.msg == '发起成功！') {
+        location = '../components/quality.html';
+      } else {
+        alert('');
+      }
+    });
+  });
 });
 },{}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -135,7 +257,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49579" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49590" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
