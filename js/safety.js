@@ -223,7 +223,7 @@ $(function(){
     )
 
     // 获取升降机数据
-    axios.get(`http://39.108.103.150:8989/lz/deye/getElevatorData?pid=${pid}`).then(
+    axios.get(`http://39.108.103.150:8989/lz/deye/getElevatorData?pid=37348`).then(
         res => {
             let html = ''
             for (let i = 0; i < res.data.length; i++) {

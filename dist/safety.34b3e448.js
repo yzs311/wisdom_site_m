@@ -242,7 +242,7 @@ $(function () {
     });
   }); // 获取升降机数据
 
-  axios.get("http://39.108.103.150:8989/lz/deye/getElevatorData?pid=".concat(pid)).then(function (res) {
+  axios.get("http://39.108.103.150:8989/lz/deye/getElevatorData?pid=37348").then(function (res) {
     var html = '';
 
     for (var i = 0; i < res.data.length; i++) {
@@ -279,7 +279,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49665" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49646" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);

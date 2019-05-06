@@ -155,7 +155,7 @@ $(function(){
                 <div class="content-box">
                     <div class="online">
                         <div class="content-top">
-                            项目在在场人数
+                            项目在场人数
                         </div>
                         <div class="content-bottom">
                             ${data.sum}
